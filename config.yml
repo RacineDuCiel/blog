@@ -1,0 +1,49 @@
+baseURL: "https://theogosse.com/"
+languageCode : en
+theme: PaperMod
+
+menu:
+  main:
+    - identifier: Home
+      name: Home
+      url: /
+      weight: 1
+    - identifier: Search
+      name: Search
+      url: /search
+      weight: 2
+    - identifier: Tags
+      name: Tags
+      url: /Tags
+      weight: 5
+    - identifier: Courses
+      name: Courses
+      url: /courses
+      weight: 10
+    - identifier: Archives
+      name: Archives
+      url: /archives
+      weight: 15
+    - identifier: Links
+      name: Links
+      url: /links
+      weight: 20
+#    - identifier: CTF
+#      name: CTF
+#      url: /CTF
+#      weight: 40
+
+params:
+    defaultTheme: dark
+    ShowCodeCopyButtons: true
+    ShowReadingTime: true
+    ShowToc: true
+    homeInfoParams:
+        Title: Welcome  🖐
+        Content: I'm a French computer engineering student, focusing on software development, cybersecurity, and networking. I consider this blog as a knowledge repository where I will share the latest insights I've gained. In hope that it will also help me enhance my English skills a bit... Everything here is free to use!
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON

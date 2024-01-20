@@ -1,0 +1,13 @@
+{{- with site.Params.homeInfoParams }}
+<article class="first-entry home-info">
+    <header style="display: flex; justify-content: center; margin-bottom:10px;" class="entry-header">
+        <h1>{{ .Title | markdownify }}</h1>
+    </header>
+    <div class="entry-content">
+        {{ .Content | markdownify }}
+    </div>
+    <footer class="entry-footer">
+        {{ partial "home-info-footer.html" }}
+    </footer>
+</article>
+{{- end -}}
