@@ -79,7 +79,7 @@ date: 2024-01-19
 - **Models of Threads**: User-Level Threads, Kernel-Level Threads.
 - **Multithreading Issues**: Synchronization, Deadlocks, CPU Scheduling.
 
-### Advanced Topics
+#### Advanced Topics
 - **Process Scheduling in Multiprocessor Systems**: Load balancing, affinity scheduling.
 - **Real-Time Scheduling**: Meeting specific timing requirements, often found in embedded systems.
 - **Virtual Memory Interaction**: How process management works with paging and swapping.
