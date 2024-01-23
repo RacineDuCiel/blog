@@ -14,4 +14,4 @@ Good Learning !
 
 ---
 
-- [Operating System](/posts/revision_sheet/operating-system/)
+- [Operating System](posts/revision_sheet/operating-system/)
