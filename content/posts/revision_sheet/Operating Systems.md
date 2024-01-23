@@ -74,7 +74,7 @@ date: 2024-01-19
 - **Message Passing**: Processes communicate with each other without sharing variables.
 - **Shared Memory**: Processes share a section of system memory.
 
-#### (**Thread Management**)[]
+#### (**Thread Management**)[/posts/revision_sheet/Thread Management/]
 - **Benefits of Threads**: Less overhead than processes, easier sharing of data, efficient communication.
 - **Models of Threads**: User-Level Threads, Kernel-Level Threads.
 - **Multithreading Issues**: Synchronization, Deadlocks, CPU Scheduling.
