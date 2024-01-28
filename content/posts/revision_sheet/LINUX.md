@@ -6,7 +6,7 @@ date = 2024-01-28
 ---
 
 
-#### What is Linux?
+### Part 1: What is Linux?
 
 Linux is not just an operating system; it's a symbol of a revolutionary idea. At its core, Linux is an operating system kernel, which is the fundamental part of the OS, managing the system's resources and communication between your hardware and software. However, when most people refer to "Linux," they're talking about the whole operating system built around this kernel, often including tools and libraries from the GNU project. This combination forms a fully functional operating system, similar to but distinct from well-known systems like Microsoft Windows or Apple's macOS.
 
