@@ -2,6 +2,7 @@
 title: '🐧 : find command'
 date: 2024-02-15
 tags: ["Linux commands"]
+TOC: false
 ---
 
 
@@ -48,7 +49,7 @@ find [directory] [options] [expression]
 - `-exec <command> {} \;`: Executes a command on each matched file individually.
 
 
-###Practical Examples:
+### Practical Examples:
 1. Finding Files by Name:
 ```
 find /home/user/documents -name "example.txt"
