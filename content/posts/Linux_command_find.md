@@ -2,7 +2,7 @@
 title: '🐧 : find command'
 date: 2024-02-15
 tags: ["Linux commands"]
-TOC: false
+ShowToc: false
 ---
 
 
