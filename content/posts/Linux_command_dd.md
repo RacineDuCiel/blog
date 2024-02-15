@@ -3,7 +3,7 @@ title: '🐧 : dd command'
 date: 2024-01-14
 tags: ["Linux commands"]
 ---
---  
+
 
 
 The `dd` command in Linux is a versatile and powerful utility designed for low-level copying and conversion of data.  
@@ -12,7 +12,7 @@ Standing for "data duplicator", dd is commonly used for tasks such as creating d
 
 Its flexibility and ability to interact with data at a fundamental level make it an essential tool for system administrators and advanced users working with storage devices and data manipulation on Linux systems.  
 
---
+
 
 ### The basic syntax of the `dd` command :
 
@@ -41,7 +41,7 @@ is defined as the given block size.
 the conversion parameter.
 - `status=progress`: Show progress during the copy process.
 
---
+---
 # Examples
 
 
@@ -53,7 +53,7 @@ This will copy the data from the input file "input.file" to the
 output file "output.file" in 1 megabyte blocks, and display the
 progress during the process.
 
---
+
 
 ### 2. Creating an ISO image from a USB drive :
 
@@ -62,7 +62,7 @@ dd if=/dev/sdX of=/path/to/destination/image.iso bs=4M
 ```
 This command reads data from the USB drive (/dev/sdX) as a block input and writes it to the "output.iso" file in 2 megabyte blocks, performing synchronous reading and writing with no error correction. This will create an ISO image of the DVD.
 
---
+
 
 ### 3. Cloning a disk or partition to another one :
 ```bash
@@ -70,7 +70,7 @@ dd if=/dev/sdb of=/dev/sda bs=4M status=progress conv=noerror,notrunc
 ```
 This command copies the contents from one block device `(/dev/sdb)` to another block device `(/dev/sda)`. The `conv=noerror,notrunc` option indicates that the command should continue copying data even if errors are encountered in the source file, replacing the erroneous data with null bytes. Additionally, it ensures that the destination file is not truncated to the size of the source file if it is smaller.
 
---
+
 
 ### 4. Erasing a disk :
 ```bash
