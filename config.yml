@@ -28,10 +28,6 @@ menu:
       name: Links
       url: /links
       weight: 20
-    - identifier: News
-      name: News
-      url: /news
-      weight: 25
 
 #    - identifier: CTF
 #      name: CTF
