@@ -2,7 +2,7 @@
 title: "News"
 ShowReadingTime: false
 ShowBreadCrumbs: false
-weight: 25
+weight: 1
 ShowTOC: false
 ---
 
