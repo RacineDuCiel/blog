@@ -182,7 +182,21 @@ Cryptanalysis Side-Channel Attacks exploit unintentional information leaks durin
 
 2. **Power-Monitoring Attacks:**
    - Exploit power consumption variations.
-   - Types: Simple Power Analysis (SPA), Differential Power Analysis (DPA).
+   - Types: Simple Power Analysis (SPA), Differential Power Analysis (DPA). 
+   
+        - **Simple Power Analysis (SPA)**:
+	        - SPA involves analyzing power consumption patterns of a cryptographic device while it performs cryptographic operations.
+	        - It relies on observing overall power consumption to infer information about the internal state of the device.
+	        - SPA attacks are typically simpler and require less sophisticated equipment compared to DPA.
+	        - SPA can be effective against cryptographic algorithms with certain weaknesses, such as those that exhibit different power consumption patterns depending on the data being processed.
+	
+        - **Differential Power Analysis (DPA)**:
+	    
+	        - DPA is a more advanced form of power analysis that focuses on detecting and exploiting small variations in power consumption.
+	        - It involves comparing power consumption traces corresponding to different inputs or intermediate values during the cryptographic operation.
+	        - DPA attacks are highly effective against cryptographic implementations that leak information through power consumption differentials.
+	        - DPA attacks require specialized equipment and sophisticated statistical analysis techniques to extract sensitive information, such as cryptographic keys, from power traces.
+	
    - Example: Kocher, Jaffe, and Jun's 1999 DPA attack.
    - Mitigation: Hardware and software countermeasures, power regulation, randomization.
 

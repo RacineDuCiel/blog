@@ -364,10 +364,38 @@ Cryptanalysis Side-Channel Attacks exploit unintentional information leaks durin
 <li>
 <p><strong>Power-Monitoring Attacks:</strong></p>
 <ul>
-<li>Exploit power consumption variations.</li>
-<li>Types: Simple Power Analysis (SPA), Differential Power Analysis (DPA).</li>
-<li>Example: Kocher, Jaffe, and Jun&rsquo;s 1999 DPA attack.</li>
-<li>Mitigation: Hardware and software countermeasures, power regulation, randomization.</li>
+<li>
+<p>Exploit power consumption variations.</p>
+</li>
+<li>
+<p>Types: Simple Power Analysis (SPA), Differential Power Analysis (DPA).</p>
+<ul>
+<li>
+<p><strong>Simple Power Analysis (SPA)</strong>:</p>
+<ul>
+<li>SPA involves analyzing power consumption patterns of a cryptographic device while it performs cryptographic operations.</li>
+<li>It relies on observing overall power consumption to infer information about the internal state of the device.</li>
+<li>SPA attacks are typically simpler and require less sophisticated equipment compared to DPA.</li>
+<li>SPA can be effective against cryptographic algorithms with certain weaknesses, such as those that exhibit different power consumption patterns depending on the data being processed.</li>
+</ul>
+</li>
+<li>
+<p><strong>Differential Power Analysis (DPA)</strong>:</p>
+<ul>
+<li>DPA is a more advanced form of power analysis that focuses on detecting and exploiting small variations in power consumption.</li>
+<li>It involves comparing power consumption traces corresponding to different inputs or intermediate values during the cryptographic operation.</li>
+<li>DPA attacks are highly effective against cryptographic implementations that leak information through power consumption differentials.</li>
+<li>DPA attacks require specialized equipment and sophisticated statistical analysis techniques to extract sensitive information, such as cryptographic keys, from power traces.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Example: Kocher, Jaffe, and Jun&rsquo;s 1999 DPA attack.</p>
+</li>
+<li>
+<p>Mitigation: Hardware and software countermeasures, power regulation, randomization.</p>
+</li>
 </ul>
 </li>
 <li>
