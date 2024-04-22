@@ -197,9 +197,18 @@ Cryptanalysis Side-Channel Attacks exploit unintentional information leaks durin
 ## Understanding Microprocessors
 
 **What is a Microprocessor:**
-- Integrated circuit (IC) serving as a CPU on a single chip.
+- Integrated circuit (IC) serving as a CPU on a single chip. A microprocessor is a type of CPU, but not all CPUs are microprocessors
 - Facilitates fetch, decode, and execute instructions.
 - Components: Control Unit (CU), Arithmetic Logic Unit (ALU), Instruction Set Architecture (ISA).
+
+1. **Control Unit:**
+   - The control unit is part of a computer's CPU that directs the operation of the processor. It tells the computer's memory, arithmetic/logic unit and input and output devices how to respond to the instructions that have been sent to the processor.
+
+2. **Arithmetic Logic Unit (ALU):**
+   - The arithmetic logic unit is a major component of the computer system's central processing unit (CPU), or the 'brain'. It performs arithmetic and logic operations, which are fundamental functions of computers.
+
+3. **Instruction Set Architecture (ISA):**
+   - The Instruction Set Architecture is an abstract model of a computer that defines the supported data types, the register set, what memory addressing modes are available, and the instruction set or the set of machine-language commands that the computer can understand and execute.
 
 **Transistors:**
 - Basic electronic switches representing binary states (1s and 0s).
