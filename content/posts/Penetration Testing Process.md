@@ -80,16 +80,15 @@ TocOpen: true
 4. **Measures for the Security Assessment of Cross-border Transfer of Personal Information and Important Data:** Regulates cross-border data transfer.
 5. **State Council Regulation on the Protection of Critical Information Infrastructure Security:** Regulates critical information infrastructure protection.
 
----
 
 **Precautionary Measures during Penetration Tests:**
 
-☐ Obtain written consent from the owner or authorized representative.
-☐ Conduct testing within the scope of consent and respect limitations.
-☐ Take measures to prevent damage to systems or networks being tested.
-☐ Do not access, use, or disclose personal data without permission.
-☐ Do not intercept electronic communications without consent.
-☐ Do not test systems covered by HIPAA without proper authorization.
+☐ Obtain written consent from the owner or authorized representative.  
+☐ Conduct testing within the scope of consent and respect limitations.  
+☐ Take measures to prevent damage to systems or networks being tested.  
+☐ Do not access, use, or disclose personal data without permission.  
+☐ Do not intercept electronic communications without consent.  
+☐ Do not test systems covered by HIPAA without proper authorization.  
 
 
 ## Stages of Penetration Testing
