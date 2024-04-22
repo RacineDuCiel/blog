@@ -1,7 +1,7 @@
 ---
 title: 'Brief Intro to Hardware Attacks'
 date: 2024-04-21
-tags: ["Cyber"]
+tags: ["security"]
 TocOpen: true
 ---
 

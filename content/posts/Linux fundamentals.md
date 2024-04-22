@@ -1,7 +1,7 @@
 ---
 title: 'Linux fundamentals'
 date: 2024-04-21
-tags: ["linux", "security"]
+tags: ["linux"]
 TocOpen: true
 ---
 

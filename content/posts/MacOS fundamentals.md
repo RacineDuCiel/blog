@@ -1,7 +1,7 @@
 ---
 title: 'MacOS fundamentals'
 date: 2024-04-21
-tags: ["macos", "security"]
+tags: ["macos"]
 TocOpen: true
 ---
 

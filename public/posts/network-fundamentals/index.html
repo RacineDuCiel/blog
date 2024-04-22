@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="noindex, nofollow">
 <title>Network fundamentals | </title>
-<meta name="keywords" content="Network">
+<meta name="keywords" content="network">
 <meta name="description" content="Network Terms WAN (Wide Area Network):
 Definition: The Internet; a large network connecting multiple LANs. Identification: WAN-specific routing protocols like BGP and non-RFC 1918 IP schemas. LAN (Local Area Network):
 Definition: Internal networks (e.g., home or office). IP Addressing: Typically RFC 1918 addresses. WLAN (Wireless Local Area Network):
@@ -444,9 +444,11 @@ Definition: Wireless variant of LAN, enabling Wi-Fi access. Security: Mainly a s
 </ul>
 </li>
 </ul>
-<p>![[Pasted image 20240407163924.png]]</p>
+<p><img loading="lazy" src="/images/proxy.png" alt="proxy"  />
+</p>
 <h2 id="osi---tcpip-models">OSI - TCP/IP models<a hidden class="anchor" aria-hidden="true" href="#osi---tcpip-models">#</a></h2>
-<p>![[HTB/images/net_models_pdu2.png]]</p>
+<p><img loading="lazy" src="/images/net_models_pdu2.png" alt="net_models"  />
+</p>
 <h3 id="packet-transfers">Packet Transfers<a hidden class="anchor" aria-hidden="true" href="#packet-transfers">#</a></h3>
 <ul>
 <li>
@@ -1819,7 +1821,8 @@ Definition: Wireless variant of LAN, enabling Wi-Fi access. Security: Mainly a s
 <li>ISL: Cisco-proprietary, deprecated.</li>
 <li>IEEE 802.1Q: Industry standard, adds VLAN tag to Ethernet frame.</li>
 </ul>
-<p>![[Pasted image 20240402094148.png]]</p>
+<p><img loading="lazy" src="/images/802.1Q.png" alt="&amp;ldquo;802.1Q&amp;rdquo;"  />
+</p>
 <p><code>Tag protocol identifier</code> (<code>TPID</code>) is a 16-bit field always set to <code>0x8100</code> to identify the <code>Ethernet</code> frame as an <code>802.1Q</code>-tagged frame. <code>Tag Control Information</code> (<code>TCI</code>) is a 16-bit field containing <code>Priority code point</code> (<code>PCP</code>), <code>Drop eligible indicator</code> (<code>DEI</code>) (previously known as <code>Canonical format indicator</code> (<code>CFI</code>)), and <code>VLAN identifier</code> (<code>VID</code>). The main field concerning <code>VLANs</code> is <code>VID</code>, occupying the low-order 12-bits of <code>TCI</code>. Since it is 12 bits, it allows 2^12 - 2 = 4096 (remember, <code>0</code> and <code>4095</code> are reserved) <code>VLAN</code> IDs. Therefore, an <code>802.1Q</code>-tagged frame can contain information for 4094 <code>VLANs</code>; the practice of inserting multiple <code>802.1Q</code> tags within a single packet is known as <code>Double Tagging</code>, introduced by 802.1ad. <code>VLAN tagging</code> is the process of inserting <code>VLAN</code> information into an <code>802.1Q</code> <code>Ethernet header</code>, while <code>VLAN untagging</code> is the process of removing the <code>VLAN</code> information from an <code>802.1Q</code>-tagged <code>Ethernet</code> frame and forwarding the packet to the destined ports.</p>
 <p><strong>VLAN-Capable NICs:</strong></p>
 <ul>
