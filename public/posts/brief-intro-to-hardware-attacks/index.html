@@ -105,7 +105,7 @@ Collection of connected devices (1 main, up to 7 clients).">
     <h1 class="post-title entry-hint-parent">
       Brief Intro to Hardware Attacks
     </h1>
-    <div class="post-meta"><span title='2024-04-21 00:00:00 +0000 UTC'>April 21, 2024</span>&nbsp;·&nbsp;11 min
+    <div class="post-meta"><span title='2024-04-21 00:00:00 +0000 UTC'>April 21, 2024</span>&nbsp;·&nbsp;12 min
 
 </div>
   </header> <div class="toc">
@@ -356,70 +356,34 @@ Cryptanalysis Side-Channel Attacks exploit unintentional information leaks durin
 <li>
 <p><strong>Timing Attacks:</strong></p>
 <ul>
-<li>Exploit variations in computation time.</li>
-<li>Example: Paul Kocher&rsquo;s 1996 SSL/TLS timing attack.</li>
-<li>Mitigation: Constant-time algorithms.</li>
+<li><strong>Description:</strong> Timing attacks exploit variations in the time taken by a cryptographic system to process different inputs. By measuring the computation time of cryptographic algorithms, attackers can make educated guesses about the secret key based on observed variations.</li>
+<li><strong>Example:</strong> Paul Kocher&rsquo;s timing attack on SSL-enabled web servers in 1996. By observing the time taken to decrypt ciphertexts, Kocher inferred the private key bit by bit, leading to a compromise of the key.</li>
+<li><strong>Mitigation:</strong> Constant-time algorithms are used to ensure that computations take the same amount of time regardless of the input or secret information, thus defending against timing attacks.</li>
 </ul>
 </li>
 <li>
 <p><strong>Power-Monitoring Attacks:</strong></p>
 <ul>
-<li>
-<p>Exploit power consumption variations.</p>
-</li>
-<li>
-<p>Types: Simple Power Analysis (SPA), Differential Power Analysis (DPA).</p>
+<li><strong>Description:</strong> Power-monitoring attacks exploit variations in a device&rsquo;s power consumption during cryptographic operations. Attackers observe power usage and use statistical techniques to extract sensitive information, such as secret keys.</li>
+<li><strong>Types:</strong>
 <ul>
-<li>
-<p><strong>Simple Power Analysis (SPA)</strong>:</p>
-<ul>
-<li>SPA involves analyzing power consumption patterns of a cryptographic device while it performs cryptographic operations.</li>
-<li>It relies on observing overall power consumption to infer information about the internal state of the device.</li>
-<li>SPA attacks are typically simpler and require less sophisticated equipment compared to DPA.</li>
-<li>SPA can be effective against cryptographic algorithms with certain weaknesses, such as those that exhibit different power consumption patterns depending on the data being processed.</li>
+<li><strong>Simple Power Analysis (SPA):</strong> Attackers directly interpret power consumption graphs to identify operations.</li>
+<li><strong>Differential Power Analysis (DPA):</strong> Attackers collect power consumption data for multiple operations and use statistical analysis to find correlations between power consumption and the values of bits in the secret key.</li>
 </ul>
 </li>
-<li>
-<p><strong>Differential Power Analysis (DPA)</strong>:</p>
-<ul>
-<li>DPA is a more advanced form of power analysis that focuses on detecting and exploiting small variations in power consumption.</li>
-<li>It involves comparing power consumption traces corresponding to different inputs or intermediate values during the cryptographic operation.</li>
-<li>DPA attacks are highly effective against cryptographic implementations that leak information through power consumption differentials.</li>
-<li>DPA attacks require specialized equipment and sophisticated statistical analysis techniques to extract sensitive information, such as cryptographic keys, from power traces.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>Example: Kocher, Jaffe, and Jun&rsquo;s 1999 DPA attack.</p>
-</li>
-<li>
-<p>Mitigation: Hardware and software countermeasures, power regulation, randomization.</p>
-</li>
+<li><strong>Example:</strong> Kocher, Jaffe, and Jun&rsquo;s attack on smart cards in 1999. By monitoring a smart card&rsquo;s power consumption during encryption operations, they successfully extracted the secret encryption keys.</li>
+<li><strong>Mitigation:</strong> Combines hardware and software countermeasures, such as power regulation, randomization techniques, and designing algorithms to ensure that power consumption does not correlate with the operations performed.</li>
 </ul>
 </li>
 <li>
 <p><strong>Acoustic Cryptanalysis:</strong></p>
 <ul>
-<li>Exploit sound emissions during system operation.</li>
-<li>Example: Genkin, Shamir, and Tromer&rsquo;s RSA key extraction via acoustic signals.</li>
-<li>Mitigation: Sound-absorbing materials, isolation of sensitive components, random noise introduction.</li>
+<li><strong>Description:</strong> Acoustic cryptanalysis involves extracting sensitive information from a system by analyzing the sound emissions it produces during operation. By correlating sound emissions with internal states or operations, attackers can gain insights into the processed data.</li>
+<li><strong>Example:</strong> Genkin, Shamir, and Tromer&rsquo;s RSA key extraction via low-bandwidth acoustic cryptanalysis in 2014. They demonstrated that different RSA secret keys cause a computer&rsquo;s CPU to emit different high-frequency acoustic signals, enabling attackers to extract the keys using a nearby mobile phone.</li>
+<li><strong>Mitigation:</strong> Involves both hardware and software measures, such as using sound-absorbing materials, isolating sensitive components, and introducing random noise into computations to make acoustic analysis more challenging.</li>
 </ul>
 </li>
 </ol>
-<p><strong>Notable Demonstrations:</strong></p>
-<ul>
-<li>Kocher&rsquo;s 1996 timing attack on SSL/TLS.</li>
-<li>Kocher, Jaffe, and Jun&rsquo;s 1999 DPA attack on smart cards.</li>
-<li>Genkin, Shamir, and Tromer&rsquo;s 2014 RSA key extraction via acoustic signals.</li>
-<li>Georgi Gerganov&rsquo;s Keytap, demonstrating keyboard eavesdropping.</li>
-</ul>
-<p><strong>Mitigation Techniques:</strong></p>
-<ul>
-<li>Constant-time algorithms for timing attacks.</li>
-<li>Hardware countermeasures like power regulation and randomization.</li>
-<li>Software strategies to obfuscate power consumption patterns and sound emissions.</li>
-</ul>
 <h2 id="understanding-microprocessors">Understanding Microprocessors<a hidden class="anchor" aria-hidden="true" href="#understanding-microprocessors">#</a></h2>
 <p><strong>What is a Microprocessor:</strong></p>
 <ul>

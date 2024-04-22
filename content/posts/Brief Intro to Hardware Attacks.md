@@ -175,46 +175,24 @@ Cryptanalysis Side-Channel Attacks exploit unintentional information leaks durin
    - Examples: Modifying power supply, introducing specific inputs.
 
 **Common Forms:**
+
 1. **Timing Attacks:**
-   - Exploit variations in computation time.
-   - Example: Paul Kocher's 1996 SSL/TLS timing attack.
-   - Mitigation: Constant-time algorithms.
+   - **Description:** Timing attacks exploit variations in the time taken by a cryptographic system to process different inputs. By measuring the computation time of cryptographic algorithms, attackers can make educated guesses about the secret key based on observed variations.
+   - **Example:** Paul Kocher's timing attack on SSL-enabled web servers in 1996. By observing the time taken to decrypt ciphertexts, Kocher inferred the private key bit by bit, leading to a compromise of the key.
+   - **Mitigation:** Constant-time algorithms are used to ensure that computations take the same amount of time regardless of the input or secret information, thus defending against timing attacks.
 
 2. **Power-Monitoring Attacks:**
-   - Exploit power consumption variations.
-   - Types: Simple Power Analysis (SPA), Differential Power Analysis (DPA). 
-   
-        - **Simple Power Analysis (SPA)**:
-	        - SPA involves analyzing power consumption patterns of a cryptographic device while it performs cryptographic operations.
-	        - It relies on observing overall power consumption to infer information about the internal state of the device.
-	        - SPA attacks are typically simpler and require less sophisticated equipment compared to DPA.
-	        - SPA can be effective against cryptographic algorithms with certain weaknesses, such as those that exhibit different power consumption patterns depending on the data being processed.
-	
-        - **Differential Power Analysis (DPA)**:
-	    
-	        - DPA is a more advanced form of power analysis that focuses on detecting and exploiting small variations in power consumption.
-	        - It involves comparing power consumption traces corresponding to different inputs or intermediate values during the cryptographic operation.
-	        - DPA attacks are highly effective against cryptographic implementations that leak information through power consumption differentials.
-	        - DPA attacks require specialized equipment and sophisticated statistical analysis techniques to extract sensitive information, such as cryptographic keys, from power traces.
-	
-   - Example: Kocher, Jaffe, and Jun's 1999 DPA attack.
-   - Mitigation: Hardware and software countermeasures, power regulation, randomization.
+   - **Description:** Power-monitoring attacks exploit variations in a device's power consumption during cryptographic operations. Attackers observe power usage and use statistical techniques to extract sensitive information, such as secret keys.
+   - **Types:**
+     - **Simple Power Analysis (SPA):** Attackers directly interpret power consumption graphs to identify operations.
+     - **Differential Power Analysis (DPA):** Attackers collect power consumption data for multiple operations and use statistical analysis to find correlations between power consumption and the values of bits in the secret key.
+   - **Example:** Kocher, Jaffe, and Jun's attack on smart cards in 1999. By monitoring a smart card's power consumption during encryption operations, they successfully extracted the secret encryption keys.
+   - **Mitigation:** Combines hardware and software countermeasures, such as power regulation, randomization techniques, and designing algorithms to ensure that power consumption does not correlate with the operations performed.
 
 3. **Acoustic Cryptanalysis:**
-   - Exploit sound emissions during system operation.
-   - Example: Genkin, Shamir, and Tromer's RSA key extraction via acoustic signals.
-   - Mitigation: Sound-absorbing materials, isolation of sensitive components, random noise introduction.
-
-**Notable Demonstrations:**
-- Kocher's 1996 timing attack on SSL/TLS.
-- Kocher, Jaffe, and Jun's 1999 DPA attack on smart cards.
-- Genkin, Shamir, and Tromer's 2014 RSA key extraction via acoustic signals.
-- Georgi Gerganov's Keytap, demonstrating keyboard eavesdropping.
-
-**Mitigation Techniques:**
-- Constant-time algorithms for timing attacks.
-- Hardware countermeasures like power regulation and randomization.
-- Software strategies to obfuscate power consumption patterns and sound emissions.
+   - **Description:** Acoustic cryptanalysis involves extracting sensitive information from a system by analyzing the sound emissions it produces during operation. By correlating sound emissions with internal states or operations, attackers can gain insights into the processed data.
+   - **Example:** Genkin, Shamir, and Tromer's RSA key extraction via low-bandwidth acoustic cryptanalysis in 2014. They demonstrated that different RSA secret keys cause a computer's CPU to emit different high-frequency acoustic signals, enabling attackers to extract the keys using a nearby mobile phone.
+   - **Mitigation:** Involves both hardware and software measures, such as using sound-absorbing materials, isolating sensitive components, and introducing random noise into computations to make acoustic analysis more challenging.
 
 ## Understanding Microprocessors
 
