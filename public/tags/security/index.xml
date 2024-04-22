@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Security on </title>
+    <link>http://localhost:1313/tags/security/</link>
+    <description>Recent content in Security on </description>
+    <generator>Hugo -- 0.125.2</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 21 Apr 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/security/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux fundamentals</title>
+      <link>http://localhost:1313/posts/linux-fundamentals/</link>
+      <pubDate>Sun, 21 Apr 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/linux-fundamentals/</guid>
+      <description>Introduction Unix 1970 release by Ken Thompson and Dennis Ritchie
+Berkeley Software Distribution 1977 (copy of unix)
+Richard stallman started the GNU project in 1983
+Create a free Unix-like OS Linux was a personal project started in 1991 by Linus Torvalds
+Create a free OS kernel Today there is more than 600 distributions of linux
+Philosophy Principle Description Everything is a file All configuration files for the various services running on the Linux operating system are stored in one or more text files.</description>
+    </item>
+    <item>
+      <title>MacOS fundamentals</title>
+      <link>http://localhost:1313/posts/macos-fundamentals/</link>
+      <pubDate>Sun, 21 Apr 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/macos-fundamentals/</guid>
+      <description>What is macOS ? macOS is the operating system used on Apple computers. Widely used in daily home use, business management, graphical design, and arts. History Roundup
+Original start to OS X: Fall 2000, public beta named Kodiak, followed by Mac OS X (10.0) Cheetah and OS X (10.1) Puma. Notable releases: OS X (10.2) Jaguar, OS X (10.3) Panther, OS X (10.4) Tiger with Intel support, OS X (10.5) Leopard with Time Machine and Boot Camp, OS X (10.</description>
+    </item>
+    <item>
+      <title>Web requests</title>
+      <link>http://localhost:1313/posts/web-requests/</link>
+      <pubDate>Sun, 21 Apr 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/web-requests/</guid>
+      <description>HyperText Transfer Protocol (HTTP) Definition: HTTP is an application-level protocol used for accessing World Wide Web resources. It facilitates communication between a client and a server.
+Components of a URL:
+Scheme: Identifies the protocol (http://, https://). User Info: Optional credentials (admin:password@). Host: Resource location (hostname or IP address). Port: Separated by a colon (:80 if not specified). Path: Points to the resource being accessed (/dashboard.php) Query String: Parameters and values separated by &amp;amp; (?</description>
+    </item>
+  </channel>
+</rss>

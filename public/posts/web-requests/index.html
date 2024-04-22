@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Web requests | </title>
+<meta name="keywords" content="network, web, security">
+<meta name="description" content="HyperText Transfer Protocol (HTTP) Definition: HTTP is an application-level protocol used for accessing World Wide Web resources. It facilitates communication between a client and a server.
+Components of a URL:
+Scheme: Identifies the protocol (http://, https://). User Info: Optional credentials (admin:password@). Host: Resource location (hostname or IP address). Port: Separated by a colon (:80 if not specified). Path: Points to the resource being accessed (/dashboard.php) Query String: Parameters and values separated by &amp; (?">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/posts/web-requests/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css" integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z&#43;V9&#43;cO1A=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/web-requests/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+</head>
+
+<body class=" dark" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/notes" title="Notes">
+                    <span>Notes</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/ressources" title="Ressources">
+                    <span>Ressources</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Web requests
+    </h1>
+    <div class="post-meta"><span title='2024-04-21 00:00:00 +0000 UTC'>April 21, 2024</span>&nbsp;·&nbsp;10 min
+
+</div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#hypertext-transfer-protocol-http" aria-label="HyperText Transfer Protocol (HTTP)">HyperText Transfer Protocol (HTTP)</a></li>
+                <li>
+                    <a href="#hypertext-transfer-protocol-secure-https" aria-label="Hypertext Transfer Protocol Secure (HTTPS)">Hypertext Transfer Protocol Secure (HTTPS)</a></li>
+                <li>
+                    <a href="#http-requests-and-responses" aria-label="HTTP Requests and Responses">HTTP Requests and Responses</a></li>
+                <li>
+                    <a href="#http-headers" aria-label="HTTP Headers">HTTP Headers</a><ul>
+                        
+                <li>
+                    <a href="#general-headers" aria-label="General Headers">General Headers</a></li>
+                <li>
+                    <a href="#entity-headers" aria-label="Entity Headers">Entity Headers</a></li>
+                <li>
+                    <a href="#request-headers" aria-label="Request Headers">Request Headers</a></li>
+                <li>
+                    <a href="#response-headers" aria-label="Response Headers">Response Headers</a></li>
+                <li>
+                    <a href="#security-headers" aria-label="Security Headers">Security Headers</a></li>
+                <li>
+                    <a href="#displaying-headers" aria-label="Displaying Headers">Displaying Headers</a></li>
+                <li>
+                    <a href="#setting-headers" aria-label="Setting Headers">Setting Headers</a></li>
+                <li>
+                    <a href="#browser-devtools" aria-label="Browser DevTools">Browser DevTools</a></li></ul>
+                </li>
+                <li>
+                    <a href="#http-methods-and-codes" aria-label="HTTP Methods and Codes">HTTP Methods and Codes</a><ul>
+                        
+                <li>
+                    <a href="#informational-responses-1xx" aria-label="Informational responses (1xx):">Informational responses (1xx):</a></li>
+                <li>
+                    <a href="#successful-responses-2xx" aria-label="Successful responses (2xx):">Successful responses (2xx):</a></li>
+                <li>
+                    <a href="#redirection-messages-3xx" aria-label="Redirection messages (3xx):">Redirection messages (3xx):</a></li>
+                <li>
+                    <a href="#client-error-responses-4xx" aria-label="Client error responses (4xx):">Client error responses (4xx):</a></li>
+                <li>
+                    <a href="#server-error-responses-5xx" aria-label="Server error responses (5xx):">Server error responses (5xx):</a></li>
+                <li>
+                    <a href="#unofficial-codes" aria-label="Unofficial codes:">Unofficial codes:</a></li>
+                <li>
+                    <a href="#uncommon-but-noteworthy" aria-label="Uncommon but noteworthy:">Uncommon but noteworthy:</a></li></ul>
+                </li>
+                <li>
+                    <a href="#get--post" aria-label="Get &amp; Post">Get &amp; Post</a></li>
+                <li>
+                    <a href="#curl-options" aria-label="cURL options">cURL options</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="hypertext-transfer-protocol-http">HyperText Transfer Protocol (HTTP)<a hidden class="anchor" aria-hidden="true" href="#hypertext-transfer-protocol-http">#</a></h2>
+<ul>
+<li>
+<p><strong>Definition</strong>: HTTP is an application-level protocol used for accessing World Wide Web resources. It facilitates communication between a client and a server.</p>
+</li>
+<li>
+<p><strong>Components of a URL</strong>:</p>
+<ul>
+<li><strong>Scheme</strong>: Identifies the protocol (<code>http://</code>, <code>https://</code>).</li>
+<li><strong>User Info</strong>: Optional credentials (<code>admin:password@</code>).</li>
+<li><strong>Host</strong>: Resource location (hostname or IP address).</li>
+<li><strong>Port</strong>: Separated by a colon (<code>:80</code> if not specified).</li>
+<li><strong>Path</strong>: Points to the resource being accessed (<code>/dashboard.php</code>)</li>
+<li><strong>Query String</strong>: Parameters and values separated by <code>&amp;</code>  (<code>?login=true</code>).</li>
+<li><strong>Fragments</strong>: Processed by browsers on the client-side (<code>#status</code>)</li>
+</ul>
+</li>
+<li>
+<p><strong>HTTP Flow</strong>:</p>
+<ul>
+<li>User enters URL.</li>
+<li>Browser sends request to DNS server.</li>
+<li>DNS server resolves domain to IP.</li>
+<li>Browser sends GET request to server.</li>
+<li>Server processes request and returns response.</li>
+<li>Browser renders response.</li>
+</ul>
+</li>
+<li>
+<p><strong>cURL</strong>:</p>
+<ul>
+<li>Command-line tool for sending HTTP requests.</li>
+<li>Can be used for scripting and automation.</li>
+<li>Doesn&rsquo;t render HTML/CSS/JS, prints raw format.</li>
+<li>Useful for penetration testing.</li>
+<li>Common flags:
+<ul>
+<li><code>-o</code>: Write output to a file.</li>
+<li><code>-s</code>: Silent mode.</li>
+<li><code>-u</code>: Specify user and password.</li>
+<li><code>-A</code>: Set User-Agent.</li>
+<li><code>-i</code>: Include protocol response headers.</li>
+<li><code>-d</code>: HTTP POST data.</li>
+<li><code>-h</code>: Help menu.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="hypertext-transfer-protocol-secure-https">Hypertext Transfer Protocol Secure (HTTPS)<a hidden class="anchor" aria-hidden="true" href="#hypertext-transfer-protocol-secure-https">#</a></h2>
+<ul>
+<li>
+<p><strong>Definition</strong>: HTTPS (HTTP Secure) encrypts communications between a web browser and a web application, preventing interception of sensitive data.</p>
+</li>
+<li>
+<p><strong>Clear-text vs. Encrypted</strong>: HTTP sends data in clear-text, making it vulnerable to interception. HTTPS encrypts data, making it unreadable to unauthorized parties.</p>
+</li>
+<li>
+<p><strong>Identification</strong>:</p>
+<ul>
+<li>HTTPS URLs start with <code>https://</code>.</li>
+<li>Browsers show a lock icon for HTTPS sites.</li>
+</ul>
+</li>
+</ul>
+<p><strong>2. HTTPS Flow</strong></p>
+<ul>
+<li>
+<p><strong>Operation</strong>:</p>
+<ul>
+<li>User enters URL (<code>http://</code> or <code>https://</code>).</li>
+<li>Browser resolves domain and connects to server.</li>
+<li>Initial connection attempts HTTP on port 80.</li>
+<li>Server redirects to HTTPS on port 443.</li>
+<li>Client and server exchange encryption keys.</li>
+<li>Encrypted communication begins.</li>
+</ul>
+</li>
+<li>
+<p><strong>Security Considerations</strong>:</p>
+<ul>
+<li>Encrypted data can still reveal visited URLs if DNS resolution is not encrypted.</li>
+<li>Downgrade attacks can revert HTTPS to HTTP; modern browsers and servers mitigate this risk.</li>
+</ul>
+</li>
+</ul>
+<p><strong>3. cURL for HTTPS</strong></p>
+<ul>
+<li>
+<p><strong>Usage</strong>:</p>
+<ul>
+<li>cURL handles HTTPS by default.</li>
+<li>May encounter issues with invalid or outdated SSL certificates.</li>
+</ul>
+</li>
+<li>
+<p><strong>Handling Invalid Certificates</strong>:</p>
+<ul>
+<li>By default, cURL rejects communication with sites having invalid certificates.</li>
+<li>Use <code>-k</code> flag to skip certificate validation.</li>
+</ul>
+</li>
+</ul>
+<h2 id="http-requests-and-responses">HTTP Requests and Responses<a hidden class="anchor" aria-hidden="true" href="#http-requests-and-responses">#</a></h2>
+<p><strong>1. HTTP Request</strong></p>
+<ul>
+<li>
+<p><strong>Overview</strong>:</p>
+<ul>
+<li>Made by client (e.g., cURL/browser).</li>
+<li>Contains request details like method, path, headers, and data.</li>
+<li>Headers separated by new lines.</li>
+</ul>
+</li>
+<li>
+<p><strong>Example</strong>:</p>
+<pre tabindex="0"><code>GET /users/login.html HTTP/1.1
+Host: inlanefreight.com
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36
+</code></pre></li>
+</ul>
+<p><strong>2. HTTP Response</strong></p>
+<ul>
+<li>
+<p><strong>Overview</strong>:</p>
+<ul>
+<li>Sent by server after processing request.</li>
+<li>Contains response code, headers, and optional response body.</li>
+</ul>
+</li>
+<li>
+<p><strong>Example</strong>:</p>
+<pre tabindex="0"><code>HTTP/1.1 200 OK
+Date: Tue, 21 Jul 2020 05:20:15 GMT
+Server: Apache/X.Y.ZZ (Ubuntu)
+Content-Length: 464
+Content-Type: text/html; charset=iso-8859-1
+</code></pre></li>
+</ul>
+<p><strong>3. cURL</strong></p>
+<ul>
+<li>
+<p><strong>Usage</strong>:</p>
+<ul>
+<li>Use <code>-v</code> flag to view verbose output with both request and response details.</li>
+<li>Helpful for debugging and penetration testing.</li>
+</ul>
+</li>
+<li>
+<p><strong>Example</strong>:</p>
+<pre tabindex="0"><code>curl inlanefreight.com -v
+</code></pre></li>
+</ul>
+<p><strong>4. Browser DevTools</strong></p>
+<ul>
+<li>
+<p><strong>Overview</strong>:</p>
+<ul>
+<li>Built-in tools for web developers.</li>
+<li>Accessible via [CTRL+SHIFT+I] or [F12] in most browsers.</li>
+</ul>
+</li>
+<li>
+<p><strong>Network Tab</strong>:</p>
+<ul>
+<li>Displays all web requests made by the browser.</li>
+<li>Shows response status, method, URL, and path.</li>
+</ul>
+</li>
+<li>
+<p><strong>Usage</strong>:</p>
+<ul>
+<li>Useful for monitoring network activity and debugging web requests.</li>
+<li>Can inspect request and response details, including headers and raw response body.</li>
+</ul>
+</li>
+</ul>
+<h2 id="http-headers">HTTP Headers<a hidden class="anchor" aria-hidden="true" href="#http-headers">#</a></h2>
+<p>HTTP headers play a crucial role in communication between clients and servers, providing essential information about requests and responses.</p>
+<h3 id="general-headers">General Headers<a hidden class="anchor" aria-hidden="true" href="#general-headers">#</a></h3>
+<p>General headers describe the message itself, independent of its content.
+<code>common to both the request and response</code></p>
+<table>
+<thead>
+<tr>
+<th><strong>Header</strong></th>
+<th><strong>Example</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Date</code></td>
+<td><code>Date: Wed, 16 Feb 2022 10:38:44 GMT</code></td>
+<td>Holds the date and time when the message originated, preferably in UTC time zone.</td>
+</tr>
+<tr>
+<td><code>Connection</code></td>
+<td><code>Connection: close</code></td>
+<td>Indicates if the network connection should stay open (<code>keep-alive</code>) or be closed (<code>close</code>) after the request/response completes.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="entity-headers">Entity Headers<a hidden class="anchor" aria-hidden="true" href="#entity-headers">#</a></h3>
+<p>Entity headers describe the content being transferred.
+<code>common to both the request and response</code></p>
+<table>
+<thead>
+<tr>
+<th><strong>Header</strong></th>
+<th><strong>Example</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Content-Type</code></td>
+<td><code>Content-Type: text/html</code></td>
+<td>Describes the type of resource being transferred, including the character encoding.</td>
+</tr>
+<tr>
+<td><code>Media-Type</code></td>
+<td><code>Media-Type: application/pdf</code></td>
+<td>Indicates the type of media being transferred, such as PDF, image, etc.</td>
+</tr>
+<tr>
+<td><code>Boundary</code></td>
+<td><code>boundary=&quot;b4e4fbd93540&quot;</code></td>
+<td>Marks the boundary between different parts of the content, often used in multipart messages.</td>
+</tr>
+<tr>
+<td><code>Content-Length</code></td>
+<td><code>Content-Length: 385</code></td>
+<td>Specifies the size of the content being transferred, in bytes.</td>
+</tr>
+<tr>
+<td><code>Content-Encoding</code></td>
+<td><code>Content-Encoding: gzip</code></td>
+<td>Indicates the encoding applied to the content to reduce its size, such as gzip compression.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="request-headers">Request Headers<a hidden class="anchor" aria-hidden="true" href="#request-headers">#</a></h3>
+<p>Request headers are sent by the client in an HTTP request.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Header</strong></th>
+<th><strong>Example</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Host</code></td>
+<td><code>Host: www.example.com</code></td>
+<td>Specifies the host being queried for the resource.</td>
+</tr>
+<tr>
+<td><code>User-Agent</code></td>
+<td><code>User-Agent: Mozilla/5.0</code></td>
+<td>Identifies the client making the request, typically including information about the browser, operating system, etc.</td>
+</tr>
+<tr>
+<td><code>Referer</code></td>
+<td><code>Referer: http://www.example.com/</code></td>
+<td>Indicates the URL of the referring page from which the request originated. <!-- raw HTML omitted -->(/!\ can be manipulated)</td>
+</tr>
+<tr>
+<td><code>Accept</code></td>
+<td><code>Accept: text/html</code></td>
+<td>Lists the media types that the client can handle, typically used by servers to determine the appropriate content type for the response.</td>
+</tr>
+<tr>
+<td><code>Cookie</code></td>
+<td><code>Cookie: sessionid=abc123</code></td>
+<td>Contains cookies associated with the request, allowing for session management and tracking on the server-side.</td>
+</tr>
+<tr>
+<td><code>Authorization</code></td>
+<td><code>Authorization: BASIC cGFzc3dvcmQK</code></td>
+<td>Another method for the server to identify clients. After successful authentication, the server returns a token unique to the client. Unlike cookies, tokens are stored only on the client-side and retrieved by the server per request</td>
+</tr>
+</tbody>
+</table>
+<h3 id="response-headers">Response Headers<a hidden class="anchor" aria-hidden="true" href="#response-headers">#</a></h3>
+<p>Response headers are sent by the server in an HTTP response.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Header</strong></th>
+<th><strong>Example</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Server</code></td>
+<td><code>Server: Apache/2.4.41</code></td>
+<td>Specifies information about the server software handling the request.</td>
+</tr>
+<tr>
+<td><code>Set-Cookie</code></td>
+<td><code>Set-Cookie: sessionid=abc123; Expires=...</code></td>
+<td>Instructs the client to store a cookie for session management or other purposes.</td>
+</tr>
+<tr>
+<td><code>WWW-Authenticate</code></td>
+<td><code>WWW-Authenticate: Basic realm=&quot;Restricted&quot;</code></td>
+<td>Specifies the authentication method required for accessing the requested resource.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="security-headers">Security Headers<a hidden class="anchor" aria-hidden="true" href="#security-headers">#</a></h3>
+<p>Security headers enhance the security of web applications.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Header</strong></th>
+<th><strong>Example</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Content-Security-Policy</code></td>
+<td><code>Content-Security-Policy: script-src 'self'</code></td>
+<td>Defines the policy for executing scripts and other resources, helping prevent XSS attacks.</td>
+</tr>
+<tr>
+<td><code>Strict-Transport-Security</code></td>
+<td><code>Strict-Transport-Security: max-age=31536000</code></td>
+<td>Instructs the browser to only access the site over HTTPS, protecting against man-in-the-middle attacks and protocol downgrade attacks.</td>
+</tr>
+<tr>
+<td><code>Referrer-Policy</code></td>
+<td><code>Referrer-Policy: origin</code></td>
+<td>Controls how much referrer information is included with requests, helping protect user privacy.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="displaying-headers">Displaying Headers<a hidden class="anchor" aria-hidden="true" href="#displaying-headers">#</a></h3>
+<ul>
+<li>Use <code>-I</code> flag to show only response headers: <code>curl -I https://www.example.com</code></li>
+<li>Use <code>-i</code> flag to show both headers and response body: <code>curl -i https://www.example.com</code></li>
+</ul>
+<h3 id="setting-headers">Setting Headers<a hidden class="anchor" aria-hidden="true" href="#setting-headers">#</a></h3>
+<ul>
+<li>Use <code>-H</code> flag to set request headers: <code>curl -H &quot;Authorization: Bearer token123&quot; https://www.example.com</code></li>
+<li>Some headers have dedicated flags like <code>-A</code> for <code>User-Agent</code>: <code>curl -A &quot;Mozilla/5.0&quot; https://www.example.com</code></li>
+</ul>
+<h3 id="browser-devtools">Browser DevTools<a hidden class="anchor" aria-hidden="true" href="#browser-devtools">#</a></h3>
+<p>Browser DevTools provide insights into network requests.</p>
+<ul>
+<li>Navigate to <code>Network</code> tab to view requests.</li>
+<li>Click on a request to see headers in the <code>Headers</code> tab.</li>
+<li>Use the <code>Raw</code> button to view headers in raw format.</li>
+</ul>
+<h2 id="http-methods-and-codes">HTTP Methods and Codes<a hidden class="anchor" aria-hidden="true" href="#http-methods-and-codes">#</a></h2>
+<p>The following are some of the commonly used methods:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Method</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GET</code></td>
+<td>Requests a specific resource. Additional data can be passed to the server via query strings in the URL (e.g. <code>?param=value</code>).</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td>Sends data to the server. It can handle multiple types of input, such as text, PDFs, and other forms of binary data. This data is appended in the request body present after the headers. The POST method is commonly used when sending information (e.g. forms/logins) or uploading data to a website, such as images or documents.</td>
+</tr>
+<tr>
+<td><code>HEAD</code></td>
+<td>Requests the headers that would be returned if a GET request was made to the server. It doesn&rsquo;t return the request body and is usually made to check the response length before downloading resources.</td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td>Creates new resources on the server. Allowing this method without proper controls can lead to uploading malicious resources.</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td>Deletes an existing resource on the webserver. If not properly secured, can lead to Denial of Service (DoS) by deleting critical files on the web server.</td>
+</tr>
+<tr>
+<td><code>OPTIONS</code></td>
+<td>Returns information about the server, such as the methods accepted by it.</td>
+</tr>
+<tr>
+<td><code>PATCH</code></td>
+<td>Applies partial modifications to the resource at the specified location.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="informational-responses-1xx">Informational responses (1xx):<a hidden class="anchor" aria-hidden="true" href="#informational-responses-1xx">#</a></h3>
+<ul>
+<li><strong>100 Continue</strong>: The server has received the initial part of the request and will continue processing it.</li>
+</ul>
+<h3 id="successful-responses-2xx">Successful responses (2xx):<a hidden class="anchor" aria-hidden="true" href="#successful-responses-2xx">#</a></h3>
+<ul>
+<li><strong>200 OK</strong>: The request has succeeded. The response generally includes the requested information.</li>
+<li><strong>201 Created</strong>: The request has been fulfilled, and a new resource is created.</li>
+<li><strong>204 No Content</strong>: The server successfully processed the request but does not need to return any content.</li>
+</ul>
+<h3 id="redirection-messages-3xx">Redirection messages (3xx):<a hidden class="anchor" aria-hidden="true" href="#redirection-messages-3xx">#</a></h3>
+<ul>
+<li><strong>301 Moved Permanently</strong>: The requested resource has been permanently moved to a new URL.</li>
+<li><strong>302 Found (Previously &ldquo;Moved Temporarily&rdquo;)</strong>: The requested resource temporarily resides under a different URL.</li>
+<li><strong>304 Not Modified</strong>: The resource has not been modified since the last request.</li>
+</ul>
+<h3 id="client-error-responses-4xx">Client error responses (4xx):<a hidden class="anchor" aria-hidden="true" href="#client-error-responses-4xx">#</a></h3>
+<ul>
+<li><strong>400 Bad Request</strong>: The server cannot process the request due to a client error.</li>
+<li><strong>401 Unauthorized</strong>: The request requires user authentication.</li>
+<li><strong>403 Forbidden</strong>: The server understood the request, but refuses to authorize it.</li>
+<li><strong>404 Not Found</strong>: The server cannot find the requested resource.</li>
+</ul>
+<h3 id="server-error-responses-5xx">Server error responses (5xx):<a hidden class="anchor" aria-hidden="true" href="#server-error-responses-5xx">#</a></h3>
+<ul>
+<li><strong>500 Internal Server Error</strong>: A generic error message indicating that the server encountered an unexpected condition.</li>
+<li><strong>502 Bad Gateway</strong>: The server, while acting as a gateway or proxy, received an invalid response from the upstream server.</li>
+<li><strong>503 Service Unavailable</strong>: The server is currently unable to handle the request due to temporary overload or maintenance.</li>
+</ul>
+<h3 id="unofficial-codes">Unofficial codes:<a hidden class="anchor" aria-hidden="true" href="#unofficial-codes">#</a></h3>
+<ul>
+<li><strong>418 I&rsquo;m a teapot</strong>: This code was defined in 1998 as one of the traditional IETF April Fools&rsquo; jokes. It&rsquo;s not expected to be implemented by actual HTTP servers.</li>
+</ul>
+<h3 id="uncommon-but-noteworthy">Uncommon but noteworthy:<a hidden class="anchor" aria-hidden="true" href="#uncommon-but-noteworthy">#</a></h3>
+<ul>
+<li><strong>402 Payment Required</strong>: Reserved for future use. It&rsquo;s not currently in use.</li>
+</ul>
+<h2 id="get--post">Get &amp; Post<a hidden class="anchor" aria-hidden="true" href="#get--post">#</a></h2>
+<ol>
+<li>
+<p><strong>GET:</strong></p>
+<ul>
+<li>GET method is used to request data from a specified resource.</li>
+<li>When a client sends a GET request to a server, parameters are sent in the URL as query strings. For example, in <code>http://example.com/page?name=John&amp;age=30</code>, &ldquo;name&rdquo; and &ldquo;age&rdquo; are parameters with values &ldquo;John&rdquo; and &ldquo;30&rdquo;.</li>
+<li>GET requests are often used to retrieve data, such as web pages or static resources (images, CSS files, etc.).</li>
+<li>GET requests can be cached and are typically stored in the browser history, making them less secure for sending sensitive data.</li>
+</ul>
+</li>
+<li>
+<p><strong>POST:</strong></p>
+<ul>
+<li>POST method is used to send data to the server for processing.</li>
+<li>Unlike GET, data sent via POST is included in the body of the HTTP request, rather than in the URL. This allows for sending larger and more complex data.</li>
+<li>POST requests are often used to submit online forms, upload files, or perform actions that modify the server&rsquo;s state.</li>
+<li>POST requests are typically not cached and are not stored in the browser history, making them more secure for sending sensitive data.</li>
+</ul>
+</li>
+</ol>
+<h2 id="curl-options">cURL options<a hidden class="anchor" aria-hidden="true" href="#curl-options">#</a></h2>
+<ul>
+<li>
+<p><strong>X, &ndash;request [HTTP METHOD]</strong></p>
+<ul>
+<li>Specifies the HTTP method to be used in the request (GET, POST, PUT, DELETE, etc.).</li>
+</ul>
+</li>
+<li>
+<p><strong>-d, &ndash;data [DATA]</strong></p>
+<ul>
+<li>Sends data in the request body. Useful for POST requests or requests that require data.</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell-session" data-lang="shell-session"><span style="display:flex;"><span>curl -X POST -d &#39;username=admin&amp;password=admin&#39; http://&lt;SERVER_IP&gt;:&lt;PORT&gt;/`
+</span></span></code></pre></div><ul>
+<li>
+<p><strong>-H, &ndash;header [HEADER]</strong></p>
+<ul>
+<li>Adds a custom HTTP header to the request. Useful for setting headers like authentication tokens or content type.</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell-session" data-lang="shell-session"><span style="display:flex;"><span>curl -H &#39;Authorization: Basic YWRtaW46YWRtaW4=&#39; http://&lt;SERVER_IP&gt;:&lt;PORT&gt;/
+</span></span></code></pre></div><ul>
+<li>
+<p><strong>-i, &ndash;include</strong></p>
+<ul>
+<li>Includes the HTTP response headers in the output. Helpful for debugging or analyzing responses.</li>
+</ul>
+</li>
+<li>
+<p><strong>-o, &ndash;output [FILE]</strong></p>
+<ul>
+<li>Writes output to a specified file instead of standard output. Useful for saving responses to a file.</li>
+</ul>
+</li>
+<li>
+<p><strong>-L, &ndash;location</strong></p>
+<ul>
+<li>Follows HTTP redirects. This is useful when accessing resources that have moved.</li>
+</ul>
+</li>
+<li>
+<p><strong>-u, &ndash;user [USER:PASSWORD]</strong></p>
+<ul>
+<li>Specifies the username and password for HTTP authentication. Useful for accessing password-protected resources.</li>
+</ul>
+</li>
+<li>
+<p><strong>-k, &ndash;insecure</strong></p>
+<ul>
+<li>Allows curl to perform &ldquo;insecure&rdquo; SSL connections. This is helpful when dealing with self-signed certificates or testing environments.</li>
+</ul>
+</li>
+<li>
+<p><strong>-v, &ndash;verbose</strong></p>
+<ul>
+<li>Enables verbose output, showing detailed information about the request and response. Useful for debugging.</li>
+<li>-vvv : ultra developped</li>
+</ul>
+</li>
+<li>
+<p><strong>-XGET, -XPOST, etc.</strong></p>
+<ul>
+<li>Shortcut for specifying the HTTP method. For example, <code>-XGET</code> is equivalent to <code>--request GET</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>-F, &ndash;form [KEY=VALUE]</strong></p>
+<ul>
+<li>Sends form data in a multipart/form-data request. Useful for submitting HTML forms with file uploads.</li>
+</ul>
+</li>
+<li>
+<p><strong>-b, &ndash;cookie [COOKIE_STRING]</strong></p>
+<ul>
+<li>Sends cookies in the request header. Helpful for maintaining session state.</li>
+</ul>
+</li>
+<li>
+<p><strong>&ndash;cookie-jar [FILE]</strong></p>
+<ul>
+<li>Stores cookies from the response in a file for later use. Useful for maintaining session state across multiple requests.</li>
+</ul>
+</li>
+<li>
+<p><strong>&ndash;upload-file [FILE]</strong></p>
+<ul>
+<li>Uploads a file to the server. Useful for sending files in POST requests.</li>
+</ul>
+</li>
+<li>
+<p><strong>-x, &ndash;proxy [PROTOCOL://HOST[:PORT]]</strong></p>
+<ul>
+<li>Specifies a proxy server to be used for the request. Helpful for accessing resources behind a firewall.</li>
+</ul>
+</li>
+</ul>
+<pre tabindex="0"><code>curl -XPOST -b &#34;PHPSESSID=1g8uj3f5ao4nkgu4b215v7egf4&#34; -H &#34;Content-type: application/json&#34; -d &#39;{&#34;search&#34;:&#34;flag&#34;}&#39; http://83.136.252.32:43390/search.php
+</code></pre>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/network/">Network</a></li>
+      <li><a href="http://localhost:1313/tags/web/">Web</a></li>
+      <li><a href="http://localhost:1313/tags/security/">Security</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2024 <a href="http://localhost:1313/"></a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

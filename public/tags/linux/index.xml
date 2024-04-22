@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Linux on </title>
+    <link>http://localhost:1313/tags/linux/</link>
+    <description>Recent content in Linux on </description>
+    <generator>Hugo -- 0.125.2</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 21 Apr 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux fundamentals</title>
+      <link>http://localhost:1313/posts/linux-fundamentals/</link>
+      <pubDate>Sun, 21 Apr 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/linux-fundamentals/</guid>
+      <description>Introduction Unix 1970 release by Ken Thompson and Dennis Ritchie
+Berkeley Software Distribution 1977 (copy of unix)
+Richard stallman started the GNU project in 1983
+Create a free Unix-like OS Linux was a personal project started in 1991 by Linus Torvalds
+Create a free OS kernel Today there is more than 600 distributions of linux
+Philosophy Principle Description Everything is a file All configuration files for the various services running on the Linux operating system are stored in one or more text files.</description>
+    </item>
+  </channel>
+</rss>

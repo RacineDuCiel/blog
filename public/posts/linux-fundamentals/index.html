@@ -1,0 +1,1928 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Linux fundamentals | </title>
+<meta name="keywords" content="linux, security">
+<meta name="description" content="Introduction Unix 1970 release by Ken Thompson and Dennis Ritchie
+Berkeley Software Distribution 1977 (copy of unix)
+Richard stallman started the GNU project in 1983
+Create a free Unix-like OS Linux was a personal project started in 1991 by Linus Torvalds
+Create a free OS kernel Today there is more than 600 distributions of linux
+Philosophy Principle Description Everything is a file All configuration files for the various services running on the Linux operating system are stored in one or more text files.">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/posts/linux-fundamentals/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css" integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z&#43;V9&#43;cO1A=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/linux-fundamentals/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+</head>
+
+<body class=" dark" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/notes" title="Notes">
+                    <span>Notes</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/ressources" title="Ressources">
+                    <span>Ressources</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Linux fundamentals
+    </h1>
+    <div class="post-meta"><span title='2024-04-21 00:00:00 +0000 UTC'>April 21, 2024</span>&nbsp;·&nbsp;30 min
+
+</div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#introduction" aria-label="Introduction">Introduction</a><ul>
+                        
+                <li>
+                    <a href="#philosophy" aria-label="Philosophy">Philosophy</a></li>
+                <li>
+                    <a href="#components" aria-label="Components">Components</a></li>
+                <li>
+                    <a href="#linux-architecture" aria-label="Linux Architecture">Linux Architecture</a></li></ul>
+                </li>
+                <li>
+                    <a href="#filter-content" aria-label="Filter content">Filter content</a></li>
+                <li>
+                    <a href="#obtain-information-on-a-function" aria-label="Obtain information on a function">Obtain information on a function</a></li>
+                <li>
+                    <a href="#system-information" aria-label="System information">System information</a></li>
+                <li>
+                    <a href="#find-files-and-directories" aria-label="Find files and directories">Find files and directories</a></li>
+                <li>
+                    <a href="#file-descriptors-and-redirections" aria-label="File Descriptors and Redirections">File Descriptors and Redirections</a></li>
+                <li>
+                    <a href="#regular-expressions" aria-label="Regular expressions">Regular expressions</a></li>
+                <li>
+                    <a href="#permissions-management" aria-label="Permissions management">Permissions management</a><ul>
+                        
+                <li>
+                    <a href="#special-permissions" aria-label="Special permissions">Special permissions</a><ul>
+                        
+                <li>
+                    <a href="#suid-set-user-id" aria-label="SUID (Set User ID):">SUID (Set User ID):</a></li>
+                <li>
+                    <a href="#sgid-set-group-id" aria-label="SGID (Set Group ID):">SGID (Set Group ID):</a></li>
+                <li>
+                    <a href="#sticky-bits" aria-label="Sticky bits">Sticky bits</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#user-management" aria-label="User management">User management</a></li>
+                <li>
+                    <a href="#package-management" aria-label="Package management">Package management</a></li>
+                <li>
+                    <a href="#service-and-process-management" aria-label="Service and Process Management">Service and Process Management</a></li>
+                <li>
+                    <a href="#task-scheduling" aria-label="Task scheduling">Task scheduling</a></li>
+                <li>
+                    <a href="#network-services" aria-label="Network Services">Network Services</a></li>
+                <li>
+                    <a href="#working-with-web-service" aria-label="Working with web service">Working with web service</a></li>
+                <li>
+                    <a href="#backup-and-restore" aria-label="Backup and Restore">Backup and Restore</a></li>
+                <li>
+                    <a href="#file-system-management" aria-label="File system management">File system management</a></li>
+                <li>
+                    <a href="#containerization" aria-label="Containerization">Containerization</a></li>
+                <li>
+                    <a href="#network-configuration" aria-label="Network configuration">Network configuration</a><ul>
+                        
+                <li>
+                    <a href="#access-control" aria-label="Access Control">Access Control</a></li></ul>
+                </li>
+                <li>
+                    <a href="#remote-desktop-protocols-in-linux" aria-label="Remote desktop protocols in Linux">Remote desktop protocols in Linux</a></li>
+                <li>
+                    <a href="#linux-security" aria-label="Linux security">Linux security</a></li>
+                <li>
+                    <a href="#firewall-setup" aria-label="Firewall Setup">Firewall Setup</a></li>
+                <li>
+                    <a href="#system-log" aria-label="System log">System log</a></li>
+                <li>
+                    <a href="#solaris" aria-label="Solaris">Solaris</a></li>
+                <li>
+                    <a href="#tips" aria-label="Tips">Tips</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h2>
+<ul>
+<li>
+<p>Unix 1970 release by Ken Thompson and Dennis Ritchie</p>
+</li>
+<li>
+<p>Berkeley Software Distribution 1977 (copy of unix)</p>
+</li>
+<li>
+<p>Richard stallman started the GNU project in 1983</p>
+<ul>
+<li>Create a free Unix-like OS</li>
+</ul>
+</li>
+<li>
+<p>Linux was a personal project started in 1991 by Linus Torvalds</p>
+<ul>
+<li>Create a free OS kernel</li>
+</ul>
+</li>
+<li>
+<p>Today there is more than 600 distributions of linux</p>
+</li>
+</ul>
+<h3 id="philosophy">Philosophy<a hidden class="anchor" aria-hidden="true" href="#philosophy">#</a></h3>
+<table>
+<thead>
+<tr>
+<th><strong>Principle</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Everything is a file</code></td>
+<td>All configuration files for the various services running on the Linux operating system are stored in one or more text files.</td>
+</tr>
+<tr>
+<td><code>Small, single-purpose programs</code></td>
+<td>Linux offers many different tools that we will work with, which can be combined to work together.</td>
+</tr>
+<tr>
+<td><code>Ability to chain programs together to perform complex tasks</code></td>
+<td>The integration and combination of different tools enable us to carry out many large and complex tasks, such as processing or filtering specific data results.</td>
+</tr>
+<tr>
+<td><code>Avoid captive user interfaces</code></td>
+<td>Linux is designed to work mainly with the shell (or terminal), which gives the user greater control over the operating system.</td>
+</tr>
+<tr>
+<td><code>Configuration data stored in a text file</code></td>
+<td>An example of such a file is the <code>/etc/passwd</code> file, which stores all users registered on the system.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="components">Components<a hidden class="anchor" aria-hidden="true" href="#components">#</a></h3>
+<table>
+<thead>
+<tr>
+<th><strong>Component</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Bootloader</code></td>
+<td>A piece of code that runs to guide the booting process to start the operating system.</td>
+</tr>
+<tr>
+<td><code>OS Kernel</code></td>
+<td>The kernel is the main component of an operating system. It manages the resources for system&rsquo;s I/O devices at the hardware level.</td>
+</tr>
+<tr>
+<td><code>Daemons</code></td>
+<td>A daemon is a background process that runs continuously on Unix-like operating systems such as Linux. They typically start automatically when the system boots up and continue to run until shutdown. Daemons operate silently, providing essential system functionality without direct user interface.</td>
+</tr>
+<tr>
+<td><code>OS Shell</code></td>
+<td>The operating system shell or the command language interpreter (also known as the command line) is the interface between the OS and the user. This interface allows the user to tell the OS what to do. The most commonly used shells are Bash, Tcsh/Csh, Ksh, Zsh, and Fish.</td>
+</tr>
+<tr>
+<td><code>Graphics server</code></td>
+<td>This provides a graphical sub-system (server) called &ldquo;X&rdquo; or &ldquo;X-server&rdquo; that allows graphical programs to run locally or remotely on the X-windowing system.</td>
+</tr>
+<tr>
+<td><code>Window Manager</code></td>
+<td>Also known as a graphical user interface (GUI). There are many options, including GNOME, KDE, MATE, Unity, and Cinnamon. A desktop environment usually has several applications, including file and web browsers. These allow the user to access and manage the essential and frequently accessed features and services of an operating system.</td>
+</tr>
+<tr>
+<td><code>Utilities</code></td>
+<td>Applications or utilities are programs that perform particular functions for the user or another program.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="linux-architecture">Linux Architecture<a hidden class="anchor" aria-hidden="true" href="#linux-architecture">#</a></h3>
+<p>The Linux operating system can be broken down into layers:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Layer</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Hardware</code></td>
+<td>Peripheral devices such as the system&rsquo;s RAM, hard drive, CPU, and others.</td>
+</tr>
+<tr>
+<td><code>Kernel</code></td>
+<td>The core of the Linux operating system whose function is to virtualize and control common computer hardware resources like CPU, allocated memory, accessed data, and others. The kernel gives each process its own virtual resources and prevents/mitigates conflicts between different processes.</td>
+</tr>
+<tr>
+<td><code>Shell</code></td>
+<td>A command-line interpreter (<strong>CLI</strong>), also known as a shell that a user can enter commands into to execute the kernel&rsquo;s functions.</td>
+</tr>
+<tr>
+<td><code>System Utility</code></td>
+<td>Makes available to the user all of the operating system&rsquo;s functionality.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><strong>Path</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/</code></td>
+<td>The top-level directory is the root filesystem and contains all of the files required to boot the operating system before other filesystems are mounted as well as the files required to boot the other filesystems. After boot, all of the other filesystems are mounted at standard mount points as subdirectories of the root.</td>
+</tr>
+<tr>
+<td><code>/bin</code></td>
+<td>Contains essential command binaries.</td>
+</tr>
+<tr>
+<td><code>/boot</code></td>
+<td>Consists of the static bootloader, kernel executable, and files required to boot the Linux OS.</td>
+</tr>
+<tr>
+<td><code>/dev</code></td>
+<td>Contains device files to facilitate access to every hardware device attached to the system.</td>
+</tr>
+<tr>
+<td><code>/etc</code></td>
+<td>Local system configuration files. Configuration files for installed applications may be saved here as well.</td>
+</tr>
+<tr>
+<td><code>/home</code></td>
+<td>Each user on the system has a subdirectory here for storage.</td>
+</tr>
+<tr>
+<td><code>/lib</code></td>
+<td>Shared library files that are required for system boot.</td>
+</tr>
+<tr>
+<td><code>/media</code></td>
+<td>External removable media devices such as USB drives are mounted here.</td>
+</tr>
+<tr>
+<td><code>/mnt</code></td>
+<td>Temporary mount point for regular filesystems.</td>
+</tr>
+<tr>
+<td><code>/opt</code></td>
+<td>Optional files such as third-party tools can be saved here.</td>
+</tr>
+<tr>
+<td><code>/root</code></td>
+<td>The home directory for the root user.</td>
+</tr>
+<tr>
+<td><code>/sbin</code></td>
+<td>This directory contains executables used for system administration (binary system files).</td>
+</tr>
+<tr>
+<td><code>/tmp</code></td>
+<td>The operating system and many programs use this directory to store temporary files. This directory is generally cleared upon system boot and may be deleted at other times without any warning.</td>
+</tr>
+<tr>
+<td><code>/usr</code></td>
+<td>Contains executables, libraries, man files, etc.</td>
+</tr>
+<tr>
+<td><code>/var</code></td>
+<td>This directory contains variable data files such as log files, email in-boxes, web application related files, cron files, and more.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="filter-content">Filter content<a hidden class="anchor" aria-hidden="true" href="#filter-content">#</a></h2>
+<ol>
+<li>
+<p><strong>more</strong>:</p>
+<ul>
+<li>Display output one screen at a time.</li>
+<li>Press spacebar to move forward, &lsquo;q&rsquo; to quit.</li>
+</ul>
+</li>
+<li>
+<p><strong>less</strong>:</p>
+<ul>
+<li>Similar to more but allows scrolling backward and forward.</li>
+<li>Use arrow keys or page up/down for navigation.</li>
+</ul>
+</li>
+<li>
+<p><strong>head</strong>:</p>
+<ul>
+<li>Display the first few lines of a file.</li>
+<li>Syntax: <code>head [options] [file]</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>tail</strong>:</p>
+<ul>
+<li>Display the last few lines of a file.</li>
+<li>Useful for monitoring log files.</li>
+<li>Syntax: <code>tail [options] [file]</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>sort</strong>:</p>
+<ul>
+<li>Sort lines of text files.</li>
+<li>Options include alphabetical, numerical, and reverse sorting.</li>
+</ul>
+</li>
+<li>
+<p><strong>grep</strong>:</p>
+<ul>
+<li>Search for patterns in files.</li>
+<li>Supports regular expressions.</li>
+<li>Syntax: <code>grep [options] [pattern] [file]</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>cut</strong>:</p>
+<ul>
+<li>Extract sections from each line of files.</li>
+<li>Useful for splitting lines by delimiter.</li>
+<li>Syntax: <code>cut [options] [file]</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>tr</strong>:</p>
+<ul>
+<li>Translate or delete characters.</li>
+<li>Syntax: <code>tr [options] [set1] [set2]</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>column -t</strong>:</p>
+<ul>
+<li>Format input into multiple columns.</li>
+<li>Useful for aligning output.</li>
+<li>Syntax: <code>column -t [file]</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>awk</strong>:</p>
+<ul>
+<li>A powerful pattern scanning and processing language.</li>
+<li>Useful for data extraction and reporting.</li>
+<li>Syntax: <code>awk '[pattern] {action}' [file]</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>sed</strong>:</p>
+<ul>
+<li>Stream editor for filtering and transforming text.</li>
+<li>Supports regular expressions and substitution.</li>
+<li>Syntax: <code>sed [options] '[script]' [file]</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>wc -l</strong>:</p>
+<ul>
+<li>Count the number of lines in a file.</li>
+<li>Syntax: <code>wc -l [file]</code>.</li>
+</ul>
+</li>
+</ol>
+<p><strong>&mdash; EXAMPLES &mdash;</strong></p>
+<ol>
+<li>
+<p><strong>more</strong>:</p>
+<ul>
+<li>Example: View the contents of a text file named &ldquo;example.txt&rdquo; using more:
+<pre tabindex="0"><code>more example.txt
+</code></pre></li>
+</ul>
+</li>
+<li>
+<p><strong>less</strong>:</p>
+<ul>
+<li>Example: Scroll through the contents of a log file named &ldquo;logfile.log&rdquo; using less:
+<pre tabindex="0"><code>less logfile.log
+</code></pre></li>
+</ul>
+</li>
+<li>
+<p><strong>head</strong>:</p>
+<ul>
+<li>Example: Display the first 10 lines of a file named &ldquo;data.csv&rdquo; using head:
+<pre tabindex="0"><code>head data.csv
+</code></pre></li>
+</ul>
+</li>
+<li>
+<p><strong>tail</strong>:</p>
+<ul>
+<li>Example: Monitor the last 100 lines of a log file named &ldquo;access.log&rdquo; using tail:
+<pre tabindex="0"><code>tail -n 100 access.log
+</code></pre></li>
+</ul>
+</li>
+<li>
+<p><strong>sort</strong>:</p>
+<ul>
+<li>Example: Sort the lines of a file named &ldquo;unsorted.txt&rdquo; alphabetically and display the result:
+<pre tabindex="0"><code>sort unsorted.txt
+</code></pre></li>
+</ul>
+</li>
+<li>
+<p><strong>grep</strong>:</p>
+<ul>
+<li>Example: Search for lines containing the word &ldquo;error&rdquo; in a file named &ldquo;log.txt&rdquo; using grep:
+<pre tabindex="0"><code>grep &#34;error&#34; log.txt
+</code></pre></li>
+</ul>
+</li>
+<li>
+<p><strong>cut</strong>:</p>
+<ul>
+<li>Example: Extract the second field (delimited by &lsquo;:&rsquo;) from a file named &ldquo;data.txt&rdquo;:
+<pre tabindex="0"><code>cut -d &#39;:&#39; -f 2 data.txt
+</code></pre></li>
+</ul>
+</li>
+<li>
+<p><strong>tr</strong>:</p>
+<ul>
+<li>Example: Convert all lowercase letters to uppercase in a file named &ldquo;text.txt&rdquo;:
+<pre tabindex="0"><code>tr &#39;[:lower:]&#39; &#39;[:upper:]&#39; &lt; text.txt
+</code></pre></li>
+</ul>
+</li>
+<li>
+<p><strong>column -t</strong>:</p>
+<ul>
+<li>Example: Format the contents of a CSV file named &ldquo;table.csv&rdquo; into aligned columns:
+<pre tabindex="0"><code>column -t -s &#39;,&#39; table.csv
+</code></pre></li>
+</ul>
+</li>
+<li>
+<p><strong>awk</strong>:</p>
+<ul>
+<li>Example: Print the first and third columns of a space-separated file named &ldquo;data.txt&rdquo;:
+<pre tabindex="0"><code>awk &#39;{print $1, $3}&#39; data.txt
+</code></pre></li>
+</ul>
+</li>
+<li>
+<p><strong>sed</strong>:</p>
+<ul>
+<li>Example: Replace all occurrences of &ldquo;old&rdquo; with &ldquo;new&rdquo; in a file named &ldquo;text.txt&rdquo;:
+<pre tabindex="0"><code>sed &#39;s/old/new/g&#39; text.txt
+</code></pre></li>
+</ul>
+</li>
+<li>
+<p><strong>wc -l</strong>:</p>
+<ul>
+<li>Example: Count the number of lines in a file named &ldquo;poem.txt&rdquo;:
+<pre tabindex="0"><code>wc -l poem.txt
+</code></pre></li>
+</ul>
+</li>
+</ol>
+<p><strong>Tips:</strong></p>
+<ul>
+<li>Combine commands using pipes (<code>|</code>) for complex operations.</li>
+<li>Utilize redirection (<code>&gt;</code>, <code>&gt;&gt;</code>, <code>&lt;</code>) to manage input and output.</li>
+<li>Refer to man pages (<code>man [command]</code>) for detailed usage and options.</li>
+</ul>
+<h2 id="obtain-information-on-a-function">Obtain information on a function<a hidden class="anchor" aria-hidden="true" href="#obtain-information-on-a-function">#</a></h2>
+<p>man
+apropos
+&ndash;help</p>
+<h2 id="system-information">System information<a hidden class="anchor" aria-hidden="true" href="#system-information">#</a></h2>
+<table>
+<thead>
+<tr>
+<th><strong>Command</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>whoami</code></td>
+<td>Displays current username.</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td>Returns users identity and groups in which the current user is</td>
+</tr>
+<tr>
+<td><code>hostname</code></td>
+<td>Sets or prints the name of current host system.</td>
+</tr>
+<tr>
+<td><code>uname</code></td>
+<td>Prints basic information about the operating system name and system hardware.</td>
+</tr>
+<tr>
+<td><code>pwd</code></td>
+<td>Returns working directory name.</td>
+</tr>
+<tr>
+<td><code>ifconfig</code></td>
+<td>The ifconfig utility is used to assign or to view an address to a network interface and/or configure network interface parameters.</td>
+</tr>
+<tr>
+<td><code>ip</code></td>
+<td>Ip is a utility to show or manipulate routing, network devices, interfaces and tunnels.</td>
+</tr>
+<tr>
+<td><code>netstat</code></td>
+<td>Shows network status.</td>
+</tr>
+<tr>
+<td><code>ss</code></td>
+<td>Another utility to investigate sockets.</td>
+</tr>
+<tr>
+<td><code>ps</code></td>
+<td>Shows process status.</td>
+</tr>
+<tr>
+<td><code>who</code></td>
+<td>Displays who is logged in.</td>
+</tr>
+<tr>
+<td><code>env</code></td>
+<td>Prints environment or sets and executes command.</td>
+</tr>
+<tr>
+<td><code>lsblk</code></td>
+<td>Lists block devices.</td>
+</tr>
+<tr>
+<td><code>lsusb</code></td>
+<td>Lists USB devices</td>
+</tr>
+<tr>
+<td><code>lsof</code></td>
+<td>Lists opened files.</td>
+</tr>
+<tr>
+<td><code>lspci</code></td>
+<td>Lists PCI devices.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="find-files-and-directories">Find files and directories<a hidden class="anchor" aria-hidden="true" href="#find-files-and-directories">#</a></h2>
+<ol>
+<li><strong>find</strong>:
+<ul>
+<li>
+<p>Search for files and directories in a directory hierarchy.</p>
+</li>
+<li>
+<p>Syntax: <code>find [directory] [options] [expression]</code>.</p>
+</li>
+<li>
+<p>Example: Find all files with a .txt extension in the current directory and its subdirectories:</p>
+</li>
+</ul>
+</li>
+</ol>
+<pre tabindex="0"><code>find / -type f -name *.conf -user root -size +20k -newermt 2020-03-03 2&gt;/dev/null
+</code></pre><ol>
+<li>
+<p><strong>which</strong>:</p>
+<ul>
+<li>
+<p>Locate the executable file associated with a given command in the user&rsquo;s PATH.</p>
+</li>
+<li>
+<p>Syntax: <code>which [command]</code>.</p>
+</li>
+<li>
+<p>Example: Find the location of the ls command:</p>
+<pre tabindex="0"><code>which ls
+</code></pre></li>
+</ul>
+</li>
+<li>
+<p><strong>locate</strong>:</p>
+<ul>
+<li>
+<p>Quickly find files by name using a prebuilt database.</p>
+</li>
+<li>
+<p>Syntax: <code>locate [pattern]</code>.</p>
+</li>
+<li>
+<p>Example: Locate all files and directories with &ldquo;example&rdquo; in their name:</p>
+<pre tabindex="0"><code>locate example
+</code></pre></li>
+</ul>
+</li>
+</ol>
+<p><strong>Tips:</strong></p>
+<ul>
+<li>Use wildcards (*) and regular expressions for flexible searching.</li>
+<li>Combine commands with other utilities for more advanced search operations.</li>
+<li>Keep in mind that &rsquo;locate&rsquo; may not always return the most up-to-date results since it relies on a prebuilt database. Use &lsquo;updatedb&rsquo; to update the database if needed.</li>
+</ul>
+<h2 id="file-descriptors-and-redirections">File Descriptors and Redirections<a hidden class="anchor" aria-hidden="true" href="#file-descriptors-and-redirections">#</a></h2>
+<p><strong>File Descriptor:</strong></p>
+<ul>
+<li>In Unix-like operating systems, everything is treated as a file, including input/output streams, devices, and regular files. File descriptors are integer identifiers used to represent these files within a process.</li>
+<li>There are three standard file descriptors:
+<ol>
+<li><strong>stdin (Standard Input)</strong>: File descriptor 0. Default input source, typically keyboard input.</li>
+<li><strong>stdout (Standard Output)</strong>: File descriptor 1. Default output destination, typically terminal output.</li>
+<li><strong>stderr (Standard Error)</strong>: File descriptor 2. Default error output, used for error messages.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Redirection:</strong></p>
+<ul>
+<li>Redirection is a feature in Unix-like operating systems that allows changing where input comes from and where output goes to.</li>
+<li>Redirection operators:
+<ol>
+<li><strong>&gt;</strong>: Redirects standard output to a file, overwriting the file if it exists.</li>
+<li><strong>&raquo;</strong>: Redirects standard output to a file, appending to the end of the file if it exists.</li>
+<li><strong>&lt;</strong>: Redirects standard input from a file.</li>
+<li><strong>2&gt;</strong>: Redirects standard error to a file, overwriting the file if it exists.</li>
+<li><strong>2&raquo;</strong>: Redirects standard error to a file, appending to the end of the file if it exists.</li>
+<li><strong>&amp;&gt;</strong>: Redirects both standard output and standard error to a file, overwriting the file if it exists.</li>
+<li><strong>&amp;&raquo;</strong>: Redirects both standard output and standard error to a file, appending to the end of the file if it exists.</li>
+</ol>
+</li>
+</ul>
+<h2 id="regular-expressions">Regular expressions<a hidden class="anchor" aria-hidden="true" href="#regular-expressions">#</a></h2>
+<p><strong>1. Anchors:</strong></p>
+<ul>
+<li><strong>^</strong>: Start of a line.</li>
+<li><strong>$</strong>: End of a line.</li>
+</ul>
+<p><strong>2. Quantifiers:</strong></p>
+<ul>
+<li><strong>*</strong>: Zero or more occurrences.</li>
+<li><strong>+</strong>: One or more occurrences.</li>
+<li><strong>?</strong>: Zero or one occurrence.</li>
+<li><strong>{n}</strong>: Exactly n occurrences.</li>
+<li><strong>{n,}</strong>: At least n occurrences.</li>
+<li><strong>{n,m}</strong>: Between n and m occurrences.</li>
+</ul>
+<p><strong>3. Character Classes:</strong></p>
+<ul>
+<li><strong>.</strong>: Any character except newline.</li>
+<li><strong>[ ]</strong>: Any single character listed inside.</li>
+<li><strong>[^ ]</strong>: Any single character not listed inside.</li>
+<li><strong>\d</strong>: Any digit (equivalent to [0-9]).</li>
+<li><strong>\D</strong>: Any non-digit.</li>
+<li><strong>\w</strong>: Any word character (alphanumeric + underscore).</li>
+<li><strong>\W</strong>: Any non-word character.</li>
+<li><strong>\s</strong>: Any whitespace character.</li>
+<li><strong>\S</strong>: Any non-whitespace character.</li>
+</ul>
+<p><strong>4. Grouping and Capturing:</strong></p>
+<ul>
+<li><strong>( )</strong>: Grouping. Captures matched text.</li>
+<li><strong>(?: )</strong>: Grouping without capturing.</li>
+<li><strong>\n</strong>: Back-reference to captured group n.</li>
+</ul>
+<p><strong>5. Alternation:</strong></p>
+<ul>
+<li><strong>|</strong>: Alternation (OR operator).</li>
+</ul>
+<p><strong>6. Assertions:</strong></p>
+<ul>
+<li><strong>\b</strong>: Word boundary.</li>
+<li><strong>\B</strong>: Not a word boundary.</li>
+<li><strong>(?= )</strong>: Positive lookahead.</li>
+<li><strong>(?! )</strong>: Negative lookahead.</li>
+<li><strong>(?&lt;= )</strong>: Positive lookbehind.</li>
+<li><strong>(?&lt;! )</strong>: Negative lookbehind.</li>
+</ul>
+<p><strong>7. Escaped Characters:</strong></p>
+<ul>
+<li><strong>\</strong>: Escapes a special character.</li>
+</ul>
+<p><strong>8. Flags:</strong></p>
+<ul>
+<li><strong>g</strong>: Global match (find all matches).</li>
+<li><strong>i</strong>: Case-insensitive match.</li>
+<li><strong>m</strong>: Multiline match.</li>
+</ul>
+<p><strong>Examples:</strong></p>
+<ul>
+<li>
+<p><strong>Match Email Addresses:</strong></p>
+<pre tabindex="0"><code>\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b
+</code></pre></li>
+<li>
+<p><strong>Extract Phone Numbers:</strong></p>
+<pre tabindex="0"><code>\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}
+</code></pre></li>
+<li>
+<p><strong>Find HTML Tags:</strong></p>
+<pre tabindex="0"><code>&lt;[^&gt;]*&gt;
+</code></pre></li>
+</ul>
+<h2 id="permissions-management">Permissions management<a hidden class="anchor" aria-hidden="true" href="#permissions-management">#</a></h2>
+<p>These permissions are shown utilizing the <code>octal</code> or Base 8 (0-7) numbering system. They are used to apply the <code>read</code>, <code>write</code>, and <code>execute</code> attributes to the contexts of <code>User owner</code>, <code>Group owner</code>, and <code>Others</code> on a file. These are represented as:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Attribute</strong></th>
+<th><strong>Octal Value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(<code>r</code>) - Read</td>
+<td><code>Octal value of 4</code></td>
+</tr>
+<tr>
+<td>(<code>w</code>) - Write</td>
+<td><code>Octal value of 2</code></td>
+</tr>
+<tr>
+<td>(<code>x</code>) - Execute</td>
+<td><code>Octal value of 1</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>chmod</strong>: Change file permissions.
+<ul>
+<li>Example: <code>chmod 777 &lt;file&gt;</code></li>
+</ul>
+</li>
+<li><strong>chown</strong>: Change file ownership.
+<ul>
+<li>Example: <code>sudo chown &lt;new_user&gt; &lt;file&gt;</code></li>
+<li>Example: <code>sudo chown &lt;new_user&gt;:&lt;new_group&gt; &lt;file&gt;</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="special-permissions">Special permissions<a hidden class="anchor" aria-hidden="true" href="#special-permissions">#</a></h3>
+<h4 id="suid-set-user-id">SUID (Set User ID):<a hidden class="anchor" aria-hidden="true" href="#suid-set-user-id">#</a></h4>
+<ul>
+<li>When a file has the SUID bit set, it will be executed with the privileges of the file&rsquo;s owner, rather than the user who is executing it.</li>
+<li>For example, if an executable file belongs to the user &ldquo;root&rdquo; and has the SUID bit set, when another user executes this file, it will be run with the privileges of the &ldquo;root&rdquo; user.</li>
+<li>This can be useful to allow ordinary users to execute programs with specific privileges without granting direct access to those privileges.</li>
+</ul>
+<h4 id="sgid-set-group-id">SGID (Set Group ID):<a hidden class="anchor" aria-hidden="true" href="#sgid-set-group-id">#</a></h4>
+<ul>
+<li>When a file has the SGID bit set, it is executed with the privileges of the file&rsquo;s group owner, instead of the executing user&rsquo;s primary group.</li>
+<li>This allows a file to be executed with the same privileges as the owning group, regardless of the user&rsquo;s primary group.</li>
+</ul>
+<p>The letter <strong><code>s</code></strong> is used instead of an <strong><code>x</code></strong>. When executing such a program, the SUID/SGID of the file owner is used.</p>
+<h4 id="sticky-bits">Sticky bits<a hidden class="anchor" aria-hidden="true" href="#sticky-bits">#</a></h4>
+<p><strong>Files:</strong>
+For files, the sticky bit doesn&rsquo;t have a specific meaning. Its usage is primarily reserved for directories.</p>
+<p><strong>Directories:</strong>
+- When the sticky bit is set on a directory, it means that only the file owner, the directory owner, or the root user can delete or rename files within that directory.
+-
+- This provides an additional layer of security in shared directories where multiple users have write permissions. Without the sticky bit, any user with write permissions could delete or rename any file in the directory.
+-
+- With the sticky bit enabled, only authorized users can modify or delete files, thus ensuring data integrity and protecting important files from accidental deletions.</p>
+<p>The letter <strong><code>t</code></strong> or <strong><code>T</code></strong> is used instead of an <strong><code>x</code></strong>.</p>
+<ul>
+<li><strong>&ldquo;t&rdquo;</strong>: Other users have permission to execute (access) the directory and its files.</li>
+<li><strong>&ldquo;T&rdquo;</strong>: Other users do not have permission to execute (access) the directory, but the properties of the sticky bit for file deletion and renaming remain in place.</li>
+</ul>
+<h2 id="user-management">User management<a hidden class="anchor" aria-hidden="true" href="#user-management">#</a></h2>
+<table>
+<thead>
+<tr>
+<th><strong>Command</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sudo</code></td>
+<td>Execute command as a different user.</td>
+</tr>
+<tr>
+<td><code>su</code></td>
+<td>The <code>su</code> utility requests appropriate user credentials via PAM and switches to that user ID (the default user is the superuser). A shell is then executed.</td>
+</tr>
+<tr>
+<td><code>useradd</code></td>
+<td>Creates a new user or update default new user information.</td>
+</tr>
+<tr>
+<td><code>userdel</code></td>
+<td>Deletes a user account and related files.</td>
+</tr>
+<tr>
+<td><code>usermod</code></td>
+<td>Modifies a user account.</td>
+</tr>
+<tr>
+<td><code>addgroup</code></td>
+<td>Adds a group to the system.</td>
+</tr>
+<tr>
+<td><code>delgroup</code></td>
+<td>Removes a group from the system.</td>
+</tr>
+<tr>
+<td><code>passwd</code></td>
+<td>Changes user password.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="package-management">Package management<a hidden class="anchor" aria-hidden="true" href="#package-management">#</a></h2>
+<table>
+<thead>
+<tr>
+<th><strong>Command</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dpkg</code></td>
+<td>The <code>dpkg</code> is a tool to install, build, remove, and manage Debian packages. The primary and more user-friendly front-end for <code>dpkg</code> is aptitude.</td>
+</tr>
+<tr>
+<td><code>apt</code></td>
+<td>Apt provides a high-level command-line interface for the package management system.</td>
+</tr>
+<tr>
+<td><code>aptitude</code></td>
+<td>Aptitude is an alternative to apt and is a high-level interface to the package manager.</td>
+</tr>
+<tr>
+<td><code>snap</code></td>
+<td>Install, configure, refresh, and remove snap packages. Snaps enable the secure distribution of the latest apps and utilities for the cloud, servers, desktops, and the internet of things.</td>
+</tr>
+<tr>
+<td><code>gem</code></td>
+<td>Gem is the front-end to RubyGems, the standard package manager for Ruby.</td>
+</tr>
+<tr>
+<td><code>pip</code></td>
+<td>Pip is a Python package installer recommended for installing Python packages that are not available in the Debian archive. It can work with version control repositories (currently only Git, Mercurial, and Bazaar repositories), logs output extensively, and prevents partial installs by downloading all requirements before starting installation.</td>
+</tr>
+<tr>
+<td><code>git</code></td>
+<td>Git is a fast, scalable, distributed revision control system with an unusually rich command set that provides both high-level operations and full access to internals.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="service-and-process-management">Service and Process Management<a hidden class="anchor" aria-hidden="true" href="#service-and-process-management">#</a></h2>
+<ul>
+<li>
+<p><strong>Types of Services</strong>:</p>
+<ul>
+<li>Internal services: Essential tasks required at system startup, often hardware-related.</li>
+<li>User-installed services: Includes server services, run in the background without user interaction, also known as daemons.</li>
+</ul>
+</li>
+<li>
+<p><strong>Identifying Daemons</strong>:</p>
+<ul>
+<li>Daemons are recognized by the letter &rsquo;d&rsquo; at the end of their program names, e.g., sshd or systemd.</li>
+</ul>
+</li>
+<li>
+<p><strong>Systemd</strong>:</p>
+<ul>
+<li>Most Linux distributions now use systemd as the init process, with PID 1.</li>
+<li>Responsible for orderly starting and stopping of services, monitoring other processes.</li>
+</ul>
+</li>
+<li>
+<p><strong>Process Management</strong>:</p>
+<ul>
+<li>Each process has a unique Process ID (PID), visible under /proc/.</li>
+<li>Processes may have a Parent Process ID (PPID), indicating their relationship to other processes.</li>
+</ul>
+</li>
+<li>
+<p><strong>Service Management Tools</strong>:</p>
+<ul>
+<li><code>systemctl</code>: Main command-line utility for managing services with systemd.</li>
+<li><code>update-rc.d</code>: Tool for managing SysV init script links, offering similar functionality to systemctl for older init systems.</li>
+</ul>
+</li>
+<li>
+<p>We can use journalctl to view the log if a service do not start due to an error</p>
+</li>
+</ul>
+<p><strong>Kill a process</strong></p>
+<ol>
+<li>
+<p><strong>kill</strong>: Sends signals to processes, typically used to terminate them. Syntax: <code>kill [options] PID</code>.</p>
+</li>
+<li>
+<p><strong>pkill</strong>: Searches and kills processes based on their names or attributes. Syntax: <code>pkill [options] pattern</code>.</p>
+</li>
+<li>
+<p><strong>pgrep</strong>: Searches for processes based on their names or attributes and prints their PIDs. Syntax: <code>pgrep [options] pattern</code>.</p>
+</li>
+<li>
+<p><strong>killall</strong>: Terminates processes by their names. Syntax: <code>killall [options] process_name</code>.</p>
+</li>
+</ol>
+<p>The most commonly used signals are (signals are sent to the kernel):</p>
+<table>
+<thead>
+<tr>
+<th><strong>Signal</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>1</code></td>
+<td><code>SIGHUP</code> - This is sent to a process when the terminal that controls it is closed.</td>
+</tr>
+<tr>
+<td><code>2</code></td>
+<td><code>SIGINT</code> - Sent when a user presses <code>[Ctrl] + C</code> in the controlling terminal to interrupt a process.</td>
+</tr>
+<tr>
+<td><code>3</code></td>
+<td><code>SIGQUIT</code> - Sent when a user presses <code>[Ctrl] + D</code> to quit.</td>
+</tr>
+<tr>
+<td><code>9</code></td>
+<td><code>SIGKILL</code> - Immediately kill a process with no clean-up operations.</td>
+</tr>
+<tr>
+<td><code>15</code></td>
+<td><code>SIGTERM</code> - Program termination.</td>
+</tr>
+<tr>
+<td><code>19</code></td>
+<td><code>SIGSTOP</code> - Stop the program. It cannot be handled anymore.</td>
+</tr>
+<tr>
+<td><code>20</code></td>
+<td><code>SIGTSTP</code> - Sent when a user presses <code>[Ctrl] + Z</code> to request for a service to suspend. The user can handle it afterward.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Background a Process:</strong></p>
+<ul>
+<li>To suspend a process and put it in the background, use <code>[Ctrl + Z]</code>.</li>
+<li>View background processes with <code>jobs</code>.</li>
+<li>Resume a suspended process in the background with <code>bg</code>.</li>
+<li>Alternatively, append <code>&amp;</code> to a command to automatically run it in the background.</li>
+</ul>
+<p><strong>Foreground a Process:</strong></p>
+<ul>
+<li>View background processes with <code>jobs</code>.</li>
+<li>Bring a background process to the foreground with <code>fg &lt;ID&gt;</code>.</li>
+</ul>
+<p><strong>Execute Multiple Commands:</strong></p>
+<ul>
+<li>Use semicolon <code>;</code> to separate commands, executing them sequentially.</li>
+<li>Double ampersand <code>&amp;&amp;</code> executes commands sequentially, stopping if an error occurs.</li>
+<li>Pipes <code>|</code> execute commands based on previous processes&rsquo; results.</li>
+</ul>
+<h2 id="task-scheduling">Task scheduling<a hidden class="anchor" aria-hidden="true" href="#task-scheduling">#</a></h2>
+<p><strong>Systemd:</strong></p>
+<ol>
+<li>
+<p><strong>Create a Timer:</strong></p>
+<ul>
+<li>Make a directory for the timer script.</li>
+<li>Create a timer script with &ldquo;Unit&rdquo;, &ldquo;Timer&rdquo;, and &ldquo;Install&rdquo; options.</li>
+<li>Specify timing settings in the timer script.</li>
+</ul>
+</li>
+<li>
+<p><strong>Create a Service:</strong></p>
+<ul>
+<li>Set a description and specify the script&rsquo;s full path in the service script.</li>
+<li>Define the target for installation.</li>
+</ul>
+</li>
+<li>
+<p><strong>Reload Systemd:</strong></p>
+<ul>
+<li>Use <code>sudo systemctl daemon-reload</code> to apply changes.</li>
+</ul>
+</li>
+<li>
+<p><strong>Start the Timer &amp; Service:</strong></p>
+<ul>
+<li>Manually start the service with <code>sudo systemctl start &lt;service_name&gt;</code>.</li>
+<li>Enable autostart with <code>sudo systemctl enable &lt;service_name&gt;</code>.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Cron:</strong></p>
+<ol>
+<li><strong>Create a Cron File:</strong>
+<ul>
+<li>Use <code>crontab -e</code> to edit the cron table.</li>
+<li>Define tasks using time frames for minutes, hours, days of the month, months, and days of the week.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Example Cron File:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span># System Update
+</span></span><span style="display:flex;"><span>* */6 * * * /path/to/update_software.sh
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># Execute scripts
+</span></span><span style="display:flex;"><span>0 0 1 * * /path/to/scripts/run_scripts.sh
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># Cleanup DB
+</span></span><span style="display:flex;"><span>0 0 * * 0 /path/to/scripts/clean_database.sh
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># Backups
+</span></span><span style="display:flex;"><span>0 0 * * 7 /path/to/scripts/backup.sh
+</span></span></code></pre></div><p><strong>Systemd vs. Cron:</strong></p>
+<ul>
+<li><strong>Systemd:</strong> Requires timer and service scripts; offers precise control over timing and execution.</li>
+<li><strong>Cron:</strong> Uses cron table for task scheduling; simpler syntax but less flexible than systemd.</li>
+</ul>
+<h2 id="network-services">Network Services<a hidden class="anchor" aria-hidden="true" href="#network-services">#</a></h2>
+<p><strong>SSH (Secure Shell):</strong></p>
+<ul>
+<li><strong>Description:</strong> Securely transmit data and commands over a network.</li>
+<li><strong>Check Status:</strong> <code>systemctl status ssh</code></li>
+<li><strong>Login Command:</strong> <code>ssh username@hostname</code></li>
+</ul>
+<p><strong>NFS (Network File System):</strong></p>
+<ul>
+<li>
+<p><strong>Description:</strong> NFS is a distributed file system protocol that allows users to access files and directories stored on remote systems over a network as if they were local.</p>
+</li>
+<li>
+<p><strong>Share Creation:</strong> Edit the <code>/etc/exports</code> file to define which directories should be shared and specify access rights for users and systems. Each line in this file represents a shared directory and its associated settings.</p>
+</li>
+<li>
+<p><strong>Mounting a Share:</strong> To access a shared directory from a remote system, use the <code>mount</code> command followed by the IP address of the server and the path to the shared directory. For example, <code>mount &lt;server_ip&gt;:/path/to/share /mount/point</code>.</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong>Permissions</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>rw</code></td>
+<td>Gives users and systems read and write permissions to the shared directory.</td>
+</tr>
+<tr>
+<td><code>ro</code></td>
+<td>Gives users and systems read-only access to the shared directory.</td>
+</tr>
+<tr>
+<td><code>no_root_squash</code></td>
+<td>Prevents the root user on the client from being restricted to the rights of a normal user.</td>
+</tr>
+<tr>
+<td><code>root_squash</code></td>
+<td>Restricts the rights of the root user on the client to the rights of a normal user.</td>
+</tr>
+<tr>
+<td><code>sync</code></td>
+<td>Synchronizes the transfer of data to ensure that changes are only transferred after they have been saved on the file system.</td>
+</tr>
+<tr>
+<td><code>async</code></td>
+<td>Transfers data asynchronously, which makes the transfer faster, but may cause inconsistencies in the file system if changes have not been fully committed.</td>
+</tr>
+</tbody>
+</table>
+<p>Example :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell-session" data-lang="shell-session"><span style="display:flex;"><span>cry0l1t3@htb:~$ mkdir nfs_sharing
+</span></span><span style="display:flex;"><span>cry0l1t3@htb:~$ echo &#39;/home/cry0l1t3/nfs_sharing  hostname(rw,sync,no_root_squash)&#39; &gt;&gt; /etc/exports
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell-session" data-lang="shell-session"><span style="display:flex;"><span>cry0l1t3@htb:~$ mkdir ~/target_nfs
+</span></span><span style="display:flex;"><span>cry0l1t3@htb:~$ mount 10.129.12.17:/home/john/dev_scripts ~/target_nfs
+</span></span></code></pre></div><p><strong>Web Server (Apache &amp; Python):</strong></p>
+<ul>
+<li><strong>Description:</strong> Web servers like Apache and Python&rsquo;s built-in HTTP server facilitate hosting websites and web applications over the internet. Apache is a widely-used web server with extensive features, while Python&rsquo;s HTTP server is lightweight and suitable for simple tasks.</li>
+<li><strong>Check Status:</strong> Use <code>systemctl status apache2</code> to verify if Apache is running. This command provides information about the status of the Apache service.</li>
+<li><strong>Configuration File:</strong> Apache&rsquo;s main configuration file is located at <code>/etc/apache2/apache2.conf</code>. Here, you can customize settings such as directory access permissions, virtual hosts, and modules.</li>
+<li><strong>Python Web Server:</strong> Python&rsquo;s built-in HTTP server can be started using <code>python3 -m http.server</code>. This starts a simple web server serving files from the current directory. Python Web Server will be started on the <code>TCP/8000</code> port.</li>
+<li><strong>Python Web Server with Directory:</strong> To specify a directory for Python&rsquo;s HTTP server, use <code>python3 -m http.server --directory /path/to/directory</code>. This serves files from the specified directory.</li>
+</ul>
+<p><strong>VPN (Virtual Private Network - OpenVPN):</strong></p>
+<ul>
+<li><strong>Description:</strong> VPNs provide secure communication over public networks by creating encrypted tunnels between the client and server, allowing users to access resources securely.</li>
+<li><strong>Server Configuration:</strong> OpenVPN server configuration is done through the <code>/etc/openvpn/server.conf</code> file. Here, you can specify settings such as encryption, tunneling, and network routing.</li>
+<li><strong>Client Connection:</strong> To connect to an OpenVPN server, use <code>sudo openvpn --config client.ovpn</code>, where &ldquo;client.ovpn&rdquo; is the configuration file provided by the server. This initiates the VPN connection from the client to the server.</li>
+</ul>
+<h2 id="working-with-web-service">Working with web service<a hidden class="anchor" aria-hidden="true" href="#working-with-web-service">#</a></h2>
+<p><strong>cURL</strong></p>
+<ul>
+<li><strong>Usage</strong>: <code>curl [URL]</code></li>
+<li><strong>Functionality</strong>: Transfer files over various protocols like HTTP, HTTPS, FTP, SFTP, FTPS, or SCP.</li>
+<li><strong>Importance</strong>: Facilitates remote website control and testing. Often pre-installed on Linux systems.</li>
+</ul>
+<p><strong>wget</strong></p>
+<ul>
+<li><strong>Usage</strong>: <code>wget [URL]</code></li>
+<li><strong>Functionality</strong>: Download files from FTP or HTTP servers directly to the terminal.</li>
+<li><strong>Difference from cURL</strong>: Content is downloaded and stored locally.</li>
+</ul>
+<h2 id="backup-and-restore">Backup and Restore<a hidden class="anchor" aria-hidden="true" href="#backup-and-restore">#</a></h2>
+<ul>
+<li><strong>Rsync</strong>:
+<ul>
+<li>Open-source tool for quick and secure backup of files and folders.</li>
+<li>Efficient for transferring large data over networks, transmitting only changes.</li>
+</ul>
+</li>
+<li><strong>Deja Dup</strong>:
+<ul>
+<li>Graphical backup tool simplifying the backup process with a user-friendly interface.</li>
+<li>Uses Rsync as a backend and supports encryption.</li>
+</ul>
+</li>
+<li><strong>Duplicity</strong>:
+<ul>
+<li>Comprehensive backup tool utilizing Rsync backend.</li>
+<li>Offers encryption options and supports storing backups on remote storage.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Basic Rsync Commands</strong></p>
+<ul>
+<li>
+<p><strong>Backup a Directory</strong>:</p>
+<pre tabindex="0"><code>rsync -av /path/to/source user@backup_server:/path/to/destination
+</code></pre><ul>
+<li><code>-z</code>: Enable compression for faster transfers.</li>
+<li><code>--backup --backup-dir=/path/to/backup/folder --delete</code>: Create incremental backups and delete files not present in the source.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Restoring Data from Backup</strong></p>
+<pre tabindex="0"><code>rsync -av user@backup_server:/path/to/backup/directory /path/to/destination
+</code></pre><p><strong>Secure Transfer with Rsync</strong></p>
+<pre tabindex="0"><code>rsync -avz -e ssh /path/to/source user@backup_server:/path/to/destination
+</code></pre><ul>
+<li>Utilizes SSH encryption for secure transfer.</li>
+</ul>
+<p><strong>Auto-Synchronization with Cron and Rsync</strong></p>
+<ul>
+<li><strong>Create Script</strong>:
+<ul>
+<li>Create a script (e.g., <code>RSYNC_Backup.sh</code>) containing the rsync command.</li>
+<li>Ensure script execution permissions: <code>chmod +x RSYNC_Backup.sh</code></li>
+</ul>
+</li>
+<li><strong>Configure Cron Job</strong>:
+<ul>
+<li>Edit crontab to run the script at desired intervals.</li>
+<li>Example crontab entry: <code>0 * * * * /path/to/RSYNC_Backup.sh</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="file-system-management">File system management<a hidden class="anchor" aria-hidden="true" href="#file-system-management">#</a></h2>
+<ul>
+<li><strong>ext2:</strong> Basic file system management.</li>
+<li><strong>ext3:</strong> Journaling file system, improves reliability.</li>
+<li><strong>ext4:</strong> Successor to ext3 with improved performance and features.</li>
+<li><strong>XFS:</strong> High-performance file system suitable for large storage.</li>
+<li><strong>Btrfs:</strong> Modern file system with features like snapshots and data integrity.</li>
+<li><strong>NTFS:</strong> Compatibility with Windows systems.</li>
+</ul>
+<p><strong>Components of Linux File System:</strong></p>
+<ul>
+<li><strong>Inode Table:</strong> Contains metadata about files and directories.</li>
+<li><strong>Regular Files:</strong> Common files stored in the root directory.</li>
+<li><strong>Directories:</strong> Containers for collections of files.</li>
+<li><strong>Symbolic Links:</strong> References to other files or directories.</li>
+</ul>
+<p><strong>Disk Management Tools:</strong></p>
+<ul>
+<li><strong>fdisk:</strong> Create, delete, and manage partitions on drives.</li>
+<li><strong>gpart:</strong> Another tool for partition management.</li>
+<li><strong>GParted:</strong> GUI-based partition editor.</li>
+</ul>
+<p><strong>Mounting File Systems:</strong></p>
+<ul>
+<li><strong>mount:</strong> Attach a drive to a directory.</li>
+<li><strong>/etc/fstab:</strong> Defines default file systems mounted at boot time.</li>
+<li><strong>mount</strong> command alone displays currently mounted file systems.</li>
+</ul>
+<p><strong>Mounting Examples:</strong></p>
+<ul>
+<li><code>sudo mount /dev/sdb1 /mnt/usb</code>: Mount USB drive to directory.</li>
+<li><code>sudo umount /mnt/usb</code>: Unmount a file system.</li>
+<li>Ensure permissions and no running processes before unmounting.</li>
+</ul>
+<p><strong>Swap Space Management:</strong></p>
+<ul>
+<li>Used for memory management when physical memory is depleted.</li>
+<li>Created with <code>mkswap</code> and activated with <code>swapon</code>.</li>
+<li>Size depends on system memory and usage.</li>
+<li>Place on dedicated partition or file separate from the rest of the file system.</li>
+<li>Can be encrypted for security.</li>
+<li>Used for hibernation to save and restore system state.</li>
+</ul>
+<p><strong>Example /etc/fstab Entry:</strong></p>
+<p>The <code>/etc/fstab</code> file contains information about all the file systems that are mounted on the system, including the options for automatic mounting at boot time and other mount options. To unmount a file system automatically at shutdown, we need to add the <code>noauto</code> option to the entry in the <code>/etc/fstab</code> file for that file system. This would look like, for example, the following:</p>
+<pre tabindex="0"><code>/dev/sda1 / ext4 defaults 0 0
+/dev/sda2 /home ext4 defaults 0 0
+/dev/sdb1 /mnt/usb ext4 rw,noauto,user 0 0
+192.168.1.100:/nfs /mnt/nfs nfs defaults 0 0
+</code></pre><h2 id="containerization">Containerization<a hidden class="anchor" aria-hidden="true" href="#containerization">#</a></h2>
+<p><strong>Overview:</strong></p>
+<ul>
+<li>Containerization is the process of packaging and running applications in isolated environments</li>
+<li>Key technologies: Docker, Docker Compose, Linux Containers.</li>
+</ul>
+<p><strong>Container Security:</strong></p>
+<ul>
+<li>Containers offer secure environments by isolating applications from the host system and other containers.</li>
+<li>Lightweight nature enhances security, making them harder to compromise compared to traditional virtual machines.</li>
+</ul>
+<p><strong>Docker:</strong></p>
+<ul>
+<li>Open-source platform automating application deployment using containers.</li>
+<li>Utilizes layered filesystem and resource isolation for flexibility and portability.</li>
+<li>Docker Hub: Repository for Docker images, public and private areas available.</li>
+<li>Dockerfile: Contains instructions for building Docker images.</li>
+<li>Docker Build: Command for building Docker images.</li>
+<li>Docker Run: Command for starting containers from Docker images.</li>
+</ul>
+<p><strong>Docker Management:</strong></p>
+<ul>
+<li>Docker provides tools for listing, starting, stopping, and managing containers efficiently.</li>
+<li>Key commands: docker ps, docker stop/start/restart, docker rm/rmi, docker logs.</li>
+</ul>
+<p><strong>Linux Containers (LXC):</strong></p>
+<ul>
+<li>Virtualization technology allowing multiple isolated Linux systems on a single host.</li>
+<li>Uses features like cgroups and namespaces for resource isolation.</li>
+<li>Combined with Docker for a comprehensive containerization experience.</li>
+<li>LXC installation: Use package manager (e.g., apt-get).</li>
+</ul>
+<p><strong>Managing LXC Containers:</strong></p>
+<ul>
+<li>Tasks include creating, configuring, starting, stopping, and monitoring containers.</li>
+<li>Command-line tools: lxc-ls, lxc-stop/start/restart, lxc-config, lxc-attach.</li>
+</ul>
+<p><strong>Securing LXC:</strong></p>
+<ul>
+<li>Implement measures like restricting access, limiting resources, isolating containers, enforcing access control, and keeping containers updated.</li>
+<li>Use cgroups to limit CPU and memory usage for containers.</li>
+<li>Leverage namespaces for isolation of processes, network interfaces, and file systems.</li>
+</ul>
+<p><strong>Additional Tips:</strong></p>
+<ul>
+<li>Containers are useful for testing software or systems with specific dependencies or configurations.</li>
+<li>Use containers to test exploits or malware safely in controlled environments.</li>
+<li>Always configure container security to prevent unauthorized access or malicious activities.</li>
+<li>Namespaces provide isolation for processes, network interfaces, and file systems, enhancing security.</li>
+</ul>
+<h2 id="network-configuration">Network configuration<a hidden class="anchor" aria-hidden="true" href="#network-configuration">#</a></h2>
+<ul>
+<li>
+<p><strong>Tools:</strong> ifconfig, ip command (preferred nowadays).</p>
+</li>
+<li>
+<p><strong>Commands:</strong></p>
+<ul>
+<li><code>ifconfig</code>: View and configure network interfaces (deprecated).</li>
+<li><code>ip addr</code>: View and configure network interfaces (modern approach).</li>
+</ul>
+</li>
+<li>
+<p><strong>Activation:</strong></p>
+<ul>
+<li><code>sudo ifconfig eth0 up</code> or <code>sudo ip link set eth0 up</code>: Activate network interface <code>eth0</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Assigning IP Address:</strong></p>
+<ul>
+<li><code>sudo ifconfig eth0 &lt;IP_Address&gt;</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Setting Netmask:</strong></p>
+<ul>
+<li><code>sudo ifconfig eth0 netmask &lt;Netmask&gt;</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Assigning Default Gateway:</strong></p>
+<ul>
+<li><code>sudo route add default gw &lt;Gateway_IP&gt; eth0</code></li>
+</ul>
+</li>
+</ul>
+<p><strong>Editing DNS Settings:</strong></p>
+<ul>
+<li>
+<p><strong>File:</strong> <code>/etc/resolv.conf</code></p>
+</li>
+<li>
+<p><strong>Example:</strong></p>
+<pre tabindex="0"><code>nameserver 8.8.8.8
+nameserver 8.8.4.4
+</code></pre></li>
+<li>
+<p><strong>Edit Command:</strong> <code>sudo vim /etc/resolv.conf</code></p>
+</li>
+</ul>
+<p><strong>Saving Configuration Changes:</strong></p>
+<ul>
+<li>
+<p><strong>File:</strong> <code>/etc/network/interfaces</code></p>
+</li>
+<li>
+<p><strong>Example:</strong></p>
+<pre tabindex="0"><code>auto eth0
+iface eth0 inet static
+  address 192.168.1.2
+  netmask 255.255.255.0
+  gateway 192.168.1.1
+  dns-nameservers 8.8.8.8 8.8.4.4
+</code></pre></li>
+<li>
+<p><strong>Edit Command:</strong> <code>sudo vim /etc/network/interfaces</code></p>
+</li>
+<li>
+<p><strong>Restart Networking Service:</strong> <code>sudo systemctl restart networking</code></p>
+</li>
+</ul>
+<h3 id="access-control">Access Control<a hidden class="anchor" aria-hidden="true" href="#access-control">#</a></h3>
+<p><strong>Discretionary Access Control (DAC):</strong></p>
+<ul>
+<li><strong>Overview:</strong> DAC is one of the most common access control models, allowing users to control access to their resources. It grants users discretion over who can access their files, folders, or resources, and what actions they can perform on them.</li>
+<li><strong>User Control:</strong> Owners of resources decide who can access their resources and what permissions they have.</li>
+<li><strong>Flexibility:</strong> Offers flexibility as users can grant permissions to other users or groups based on their preferences.</li>
+<li><strong>Example:</strong> In a DAC system, a file owner can specify that only certain users or groups have permission to read or modify the file.</li>
+</ul>
+<p><strong>Mandatory Access Control (MAC):</strong></p>
+<ul>
+<li><strong>Overview:</strong> MAC provides a more rigid access control mechanism than DAC. It is typically used in high-security environments such as government or military systems.</li>
+<li><strong>Rule-Based:</strong> Access decisions are based on predefined rules or policies rather than the discretion of resource owners.</li>
+<li><strong>Labeling:</strong> Resources and users are assigned security labels or levels, and access is granted based on these labels.</li>
+<li><strong>Enforcement:</strong> The system enforces access controls based on the security labels, ensuring that users can only access resources with compatible labels.</li>
+<li><strong>Example:</strong> In a MAC system, a user with a &ldquo;Top Secret&rdquo; clearance can only access files labeled as &ldquo;Top Secret&rdquo; or lower.</li>
+</ul>
+<p><strong>Role-Based Access Control (RBAC):</strong></p>
+<ul>
+<li><strong>Overview:</strong> RBAC assigns permissions to users based on their roles within an organization or system.</li>
+<li><strong>Roles:</strong> Users are assigned roles based on their job responsibilities, and each role is associated with a set of permissions.</li>
+<li><strong>Simplicity:</strong> Simplifies access control management by organizing permissions based on roles rather than individual users.</li>
+<li><strong>Granularity:</strong> Provides a finer level of access control compared to DAC but may not be as strict as MAC.</li>
+<li><strong>Example:</strong> In an RBAC system, a network administrator role might have permissions to configure network devices, while a guest user role might only have permissions to access public resources.</li>
+</ul>
+<p><strong>Network Access Control (NAC) vs. Basic Linux Permissions:</strong></p>
+<ul>
+<li>
+<p><strong>Basic Linux Permissions:</strong> Control access to files and resources locally on a system based on user permissions.</p>
+</li>
+<li>
+<p><strong>NAC Systems:</strong> Extend control to network access, offering several advantages:</p>
+<ol>
+<li>
+<p><strong>Granular Control:</strong> Define policies for network access based on user identity, device type, location, and security posture.</p>
+</li>
+<li>
+<p><strong>Dynamic Access:</strong> Adjust access privileges in real-time based on changes in the network environment.</p>
+</li>
+<li>
+<p><strong>Integration:</strong> Work with other security tools like IDS/IPS, firewalls, and SIEM systems to enhance security.</p>
+</li>
+<li>
+<p><strong>Compliance Enforcement:</strong> Ensure compliance with organizational policies and regulatory requirements.</p>
+</li>
+<li>
+<p><strong>Visibility:</strong> Provide visibility into devices and users accessing the network, aiding in monitoring and auditing.</p>
+</li>
+<li>
+<p><strong>Quarantine and Remediation:</strong> Automatically quarantine compromised devices and initiate remediation actions in case of security incidents or policy violations.</p>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>Overall:</strong> While Linux permissions control local access, NAC systems enhance security, compliance, and visibility across the entire network infrastructure.</p>
+</li>
+</ul>
+<p><strong>Hardening</strong></p>
+<ul>
+<li>SELinux</li>
+<li>AppArmor</li>
+<li>TCP wrappers</li>
+</ul>
+<h2 id="remote-desktop-protocols-in-linux">Remote desktop protocols in Linux<a hidden class="anchor" aria-hidden="true" href="#remote-desktop-protocols-in-linux">#</a></h2>
+<ol>
+<li>
+<p><strong>Introduction to Remote Desktop Protocols:</strong></p>
+<ul>
+<li>Remote desktop protocols enable graphical remote access to systems.</li>
+<li>Used for troubleshooting, system upgrading, and remote administration.</li>
+</ul>
+</li>
+<li>
+<p><strong>XServer (X11):</strong></p>
+<ul>
+<li>XServer is part of the X Window System for Unix/Linux.</li>
+<li>Facilitates communication between graphical user interface and OS.</li>
+<li>Utilizes TCP/IP or Unix sockets for network transparency.</li>
+<li>Ports typically range from TCP/6001-6009.</li>
+<li>Can be accessed remotely without additional protocols on Unix/Linux systems.</li>
+<li>X11 communication is unencrypted, posing security risks.</li>
+<li>Vulnerabilities in XServer (e.g., CVE-2017-2624) can lead to unauthorized access.</li>
+<li>SSH tunneling can secure X11 communication by enabling X11 forwarding.</li>
+</ul>
+</li>
+<li>
+<p><strong>XDMCP (X Display Manager Control Protocol):</strong></p>
+<ul>
+<li>Facilitates remote X Window sessions on Unix/Linux machines.</li>
+<li>Communicates over UDP port 177.</li>
+<li>Vulnerable to man-in-the-middle attacks and should not be used in high-security environments.</li>
+</ul>
+</li>
+<li>
+<p><strong>VNC (Virtual Network Computing):</strong></p>
+<ul>
+<li>Allows remote desktop sharing based on the RFB protocol.</li>
+<li>Offers secure remote access and screen sharing.</li>
+<li>Servers traditionally listen on TCP port 5900.</li>
+<li>Common tools: TigerVNC, TightVNC, RealVNC, UltraVNC.</li>
+<li>SSH tunneling can enhance security when connecting via VNC.</li>
+</ul>
+</li>
+<li>
+<p><strong>Setting Up TigerVNC Server:</strong></p>
+<ul>
+<li>Install necessary packages (e.g., xfce4, tigervnc-standalone-server).</li>
+<li>Create password for VNC connection.</li>
+<li>Configure xstartup and config files for session setup.</li>
+<li>Start VNC server and list sessions.</li>
+<li>Optionally, set up an SSH tunnel for secure connection.</li>
+</ul>
+</li>
+<li>
+<p><strong>Connecting to VNC Server:</strong></p>
+<ul>
+<li>Connect using appropriate VNC viewer (e.g., xtightvncviewer).</li>
+<li>Authenticate with VNC server password.</li>
+<li>Enjoy remote desktop access securely.</li>
+</ul>
+</li>
+</ol>
+<h2 id="linux-security">Linux security<a hidden class="anchor" aria-hidden="true" href="#linux-security">#</a></h2>
+<ul>
+<li>Keeping System Updated</li>
+<li>Firewall Configuration</li>
+<li>Disable password login and root SSH access:
+PasswordAuthentication no
+PermitRootLogin no`</li>
+<li>Implement least privilege principle for user access.</li>
+<li>Use sudoers configuration for specific root commands.</li>
+<li>Utilize fail2ban for preventing brute-force attacks.</li>
+<li>Implement auditing tools like Lynis for system checks.</li>
+<li>Enable SELinux/AppArmor for granular access controls.</li>
+<li>Define policies to control user and application access.</li>
+<li>Remove unnecessary services and software.</li>
+<li>Enable NTP and ensure Syslog is running.</li>
+<li>Enforce strong passwords and password aging policies.</li>
+</ul>
+<p><strong>TCP Wrappers:</strong></p>
+<ul>
+<li>Control access to services based on hostname/IP:
+<ul>
+<li><code>/etc/hosts.allow</code>: Allow specific hosts/services.</li>
+<li><code>/etc/hosts.deny</code>: Deny specific hosts/services.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Important Considerations:</strong>
+- Order of rules in configuration files matters.
+- TCP wrappers complement firewall but don&rsquo;t replace it.</p>
+<h2 id="firewall-setup">Firewall Setup<a hidden class="anchor" aria-hidden="true" href="#firewall-setup">#</a></h2>
+<p><strong>1. Introduction to Firewalls:</strong></p>
+<ul>
+<li>Purpose: Control and monitor network traffic.</li>
+<li>Protects from unauthorized access and security threats.</li>
+<li>Linux offers built-in firewall capabilities.</li>
+</ul>
+<p><strong>2. History of Linux Firewalls:</strong></p>
+<ul>
+<li>Example: iptables replaces ipchains and ipfwadm.</li>
+<li>Introduced in Linux 2.4 kernel in 2000.</li>
+<li>iptables became standard for Linux firewall solutions.</li>
+</ul>
+<p><strong>3. Iptables:</strong></p>
+<ul>
+<li>Provides rules for filtering network traffic.</li>
+<li>Other solutions: nftables, UFW, FirewallD.</li>
+<li>iptables: Flexible command-line interface.</li>
+</ul>
+<p><strong>4. Components of iptables:</strong></p>
+<ul>
+<li>Tables: Organize firewall rules.</li>
+<li>Chains: Group rules for specific traffic.</li>
+<li>Rules: Define filtering criteria and actions.</li>
+<li>Matches: Criteria for filtering network traffic.</li>
+<li>Targets: Specify actions for matched packets.</li>
+</ul>
+<p><strong>5. Tables in iptables:</strong></p>
+<ul>
+<li>Filter: IP addresses, ports, protocols.</li>
+<li>Nat: Modify source/destination IP addresses.</li>
+<li>Mangle: Modify header fields of packets.</li>
+<li>Raw: Special packet processing options.</li>
+</ul>
+<p><strong>6. Chains in iptables:</strong></p>
+<ul>
+<li>Built-in: Pre-defined for different tasks.</li>
+<li>User-defined: Group rules based on criteria.</li>
+</ul>
+<p><strong>7. Rules and Targets:</strong></p>
+<ul>
+<li>Define criteria for filtering network traffic.</li>
+<li>Targets specify actions for matched packets.</li>
+<li>Common targets: ACCEPT, DROP, REJECT, LOG, SNAT, DNAT, MASQUERADE, REDIRECT, MARK.</li>
+</ul>
+<p><strong>8. Example Rule in iptables:</strong></p>
+<ul>
+<li>Allow incoming TCP traffic on port 22 (SSH):
+<pre tabindex="0"><code>sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+</code></pre></li>
+</ul>
+<p><strong>9. Matches in iptables:</strong></p>
+<ul>
+<li>Specify criteria for applying firewall rules.</li>
+<li>Examples: Protocol, source/destination IP address, port, state, multiport, string, limit, conntrack, mark, MAC address, IP range.</li>
+</ul>
+<p><strong>10. Example iptables Rule with Matches:</strong></p>
+<ul>
+<li>Allow incoming TCP traffic on port 80 (HTTP):
+<pre tabindex="0"><code>sudo iptables -A INPUT -p tcp -m tcp --dport 80 -j ACCEPT
+</code></pre></li>
+</ul>
+<h2 id="system-log">System log<a hidden class="anchor" aria-hidden="true" href="#system-log">#</a></h2>
+<p><strong>1. Introduction to System Logs:</strong></p>
+<ul>
+<li>Importance: Monitoring and troubleshooting system activities.</li>
+<li>Provide insights into system behavior, application activity, and security events.</li>
+<li>Valuable for identifying security weaknesses and vulnerabilities.</li>
+</ul>
+<p><strong>2. Types of System Logs on Linux:</strong></p>
+<ul>
+<li>Kernel Logs</li>
+<li>System Logs</li>
+<li>Authentication Logs</li>
+<li>Application Logs</li>
+<li>Security Logs</li>
+</ul>
+<p><strong>3. Kernel Logs:</strong></p>
+<ul>
+<li>Location: /var/log/kern.log</li>
+<li>Information about the system&rsquo;s kernel, hardware drivers, and kernel events.</li>
+<li>Helps identify vulnerabilities, system crashes, and suspicious activities.</li>
+</ul>
+<p><strong>4. System Logs:</strong></p>
+<ul>
+<li>Location: /var/log/syslog</li>
+<li>Records system-level events like service starts/stops, login attempts, and system reboots.</li>
+<li>Essential for detecting access attempts, abnormal activities, and system issues.</li>
+</ul>
+<p><strong>5. Authentication Logs:</strong></p>
+<ul>
+<li>Location: /var/log/auth.log</li>
+<li>Focuses on user authentication attempts (successful and failed).</li>
+<li>Crucial for identifying unauthorized access and security threats.</li>
+</ul>
+<p><strong>6. Application Logs:</strong></p>
+<ul>
+<li>Location: Varies based on the application (e.g., /var/log/apache2/error.log for Apache).</li>
+<li>Contains information about specific application activities.</li>
+<li>Helpful for identifying vulnerabilities, misconfigurations, and suspicious activities.</li>
+</ul>
+<p><strong>7. Access and Audit Logs:</strong></p>
+<ul>
+<li>Critical for tracking user and process activities.</li>
+<li>Access logs record user/process actions like login attempts and file accesses.</li>
+<li>Audit logs record security-relevant events such as system file modifications.</li>
+<li>Essential for identifying security breaches and enforcing compliance.</li>
+</ul>
+<p><strong>8. Security Logs:</strong></p>
+<ul>
+<li>Location: Varies based on security application/tool (e.g., /var/log/fail2ban.log for Fail2ban).</li>
+<li>Records security-related events like failed login attempts, firewall activity, and system file changes.</li>
+<li>Important for detecting security issues and potential attack vectors.</li>
+</ul>
+<p><strong>9. Log Analysis Tools:</strong></p>
+<ul>
+<li>Utilize log file viewers in Linux desktop environments.</li>
+<li>Command-line tools: tail, grep, sed for log analysis.</li>
+<li>Proper analysis helps troubleshoot system issues and detect security breaches.</li>
+</ul>
+<p><strong>10. Best Practices:</strong></p>
+<ul>
+<li>Configure log levels appropriately.</li>
+<li>Implement log rotation to manage log file sizes.</li>
+<li>Regularly review and analyze logs for security risks.</li>
+<li>Protect log files from unauthorized access.</li>
+</ul>
+<h2 id="solaris">Solaris<a hidden class="anchor" aria-hidden="true" href="#solaris">#</a></h2>
+<p><strong>1. Introduction to Solaris:</strong></p>
+<ul>
+<li>Unix-based OS developed by Sun Microsystems, later acquired by Oracle.</li>
+<li>Known for robustness, scalability, and support for high-end hardware/software.</li>
+<li>Widely used in enterprise environments for mission-critical tasks like database management, cloud computing, and virtualization.</li>
+</ul>
+<p><strong>2. Solaris Features:</strong></p>
+<ul>
+<li>Built-in hypervisor (Oracle VM Server for SPARC) for virtualization.</li>
+<li>High availability, fault tolerance, and system management features.</li>
+<li>Used in banking, finance, government sectors, data centers, and cloud environments.</li>
+</ul>
+<p><strong>3. Solaris vs Linux Distributions:</strong></p>
+<ul>
+<li>Solaris: Proprietary, source code not publicly available.</li>
+<li>Linux: Open-source, commonly uses ZFS file system.</li>
+<li>Solaris: Uses Service Management Facility (SMF) for service management.</li>
+</ul>
+<p><strong>4. Solaris Directory Structure:</strong></p>
+<ul>
+<li>/: Root directory</li>
+<li>/bin, /boot, /dev, /etc, /home, /kernel, /lib, /lost+found, /mnt, /opt, /proc, /sbin, /tmp, /usr, /var</li>
+</ul>
+<p><strong>5. Solaris Unique Features:</strong></p>
+<ul>
+<li>High-end hardware/software support.</li>
+<li>Image Packaging System (IPS) for package management.</li>
+<li>Advanced security features like Role-Based Access Control (RBAC).</li>
+</ul>
+<p><strong>6. System Information:</strong></p>
+<ul>
+<li>uname: Display basic system info in Linux.</li>
+<li>showrev: Display detailed system info in Solaris.</li>
+</ul>
+<p><strong>7. Installing Packages:</strong></p>
+<ul>
+<li>Ubuntu: Uses apt-get for package installation.</li>
+<li>Solaris: Uses pkgadd for package installation.</li>
+</ul>
+<p><strong>8. Permission Management:</strong></p>
+<ul>
+<li>Linux: Uses chmod to change file permissions.</li>
+<li>Solaris: Similar command, find / -perm -4000 to find files with specific permissions.</li>
+</ul>
+<p><strong>9. NFS in Solaris:</strong></p>
+<ul>
+<li>Configuration using share command.</li>
+<li>Mounting NFS file systems using mount command.</li>
+<li>Configuration stored in /etc/dfs/dfstab file.</li>
+</ul>
+<p><strong>10. Process Mapping:</strong></p>
+<ul>
+<li>Ubuntu: Uses lsof to list files opened by a process.</li>
+<li>Solaris: Uses pfiles for similar functionality.</li>
+</ul>
+<p><strong>11. Executable Access:</strong></p>
+<ul>
+<li>Ubuntu: Uses strace for tracing system calls.</li>
+<li>Solaris: Uses truss for similar functionality.</li>
+</ul>
+<h2 id="tips">Tips<a hidden class="anchor" aria-hidden="true" href="#tips">#</a></h2>
+<p><code>systemctl list-units</code>
+Displays the systemd units currently loaded and running on the system. Units can be services, filesystem mounts, devices, etc.
+<code>systemctl list-unit-files</code>
+Lists the systemd unit files available on the system. These unit files, usually located in directories such as <code>/lib/systemd/system/</code> and <code>/etc/systemd/system/</code>,
+<code>systemctl show ≤nom du service&gt;</code>
+Display all the information about an unit</p>
+<p><code>netcat -z 127.0.0.1 1-65535 </code>
+Scan all port from 1 to 65535 on the machine and show which one is active</p>
+<p><strong>To check battery capacity :</strong></p>
+<p><code>upower -e</code>
+Enumerate objects paths for devices
+<code>upower -i /org/freedesktop/UPower/devices/battery_BAT0</code>
+Show information about object path</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/linux/">Linux</a></li>
+      <li><a href="http://localhost:1313/tags/security/">Security</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2024 <a href="http://localhost:1313/"></a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

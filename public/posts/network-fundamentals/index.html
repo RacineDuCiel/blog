@@ -1,0 +1,2339 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Network fundamentals | </title>
+<meta name="keywords" content="Network">
+<meta name="description" content="Network Terms WAN (Wide Area Network):
+Definition: The Internet; a large network connecting multiple LANs. Identification: WAN-specific routing protocols like BGP and non-RFC 1918 IP schemas. LAN (Local Area Network):
+Definition: Internal networks (e.g., home or office). IP Addressing: Typically RFC 1918 addresses. WLAN (Wireless Local Area Network):
+Definition: Wireless variant of LAN, enabling Wi-Fi access. Security: Mainly a security designation; no fundamental difference from LAN. VPN (Virtual Private Network):">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/posts/network-fundamentals/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css" integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z&#43;V9&#43;cO1A=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/network-fundamentals/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+</head>
+
+<body class=" dark" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/notes" title="Notes">
+                    <span>Notes</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/ressources" title="Ressources">
+                    <span>Ressources</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Network fundamentals
+    </h1>
+    <div class="post-meta"><span title='2024-04-21 00:00:00 +0000 UTC'>April 21, 2024</span>&nbsp;·&nbsp;37 min
+
+</div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#network-terms" aria-label="Network Terms">Network Terms</a><ul>
+                        
+                <li>
+                    <a href="#vpn-types" aria-label="VPN Types">VPN Types</a></li>
+                <li>
+                    <a href="#book-terms" aria-label="Book Terms">Book Terms</a></li></ul>
+                </li>
+                <li>
+                    <a href="#network-topologies" aria-label="Network topologies">Network topologies</a><ul>
+                        
+                <li>
+                    <a href="#overview" aria-label="Overview">Overview</a></li>
+                <li>
+                    <a href="#components" aria-label="Components">Components</a></li>
+                <li>
+                    <a href="#basic-topologies" aria-label="Basic Topologies">Basic Topologies</a></li></ul>
+                </li>
+                <li>
+                    <a href="#proxies-cheat-sheet" aria-label="Proxies Cheat Sheet">Proxies Cheat Sheet</a><ul>
+                        
+                <li>
+                    <a href="#overview-1" aria-label="Overview">Overview</a></li>
+                <li>
+                    <a href="#types-of-proxies" aria-label="Types of Proxies">Types of Proxies</a></li>
+                <li>
+                    <a href="#use-cases" aria-label="Use Cases">Use Cases</a></li>
+                <li>
+                    <a href="#examples" aria-label="Examples">Examples</a></li></ul>
+                </li>
+                <li>
+                    <a href="#osi---tcpip-models" aria-label="OSI - TCP/IP models">OSI - TCP/IP models</a><ul>
+                        
+                <li>
+                    <a href="#packet-transfers" aria-label="Packet Transfers">Packet Transfers</a></li>
+                <li>
+                    <a href="#osi" aria-label="OSI">OSI</a></li>
+                <li>
+                    <a href="#tcpip" aria-label="TCP/IP">TCP/IP</a></li>
+                <li>
+                    <a href="#cidr-notation" aria-label="CIDR Notation">CIDR Notation</a></li></ul>
+                </li>
+                <li>
+                    <a href="#mac-addresses" aria-label="MAC Addresses">MAC Addresses</a><ul>
+                        
+                <li>
+                    <a href="#structure" aria-label="Structure">Structure</a></li>
+                <li>
+                    <a href="#types-of-mac-addresses" aria-label="Types of MAC Addresses">Types of MAC Addresses</a></li>
+                <li>
+                    <a href="#reserved-mac-address-ranges" aria-label="Reserved MAC Address Ranges">Reserved MAC Address Ranges</a></li>
+                <li>
+                    <a href="#mac-address-manipulation" aria-label="MAC Address Manipulation">MAC Address Manipulation</a></li>
+                <li>
+                    <a href="#address-resolution-protocol-arp" aria-label="Address Resolution Protocol (ARP)">Address Resolution Protocol (ARP)</a></li>
+                <li>
+                    <a href="#arp-spoofing" aria-label="ARP Spoofing">ARP Spoofing</a></li></ul>
+                </li>
+                <li>
+                    <a href="#ipv6-addresses" aria-label="IPv6 Addresses">IPv6 Addresses</a></li>
+                <li>
+                    <a href="#network-key-terminology" aria-label="Network Key Terminology">Network Key Terminology</a></li>
+                <li>
+                    <a href="#common-protocols" aria-label="Common protocols">Common protocols</a></li>
+                <li>
+                    <a href="#wireless-networks-fundamentals" aria-label="Wireless Networks Fundamentals">Wireless Networks Fundamentals</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#wifi-connection-protocol-ieee-80211" aria-label="WiFi Connection Protocol (IEEE 802.11)">WiFi Connection Protocol (IEEE 802.11)</a></li>
+                <li>
+                    <a href="#security-features-overview" aria-label="Security Features Overview">Security Features Overview</a></li>
+                <li>
+                    <a href="#encryption-protocols" aria-label="Encryption Protocols">Encryption Protocols</a></li>
+                <li>
+                    <a href="#eap-extensible-authentication-protocol" aria-label="EAP (Extensible Authentication Protocol):">EAP (Extensible Authentication Protocol):</a></li>
+                <li>
+                    <a href="#leap-lightweight-extensible-authentication-protocol" aria-label="LEAP (Lightweight Extensible Authentication Protocol):">LEAP (Lightweight Extensible Authentication Protocol):</a></li>
+                <li>
+                    <a href="#peap-protected-extensible-authentication-protocol" aria-label="PEAP (Protected Extensible Authentication Protocol):">PEAP (Protected Extensible Authentication Protocol):</a></li>
+                <li>
+                    <a href="#tacacs-terminal-access-controller-access-control-system" aria-label="TACACS (Terminal Access Controller Access-Control System)">TACACS (Terminal Access Controller Access-Control System)</a></li>
+                <li>
+                    <a href="#disassociation-attack" aria-label="Disassociation Attack">Disassociation Attack</a></li>
+                <li>
+                    <a href="#wireless-network-hardening-strategies" aria-label="Wireless Network Hardening Strategies">Wireless Network Hardening Strategies</a></li></ul>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#virtual-private-networks-vpn" aria-label="Virtual Private Networks (VPN)">Virtual Private Networks (VPN)</a></li>
+                <li>
+                    <a href="#cisco-ios-vendor-specific-information" aria-label="Cisco IOS: Vendor Specific Information">Cisco IOS: Vendor Specific Information</a></li>
+                <li>
+                    <a href="#key-exchange" aria-label="Key Exchange">Key Exchange</a></li>
+                <li>
+                    <a href="#authentication-protocols" aria-label="Authentication Protocols">Authentication Protocols</a></li>
+                <li>
+                    <a href="#tcpudp-connections" aria-label="TCP/UDP Connections">TCP/UDP Connections</a></li>
+                <li>
+                    <a href="#cryptography" aria-label="Cryptography">Cryptography</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="network-terms">Network Terms<a hidden class="anchor" aria-hidden="true" href="#network-terms">#</a></h2>
+<ul>
+<li>
+<p><strong>WAN (Wide Area Network):</strong></p>
+<ul>
+<li>Definition: The Internet; a large network connecting multiple LANs.</li>
+<li>Identification: WAN-specific routing protocols like BGP and non-RFC 1918 IP schemas.</li>
+</ul>
+</li>
+<li>
+<p><strong>LAN (Local Area Network):</strong></p>
+<ul>
+<li>Definition: Internal networks (e.g., home or office).</li>
+<li>IP Addressing: Typically RFC 1918 addresses.</li>
+</ul>
+</li>
+<li>
+<p><strong>WLAN (Wireless Local Area Network):</strong></p>
+<ul>
+<li>Definition: Wireless variant of LAN, enabling Wi-Fi access.</li>
+<li>Security: Mainly a security designation; no fundamental difference from LAN.</li>
+</ul>
+</li>
+<li>
+<p><strong>VPN (Virtual Private Network):</strong></p>
+<ul>
+<li>Goal: Allows users to feel connected to a different network securely.</li>
+<li>Types: Site-to-Site, Remote Access, SSL VPN.</li>
+</ul>
+</li>
+</ul>
+<h3 id="vpn-types">VPN Types<a hidden class="anchor" aria-hidden="true" href="#vpn-types">#</a></h3>
+<ul>
+<li>
+<p><strong>Site-To-Site VPN:</strong></p>
+<ul>
+<li>Devices Involved: Routers or Firewalls.</li>
+<li>Function: Shares entire network ranges between client and server.</li>
+</ul>
+</li>
+<li>
+<p><strong>Remote Access (client to site) VPN:</strong></p>
+<ul>
+<li>Function: Client&rsquo;s computer creates a virtual interface to the client&rsquo;s network.</li>
+<li>Considerations: Split-Tunnel VPNs for selective routing.</li>
+</ul>
+</li>
+<li>
+<p><strong>SSL VPN:</strong></p>
+<ul>
+<li>Function: VPN within a web browser, streaming applications or desktop sessions.</li>
+<li>Example: HackTheBox Pwnbox.</li>
+</ul>
+</li>
+</ul>
+<h3 id="book-terms">Book Terms<a hidden class="anchor" aria-hidden="true" href="#book-terms">#</a></h3>
+<ul>
+<li>
+<p><strong>GAN (Global Area Network):</strong></p>
+<ul>
+<li>Definition: Global network like the Internet; used by international companies.</li>
+<li>Infrastructure: Utilizes WAN infrastructure and international connections.</li>
+</ul>
+</li>
+<li>
+<p><strong>MAN (Metropolitan Area Network):</strong></p>
+<ul>
+<li>Definition: Regional network connecting multiple LANs in proximity.</li>
+<li>Infrastructure: Utilizes high-performance routers and fiber connections.</li>
+</ul>
+</li>
+<li>
+<p><strong>PAN / WPAN (Personal Area Network / Wireless Personal Area Network):</strong></p>
+<ul>
+<li>PAN Definition: Ad hoc network connecting devices via cable.</li>
+<li>WPAN Definition: Wireless variant using Bluetooth or Wireless USB technologies.</li>
+<li>IoT Application: Used for smart homes and home automation with protocols like ZigBee.</li>
+</ul>
+</li>
+</ul>
+<h2 id="network-topologies">Network topologies<a hidden class="anchor" aria-hidden="true" href="#network-topologies">#</a></h2>
+<h3 id="overview">Overview<a hidden class="anchor" aria-hidden="true" href="#overview">#</a></h3>
+<ul>
+<li><strong>Definition:</strong> A network topology refers to the arrangement and connections of devices in a network, determining communication paths.</li>
+<li><strong>Physical Topology:</strong> Concerns the physical layout of devices and cabling.</li>
+<li><strong>Logical Topology:</strong> Concerns how data is transmitted across the network regardless of physical connections.</li>
+</ul>
+<h3 id="components">Components<a hidden class="anchor" aria-hidden="true" href="#components">#</a></h3>
+<ul>
+<li><strong>Connections:</strong>
+<ul>
+<li><em>Wired:</em> Coaxial, Glass fiber, Twisted-pair cabling, etc.</li>
+<li><em>Wireless:</em> Wi-Fi, Cellular, Satellite, etc.</li>
+</ul>
+</li>
+<li><strong>Nodes:</strong> Devices facilitating communication:
+<ul>
+<li>Repeaters, Hubs, Bridges, Switches, Routers/Modems, Gateways, Firewalls.</li>
+</ul>
+</li>
+<li><strong>NICs (Network Interface Controllers):</strong> Enable communication between nodes.</li>
+</ul>
+<h3 id="basic-topologies">Basic Topologies<a hidden class="anchor" aria-hidden="true" href="#basic-topologies">#</a></h3>
+<ol>
+<li>
+<p><strong>Point-to-Point:</strong></p>
+<ul>
+<li>Direct connection between two hosts; basic telephony model.</li>
+</ul>
+</li>
+<li>
+<p><strong>Bus:</strong></p>
+<ul>
+<li>All hosts connected via shared transmission medium; one host can send at a time.</li>
+</ul>
+</li>
+<li>
+<p><strong>Star:</strong></p>
+<ul>
+<li>Central network component (router, hub, switch) connects to each host individually.</li>
+</ul>
+</li>
+<li>
+<p><strong>Ring:</strong></p>
+<ul>
+<li>Physical: Each node connects to the ring with separate cables for incoming and outgoing signals.</li>
+<li>Logical: Stations access the ring sequentially using a token.</li>
+</ul>
+</li>
+<li>
+<p><strong>Mesh:</strong></p>
+<ul>
+<li>Fully Meshed: Every node is connected to every other node; high reliability and bandwidth.</li>
+<li>Partially Meshed: Nodes connected with varying degrees of connectivity.</li>
+</ul>
+</li>
+<li>
+<p><strong>Tree:</strong></p>
+<ul>
+<li>Extended star topology; useful for larger networks or combining multiple topologies.</li>
+</ul>
+</li>
+<li>
+<p><strong>Hybrid:</strong></p>
+<ul>
+<li>Combination of two or more basic topologies; resulting network is non-standard.</li>
+</ul>
+</li>
+<li>
+<p><strong>Daisy Chain:</strong></p>
+<ul>
+<li>Nodes connected sequentially; often found in automation technology.</li>
+</ul>
+</li>
+</ol>
+<h2 id="proxies-cheat-sheet">Proxies Cheat Sheet<a hidden class="anchor" aria-hidden="true" href="#proxies-cheat-sheet">#</a></h2>
+<h3 id="overview-1">Overview<a hidden class="anchor" aria-hidden="true" href="#overview-1">#</a></h3>
+<ul>
+<li><strong>Definition:</strong> A proxy acts as a mediator between client and server, inspecting and potentially modifying traffic.</li>
+<li><strong>Misconceptions:</strong> Often confused with VPNs; proxies typically operate at Layer 7 of the OSI Model.</li>
+</ul>
+<h3 id="types-of-proxies">Types of Proxies<a hidden class="anchor" aria-hidden="true" href="#types-of-proxies">#</a></h3>
+<ol>
+<li>
+<p><strong>Dedicated Proxy / Forward Proxy:</strong></p>
+<ul>
+<li>Forward proxies filter outgoing requests from clients.</li>
+<li>Example: Corporate networks use forward proxies for security, filtering, and monitoring.</li>
+</ul>
+</li>
+<li>
+<p><strong>Reverse Proxy:</strong></p>
+<ul>
+<li>Listens for incoming requests and forwards them to backend servers.</li>
+<li>Example: Cloudflare serves as a reverse proxy to protect against DDoS attacks.</li>
+</ul>
+</li>
+<li>
+<p><strong>(Non-) Transparent Proxy:</strong></p>
+<ul>
+<li><strong>Transparent Proxy:</strong> Operates without the client&rsquo;s knowledge, intercepting and substituting requests.</li>
+<li><strong>Non-Transparent Proxy:</strong> Requires client and software to be configured to use it explicitly.</li>
+</ul>
+</li>
+</ol>
+<h3 id="use-cases">Use Cases<a hidden class="anchor" aria-hidden="true" href="#use-cases">#</a></h3>
+<ul>
+<li>
+<p><strong>Security Professionals:</strong> Utilize proxies for testing, analyzing, and intercepting network traffic (e.g., Burp Suite).</p>
+</li>
+<li>
+<p><strong>Web Developers:</strong> Employ proxies like Cloudflare or ModSecurity for filtering and blocking malicious traffic.</p>
+</li>
+<li>
+<p><strong>Average Users:</strong> Often mistakenly refer to VPNs as proxies for location obfuscation and accessing region-restricted content.</p>
+</li>
+<li>
+<p><strong>Law Enforcement:</strong> May associate proxies with illegal activities due to their potential for anonymity and traffic manipulation.</p>
+</li>
+</ul>
+<h3 id="examples">Examples<a hidden class="anchor" aria-hidden="true" href="#examples">#</a></h3>
+<ul>
+<li>
+<p><strong>Forward Proxy Example:</strong></p>
+<ul>
+<li><strong>Usage:</strong> Filtering outbound requests in a corporate network.</li>
+<li><strong>Tool:</strong> Burp Suite, commonly used for HTTP request forwarding and analysis.</li>
+</ul>
+</li>
+<li>
+<p><strong>Reverse Proxy Example:</strong></p>
+<ul>
+<li><strong>Usage:</strong> Protecting servers from DDoS attacks.</li>
+<li><strong>Tool:</strong> Cloudflare, acting as a reverse proxy to filter and distribute incoming traffic.</li>
+</ul>
+</li>
+<li>
+<p><strong>Transparent Proxy Example:</strong></p>
+<ul>
+<li><strong>Usage:</strong> Intercepting and substituting client requests without their knowledge.</li>
+<li><strong>Implementation:</strong> Often employed in corporate environments for security and monitoring purposes.</li>
+</ul>
+</li>
+</ul>
+<p>![[Pasted image 20240407163924.png]]</p>
+<h2 id="osi---tcpip-models">OSI - TCP/IP models<a hidden class="anchor" aria-hidden="true" href="#osi---tcpip-models">#</a></h2>
+<p>![[HTB/images/net_models_pdu2.png]]</p>
+<h3 id="packet-transfers">Packet Transfers<a hidden class="anchor" aria-hidden="true" href="#packet-transfers">#</a></h3>
+<ul>
+<li>
+<p><strong>Protocol Data Unit (PDU):</strong></p>
+<ul>
+<li><strong>Definition:</strong> Data format exchanged between layers in a layered system.</li>
+</ul>
+</li>
+<li>
+<p><strong>Encapsulation:</strong></p>
+<ul>
+<li><strong>Process:</strong> Each layer adds a header to the PDU from the upper layer, controlling and identifying the packet.</li>
+</ul>
+</li>
+<li>
+<p><strong>Transmission Process:</strong></p>
+<ul>
+<li>Data is processed layer by layer, with each layer performing its assigned functions.</li>
+<li>Header and data together form the PDU for the next layer, continuing until data reaches the receiver.</li>
+</ul>
+</li>
+</ul>
+<h3 id="osi">OSI<a hidden class="anchor" aria-hidden="true" href="#osi">#</a></h3>
+<ol>
+<li><strong>Physical Layer (Layer 1):</strong>
+<ul>
+<li><strong>Function:</strong> Handles transmission techniques, such as electrical signals, optical signals, or electromagnetic waves.</li>
+</ul>
+</li>
+<li><strong>Data Link Layer (Layer 2):</strong>
+<ul>
+<li><strong>Function:</strong> Enables reliable and error-free transmissions by dividing bitstreams into blocks or frames.</li>
+</ul>
+</li>
+<li><strong>Network Layer (Layer 3):</strong>
+<ul>
+<li><strong>Function:</strong> Establishes connections in circuit-switched networks and forwards data packets in packet-switched networks.</li>
+</ul>
+</li>
+<li><strong>Transport Layer (Layer 4):</strong>
+<ul>
+<li><strong>Function:</strong> Provides end-to-end control of transferred data, detecting and avoiding congestion situations and segmenting data streams.</li>
+</ul>
+</li>
+<li><strong>Session Layer (Layer 5):</strong>
+<ul>
+<li><strong>Function:</strong> Controls logical connections between systems, preventing connection breakdowns or other issues.</li>
+</ul>
+</li>
+<li><strong>Presentation Layer (Layer 6):</strong>
+<ul>
+<li><strong>Function:</strong> Transfers system-dependent data presentations into a form independent of the application.</li>
+</ul>
+</li>
+<li><strong>Application Layer (Layer 7):</strong>
+<ul>
+<li><strong>Function:</strong> Controls input and output of data, providing application functions among other tasks.</li>
+</ul>
+</li>
+</ol>
+<h3 id="tcpip">TCP/IP<a hidden class="anchor" aria-hidden="true" href="#tcpip">#</a></h3>
+<ol>
+<li><strong>Link Layer (Layer 1):</strong>
+<ul>
+<li><strong>Function:</strong> Places TCP/IP packets on the network medium and receives corresponding packets, independent of network access method or frame format.</li>
+</ul>
+</li>
+<li><strong>Internet Layer (Layer 2):</strong>
+<ul>
+<li><strong>Function:</strong> Handles host addressing, packaging, and routing functions to ensure data packet delivery to the intended destination.</li>
+</ul>
+</li>
+<li><strong>Transport Layer (Layer 3):</strong>
+<ul>
+<li><strong>Function:</strong> Provides TCP session and UDP datagram services for applications, controlling data transfer and ensuring connection between data stream and application.</li>
+</ul>
+</li>
+<li><strong>Application Layer (Layer 4):</strong>
+<ul>
+<li><strong>Function:</strong> Allows applications to access services from other layers and defines protocols for data exchange between applications.</li>
+</ul>
+</li>
+</ol>
+<h3 id="cidr-notation">CIDR Notation<a hidden class="anchor" aria-hidden="true" href="#cidr-notation">#</a></h3>
+<ul>
+<li><strong>Classless Inter-Domain Routing (CIDR):</strong> Offers a flexible method of IP address representation.</li>
+<li><strong>Format:</strong> Combines the IP address with a slash followed by a number indicating the number of network prefix bits (e.g., 192.168.10.39/24).</li>
+</ul>
+<h2 id="mac-addresses">MAC Addresses<a hidden class="anchor" aria-hidden="true" href="#mac-addresses">#</a></h2>
+<ul>
+<li><strong>MAC Address:</strong> A 48-bit (6 octets) unique identifier assigned to each network interface card (NIC) for communication on a network.</li>
+<li><strong>Representation:</strong> Expressed in hexadecimal format, commonly separated by colons, hyphens, or periods.</li>
+<li><strong>Standards:</strong> Used in Ethernet (IEEE 802.3), Bluetooth (IEEE 802.15), and WLAN (IEEE 802.11) networks.</li>
+</ul>
+<h3 id="structure">Structure<a hidden class="anchor" aria-hidden="true" href="#structure">#</a></h3>
+<ul>
+<li><strong>Format:</strong> Consists of 6 pairs of hexadecimal digits (octets).</li>
+<li><strong>Organization:</strong>
+<ul>
+<li>First 3 octets: Organization Unique Identifier (OUI) assigned to manufacturers by IEEE.</li>
+<li>Last 3 octets: Individual Address Part, assigned by manufacturers.</li>
+</ul>
+</li>
+</ul>
+<h3 id="types-of-mac-addresses">Types of MAC Addresses<a hidden class="anchor" aria-hidden="true" href="#types-of-mac-addresses">#</a></h3>
+<ul>
+<li><strong>Unicast:</strong> Sent to a specific host, identified by the last bit of the first octet (0).</li>
+<li><strong>Multicast:</strong> Sent to a group of hosts, identified by the last bit of the first octet (1).</li>
+<li><strong>Broadcast:</strong> Sent to all hosts on the network, identified by all bits set to 1.</li>
+</ul>
+<h3 id="reserved-mac-address-ranges">Reserved MAC Address Ranges<a hidden class="anchor" aria-hidden="true" href="#reserved-mac-address-ranges">#</a></h3>
+<ol>
+<li><strong>Local Range:</strong>
+<ul>
+<li><strong>Definition:</strong> This range is reserved for local use within a network and is not intended to be globally unique. Devices within a local network might generate MAC addresses within this range for internal communication.</li>
+<li><strong>Examples:</strong>
+<ul>
+<li><code>02:00:00:00:00:00</code>: Often used for testing and debugging purposes.</li>
+<li><code>06:00:00:00:00:00</code>: Reserved for network interface cards with multicast capabilities.</li>
+<li><code>0A:00:00:00:00:00</code>: Used for Virtual Local Area Network (VLAN) tagging.</li>
+<li><code>0E:00:00:00:00:00</code>: Reserved for future use.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p>These reserved MAC address ranges help prevent conflicts and ensure that certain types of MAC addresses are not inadvertently assigned to devices on a network. They are primarily used for special networking functionalities and should not be used for regular network devices.</p>
+<h3 id="mac-address-manipulation">MAC Address Manipulation<a hidden class="anchor" aria-hidden="true" href="#mac-address-manipulation">#</a></h3>
+<ul>
+<li><strong>MAC Spoofing:</strong> Altering a device&rsquo;s MAC address to impersonate another device, often used for unauthorized access.</li>
+<li><strong>MAC Flooding:</strong> Sending numerous packets with different MAC addresses to overwhelm a network switch.</li>
+<li><strong>MAC Filtering:</strong> Restricting network access based on approved MAC addresses, potentially exploitable with spoofed addresses.</li>
+</ul>
+<h3 id="address-resolution-protocol-arp">Address Resolution Protocol (ARP)<a hidden class="anchor" aria-hidden="true" href="#address-resolution-protocol-arp">#</a></h3>
+<ul>
+<li><strong>Purpose:</strong> Maps IP addresses to MAC addresses for communication on a LAN.</li>
+<li><strong>Process:</strong>
+<ul>
+<li>ARP Request: Device broadcasts request for MAC address corresponding to a given IP address.</li>
+<li>ARP Reply: Device with matching IP address responds with its MAC address.</li>
+</ul>
+</li>
+<li><strong>Vulnerabilities:</strong> Can be exploited for attacks like ARP Spoofing, leading to interception or manipulation of network traffic.</li>
+</ul>
+<h3 id="arp-spoofing">ARP Spoofing<a hidden class="anchor" aria-hidden="true" href="#arp-spoofing">#</a></h3>
+<ul>
+<li><strong>Definition:</strong> Sending falsified ARP messages to associate attacker&rsquo;s MAC address with target&rsquo;s IP address.</li>
+<li><strong>Goal:</strong> Intercepting traffic intended for the target, facilitating various malicious activities.</li>
+<li><strong>Mitigation:</strong> Implement secure network protocols, firewalls, and intrusion detection systems to protect against ARP spoofing attacks.</li>
+</ul>
+<h2 id="ipv6-addresses">IPv6 Addresses<a hidden class="anchor" aria-hidden="true" href="#ipv6-addresses">#</a></h2>
+<ol>
+<li>
+<p><strong>Basic Information:</strong></p>
+<ul>
+<li>IPv6 is the successor of IPv4, with a 128-bit address space.</li>
+<li>IPv6 addresses are represented in hexadecimal format.</li>
+<li>IPv6 follows the end-to-end principle, providing globally accessible IP addresses without the need for NAT.</li>
+</ul>
+</li>
+<li>
+<p><strong>Address Types:</strong></p>
+<ul>
+<li><strong>Unicast:</strong> Addresses for a single interface.</li>
+<li><strong>Anycast:</strong> Addresses for multiple interfaces, with only one receiving the packet.</li>
+<li><strong>Multicast:</strong> Addresses for multiple interfaces, where all receive the same packet.</li>
+<li><strong>Broadcast:</strong> Does not exist in IPv6 and is replaced by multicast addresses.</li>
+</ul>
+</li>
+<li>
+<p><strong>Hexadecimal System:</strong></p>
+<ul>
+<li>Hexadecimal system (hex) is used to represent IPv6 addresses.</li>
+<li>Hexadecimal characters range from 0 to F, corresponding to binary groups.</li>
+<li>Simplifies representation compared to binary, making it more readable.</li>
+</ul>
+</li>
+<li>
+<p><strong>Representation:</strong></p>
+<ul>
+<li>IPv6 addresses are divided into 8 blocks of 16 bits each, separated by colons (:).</li>
+<li>Leading zeros in each block are omitted.</li>
+<li>Consecutive blocks of zeros can be represented as &ldquo;::&rdquo; once, starting from the left.</li>
+</ul>
+</li>
+<li>
+<p><strong>Example:</strong></p>
+<ul>
+<li>Full IPv6: <code>fe80:0000:0000:0000:dd80:b1a9:6687:2d3b/64</code></li>
+<li>Short IPv6: <code>fe80::dd80:b1a9:6687:2d3b/64</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Address Structure:</strong></p>
+<ul>
+<li>Consists of two parts: Network Prefix and Interface Identifier (Suffix).</li>
+<li>Network Prefix identifies the network or subnet.</li>
+<li>Interface Identifier is formed from the MAC address and converted to a 64-bit address.</li>
+<li>Typical prefix lengths include /32, /48, /56, and /64.</li>
+</ul>
+</li>
+<li>
+<p><strong>RFC 5952 Notation:</strong></p>
+<ul>
+<li>All alphabetical characters are lowercase.</li>
+<li>Leading zeros in each block are omitted.</li>
+<li>Consecutive blocks of 4 zeros can be shortened with &ldquo;::&rdquo; once from the left.</li>
+</ul>
+</li>
+<li>
+<p><strong>Advantages of IPv6:</strong></p>
+<ul>
+<li>Larger address space.</li>
+<li>Address self-configuration (SLAAC).</li>
+<li>Multiple IPv6 addresses per interface.</li>
+<li>Faster routing.</li>
+<li>Mandatory support for IPsec.</li>
+<li>Data packages up to 4 GB.</li>
+</ul>
+</li>
+<li>
+<p><strong>Transition Mechanisms:</strong></p>
+<ul>
+<li>Dual Stack: Simultaneous availability of both IPv4 and IPv6.</li>
+<li>Tunneling: Encapsulation of IPv6 packets within IPv4 packets for transmission over IPv4 networks.</li>
+</ul>
+</li>
+</ol>
+<h2 id="network-key-terminology">Network Key Terminology<a hidden class="anchor" aria-hidden="true" href="#network-key-terminology">#</a></h2>
+<table>
+<thead>
+<tr>
+<th><strong>Protocol</strong></th>
+<th><strong>Acronym</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Wired Equivalent Privacy</td>
+<td><code>WEP</code></td>
+<td>WEP is a type of security protocol that was commonly used to secure wireless networks.</td>
+</tr>
+<tr>
+<td>Secure Shell</td>
+<td><code>SSH</code></td>
+<td>A secure network protocol used to log into and execute commands on a remote system</td>
+</tr>
+<tr>
+<td>File Transfer Protocol</td>
+<td><code>FTP</code></td>
+<td>A network protocol used to transfer files from one system to another</td>
+</tr>
+<tr>
+<td>Simple Mail Transfer Protocol</td>
+<td><code>SMTP</code></td>
+<td>A protocol used to send and receive emails</td>
+</tr>
+<tr>
+<td>Hypertext Transfer Protocol</td>
+<td><code>HTTP</code></td>
+<td>A client-server protocol used to send and receive data over the internet</td>
+</tr>
+<tr>
+<td>Server Message Block</td>
+<td><code>SMB</code></td>
+<td>A protocol used to share files, printers, and other resources in a network</td>
+</tr>
+<tr>
+<td>Network File System</td>
+<td><code>NFS</code></td>
+<td>A protocol used to access files over a network</td>
+</tr>
+<tr>
+<td>Simple Network Management Protocol</td>
+<td><code>SNMP</code></td>
+<td>A protocol used to manage network devices</td>
+</tr>
+<tr>
+<td>Wi-Fi Protected Access</td>
+<td><code>WPA</code></td>
+<td>WPA is a wireless security protocol that uses a password to protect wireless networks from unauthorized access.</td>
+</tr>
+<tr>
+<td>Temporal Key Integrity Protocol</td>
+<td><code>TKIP</code></td>
+<td>TKIP is also a security protocol used in wireless networks but less secure.</td>
+</tr>
+<tr>
+<td>Network Time Protocol</td>
+<td><code>NTP</code></td>
+<td>It is used to synchronize the timing of computers on a network.</td>
+</tr>
+<tr>
+<td>Virtual Local Area Network</td>
+<td><code>VLAN</code></td>
+<td>It is a way to segment a network into multiple logical networks.</td>
+</tr>
+<tr>
+<td>VLAN Trunking Protocol</td>
+<td><code>VTP</code></td>
+<td>VTP is a Layer 2 protocol that is used to establish and maintain a virtual LAN (VLAN) spanning multiple switches.</td>
+</tr>
+<tr>
+<td>Routing Information Protocol</td>
+<td><code>RIP</code></td>
+<td>RIP is a distance-vector routing protocol used in local area networks (LANs) and wide area networks (WANs).</td>
+</tr>
+<tr>
+<td>Open Shortest Path First</td>
+<td><code>OSPF</code></td>
+<td>It is an interior gateway protocol (IGP) for routing traffic within a single Autonomous System (AS) in an Internet Protocol (IP) network.</td>
+</tr>
+<tr>
+<td>Interior Gateway Routing Protocol</td>
+<td><code>IGRP</code></td>
+<td>IGRP is a Cisco proprietary interior gateway protocol designed for routing within autonomous systems.</td>
+</tr>
+<tr>
+<td>Enhanced Interior Gateway Routing Protocol</td>
+<td><code>EIGRP</code></td>
+<td>It is an advanced distance-vector routing protocol that is used to route IP traffic within a network.</td>
+</tr>
+<tr>
+<td>Pretty Good Privacy</td>
+<td><code>PGP</code></td>
+<td>PGP is an encryption program that is used to secure emails, files, and other types of data.</td>
+</tr>
+<tr>
+<td>Network News Transfer Protocol</td>
+<td><code>NNTP</code></td>
+<td>NNTP is a protocol used for distributing and retrieving messages in newsgroups across the internet.</td>
+</tr>
+<tr>
+<td>Cisco Discovery Protocol</td>
+<td><code>CDP</code></td>
+<td>It is a proprietary protocol developed by Cisco Systems that allows network administrators to discover and manage Cisco devices connected to the network.</td>
+</tr>
+<tr>
+<td>Hot Standby Router Protocol</td>
+<td><code>HSRP</code></td>
+<td>HSRP is a protocol used in Cisco routers to provide redundancy in the event of a router or other network device failure.</td>
+</tr>
+<tr>
+<td>Virtual Router Redundancy Protocol</td>
+<td><code>VRRP</code></td>
+<td>It is a protocol used to provide automatic assignment of available Internet Protocol (IP) routers to participating hosts.</td>
+</tr>
+<tr>
+<td>Spanning Tree Protocol</td>
+<td><code>STP</code></td>
+<td>STP is a network protocol used to ensure a loop-free topology in Layer 2 Ethernet networks.</td>
+</tr>
+<tr>
+<td>Terminal Access Controller Access-Control System</td>
+<td><code>TACACS</code></td>
+<td>TACACS is a protocol that provides centralized authentication, authorization, and accounting for network access.</td>
+</tr>
+<tr>
+<td>Session Initiation Protocol</td>
+<td><code>SIP</code></td>
+<td>It is a signaling protocol used for establishing and terminating real-time voice, video and multimedia sessions over an IP network.</td>
+</tr>
+<tr>
+<td>Voice Over IP</td>
+<td><code>VOIP</code></td>
+<td>VOIP is a technology that allows for telephone calls to be made over the internet.</td>
+</tr>
+<tr>
+<td>Extensible Authentication Protocol</td>
+<td><code>EAP</code></td>
+<td>EAP is a framework for authentication that supports multiple authentication methods, such as passwords, digital certificates, one-time passwords, and public-key authentication.</td>
+</tr>
+<tr>
+<td>Lightweight Extensible Authentication Protocol</td>
+<td><code>LEAP</code></td>
+<td>LEAP is a proprietary wireless authentication protocol developed by Cisco Systems. It is based on the Extensible Authentication Protocol (EAP) used in the Point-to-Point Protocol (PPP).</td>
+</tr>
+<tr>
+<td>Protected Extensible Authentication Protocol</td>
+<td><code>PEAP</code></td>
+<td>PEAP is a security protocol that provides an encrypted tunnel for wireless networks and other types of networks.</td>
+</tr>
+<tr>
+<td>Systems Management Server</td>
+<td><code>SMS</code></td>
+<td>SMS is a systems management solution that helps organizations manage their networks, systems, and mobile devices.</td>
+</tr>
+<tr>
+<td>Microsoft Baseline Security Analyzer</td>
+<td><code>MBSA</code></td>
+<td>It is a free security tool from Microsoft that is used to detect potential security vulnerabilities in Windows computers, networks, and systems.</td>
+</tr>
+<tr>
+<td>Supervisory Control and Data Acquisition</td>
+<td><code>SCADA</code></td>
+<td>It is a type of industrial control system that is used to monitor and control industrial processes, such as those in manufacturing, power generation, and water and waste treatment.</td>
+</tr>
+<tr>
+<td>Virtual Private Network</td>
+<td><code>VPN</code></td>
+<td>VPN is a technology that allows users to create a secure, encrypted connection to another network over the internet.</td>
+</tr>
+<tr>
+<td>Internet Protocol Security</td>
+<td><code>IPsec</code></td>
+<td>IPsec is a protocol used to provide secure, encrypted communication over a network. It is commonly used in VPNs, or Virtual Private Networks, to create a secure tunnel between two devices.</td>
+</tr>
+<tr>
+<td>Point-to-Point Tunneling Protocol</td>
+<td><code>PPTP</code></td>
+<td>It is a protocol used to create a secure, encrypted tunnel for remote access.</td>
+</tr>
+<tr>
+<td>Network Address Translation</td>
+<td><code>NAT</code></td>
+<td>NAT is a technology that allows multiple devices on a private network to connect to the internet using a single public IP address. NAT works by translating the private IP addresses of devices on the network into a single public IP address, which is then used to connect to the internet.</td>
+</tr>
+<tr>
+<td>Carriage Return Line Feed</td>
+<td><code>CRLF</code></td>
+<td>Combines two control characters to indicate the end of a line and a start of a new one for certain text file formats.</td>
+</tr>
+<tr>
+<td>Asynchronous JavaScript and XML</td>
+<td><code>AJAX</code></td>
+<td>Web development technique that allows creating dynamic web pages using JavaScript and XML/JSON.</td>
+</tr>
+<tr>
+<td>Internet Server Application Programming Interface</td>
+<td><code>ISAPI</code></td>
+<td>Allows to create performance-oriented web extensions for web servers using a set of APIs.</td>
+</tr>
+<tr>
+<td>Uniform Resource Identifier</td>
+<td><code>URI</code></td>
+<td>It is a syntax used to identify a resource on the Internet.</td>
+</tr>
+<tr>
+<td>Uniform Resource Locator</td>
+<td><code>URL</code></td>
+<td>Subset of URI that identifies a web page or another resource on the Internet, including the protocol and the domain name.</td>
+</tr>
+<tr>
+<td>Internet Key Exchange</td>
+<td><code>IKE</code></td>
+<td>IKE is a protocol used to set up a secure connection between two computers. It is used in virtual private networks (VPNs) to provide authentication and encryption for data transmission, protecting the data from outside eavesdropping and tampering.</td>
+</tr>
+<tr>
+<td>Generic Routing Encapsulation</td>
+<td><code>GRE</code></td>
+<td>This protocol is used to encapsulate the data being transmitted within the VPN tunnel.</td>
+</tr>
+<tr>
+<td>Remote Shell</td>
+<td><code>RSH</code></td>
+<td>It is a program under Unix that allows executing commands and programs on a remote computer.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="common-protocols">Common protocols<a hidden class="anchor" aria-hidden="true" href="#common-protocols">#</a></h2>
+<p><strong>Transmission Control Protocol (TCP)</strong></p>
+<ul>
+<li><strong>Description</strong>: TCP is a connection-oriented protocol used for reliable data transmission. It establishes a virtual connection between two devices before data transmission using a Three-Way Handshake. This connection persists until data transfer is complete, ensuring reliable communication.</li>
+<li><strong>Key Features</strong>: Reliable but slower due to overhead in connection establishment and maintenance.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong>Protocol</strong></th>
+<th><strong>Acronym</strong></th>
+<th><strong>Port</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Telnet</td>
+<td><code>Telnet</code></td>
+<td><code>23</code></td>
+<td>Remote login service</td>
+</tr>
+<tr>
+<td>Secure Shell</td>
+<td><code>SSH</code></td>
+<td><code>22</code></td>
+<td>Secure remote login service</td>
+</tr>
+<tr>
+<td>Simple Network Management Protocol</td>
+<td><code>SNMP</code></td>
+<td><code>161-162</code></td>
+<td>Manage network devices</td>
+</tr>
+<tr>
+<td>Hyper Text Transfer Protocol</td>
+<td><code>HTTP</code></td>
+<td><code>80</code></td>
+<td>Used to transfer webpages</td>
+</tr>
+<tr>
+<td>Hyper Text Transfer Protocol Secure</td>
+<td><code>HTTPS</code></td>
+<td><code>443</code></td>
+<td>Used to transfer secure webpages</td>
+</tr>
+<tr>
+<td>Domain Name System</td>
+<td><code>DNS</code></td>
+<td><code>53</code></td>
+<td>Lookup domain names</td>
+</tr>
+<tr>
+<td>File Transfer Protocol</td>
+<td><code>FTP</code></td>
+<td><code>20-21</code></td>
+<td>Used to transfer files</td>
+</tr>
+<tr>
+<td>Trivial File Transfer Protocol</td>
+<td><code>TFTP</code></td>
+<td><code>69</code></td>
+<td>Used to transfer files</td>
+</tr>
+<tr>
+<td>Network Time Protocol</td>
+<td><code>NTP</code></td>
+<td><code>123</code></td>
+<td>Synchronize computer clocks</td>
+</tr>
+<tr>
+<td>Simple Mail Transfer Protocol</td>
+<td><code>SMTP</code></td>
+<td><code>25</code></td>
+<td>Used for email transfer</td>
+</tr>
+<tr>
+<td>Post Office Protocol</td>
+<td><code>POP3</code></td>
+<td><code>110</code></td>
+<td>Used to retrieve emails</td>
+</tr>
+<tr>
+<td>Internet Message Access Protocol</td>
+<td><code>IMAP</code></td>
+<td><code>143</code></td>
+<td>Used to access emails</td>
+</tr>
+<tr>
+<td>Server Message Block</td>
+<td><code>SMB</code></td>
+<td><code>445</code></td>
+<td>Used to transfer files</td>
+</tr>
+<tr>
+<td>Network File System</td>
+<td><code>NFS</code></td>
+<td><code>111</code>, <code>2049</code></td>
+<td>Used to mount remote systems</td>
+</tr>
+<tr>
+<td>Bootstrap Protocol</td>
+<td><code>BOOTP</code></td>
+<td><code>67</code>, <code>68</code></td>
+<td>Used to bootstrap computers</td>
+</tr>
+<tr>
+<td>Kerberos</td>
+<td><code>Kerberos</code></td>
+<td><code>88</code></td>
+<td>Used for authentication and authorization</td>
+</tr>
+<tr>
+<td>Lightweight Directory Access Protocol</td>
+<td><code>LDAP</code></td>
+<td><code>389</code></td>
+<td>Used for directory services</td>
+</tr>
+<tr>
+<td>Remote Authentication Dial-In User Service</td>
+<td><code>RADIUS</code></td>
+<td><code>1812</code>, <code>1813</code></td>
+<td>Used for authentication and authorization</td>
+</tr>
+<tr>
+<td>Dynamic Host Configuration Protocol</td>
+<td><code>DHCP</code></td>
+<td><code>67</code>, <code>68</code></td>
+<td>Used to configure IP addresses</td>
+</tr>
+<tr>
+<td>Remote Desktop Protocol</td>
+<td><code>RDP</code></td>
+<td><code>3389</code></td>
+<td>Used for remote desktop access</td>
+</tr>
+<tr>
+<td>Network News Transfer Protocol</td>
+<td><code>NNTP</code></td>
+<td><code>119</code></td>
+<td>Used to access newsgroups</td>
+</tr>
+<tr>
+<td>Remote Procedure Call</td>
+<td><code>RPC</code></td>
+<td><code>135</code>, <code>137-139</code></td>
+<td>Used to call remote procedures</td>
+</tr>
+<tr>
+<td>Identification Protocol</td>
+<td><code>Ident</code></td>
+<td><code>113</code></td>
+<td>Used to identify user processes</td>
+</tr>
+<tr>
+<td>Internet Control Message Protocol</td>
+<td><code>ICMP</code></td>
+<td><code>0-255</code></td>
+<td>Used to troubleshoot network issues</td>
+</tr>
+<tr>
+<td>Internet Group Management Protocol</td>
+<td><code>IGMP</code></td>
+<td><code>0-255</code></td>
+<td>Used for multicasting</td>
+</tr>
+<tr>
+<td>Oracle DB (Default/Alternative) Listener</td>
+<td><code>oracle-tns</code></td>
+<td><code>1521</code>/<code>1526</code></td>
+<td>The Oracle database default/alternative listener is a service that runs on the database host and receives requests from Oracle clients.</td>
+</tr>
+<tr>
+<td>Ingres Lock</td>
+<td><code>ingreslock</code></td>
+<td><code>1524</code></td>
+<td>Ingres database is commonly used for large commercial applications and as a backdoor that can execute commands remotely via RPC.</td>
+</tr>
+<tr>
+<td>Squid Web Proxy</td>
+<td><code>http-proxy</code></td>
+<td><code>3128</code></td>
+<td>Squid web proxy is a caching and forwarding HTTP web proxy used to speed up a web server by caching repeated requests.</td>
+</tr>
+<tr>
+<td>Secure Copy Protocol</td>
+<td><code>SCP</code></td>
+<td><code>22</code></td>
+<td>Securely copy files between systems</td>
+</tr>
+<tr>
+<td>Session Initiation Protocol</td>
+<td><code>SIP</code></td>
+<td><code>5060</code></td>
+<td>Used for VoIP sessions</td>
+</tr>
+<tr>
+<td>Simple Object Access Protocol</td>
+<td><code>SOAP</code></td>
+<td><code>80</code>, <code>443</code></td>
+<td>Used for web services</td>
+</tr>
+<tr>
+<td>Secure Socket Layer</td>
+<td><code>SSL</code></td>
+<td><code>443</code></td>
+<td>Securely transfer files</td>
+</tr>
+<tr>
+<td>TCP Wrappers</td>
+<td><code>TCPW</code></td>
+<td><code>113</code></td>
+<td>Used for access control</td>
+</tr>
+<tr>
+<td>Internet Security Association and Key Management Protocol</td>
+<td><code>ISAKMP</code></td>
+<td><code>500</code></td>
+<td>Used for VPN connections</td>
+</tr>
+<tr>
+<td>Microsoft SQL Server</td>
+<td><code>ms-sql-s</code></td>
+<td><code>1433</code></td>
+<td>Used for client connections to the Microsoft SQL Server.</td>
+</tr>
+<tr>
+<td>Kerberized Internet Negotiation of Keys</td>
+<td><code>KINK</code></td>
+<td><code>892</code></td>
+<td>Used for authentication and authorization</td>
+</tr>
+<tr>
+<td>Open Shortest Path First</td>
+<td><code>OSPF</code></td>
+<td><code>89</code></td>
+<td>Used for routing</td>
+</tr>
+<tr>
+<td>Point-to-Point Tunneling Protocol</td>
+<td><code>PPTP</code></td>
+<td><code>1723</code></td>
+<td>Is used to create VPNs</td>
+</tr>
+<tr>
+<td>Remote Execution</td>
+<td><code>REXEC</code></td>
+<td><code>512</code></td>
+<td>This protocol is used to execute commands on remote computers and send the output of commands back to the local computer.</td>
+</tr>
+<tr>
+<td>Remote Login</td>
+<td><code>RLOGIN</code></td>
+<td><code>513</code></td>
+<td>This protocol starts an interactive shell session on a remote computer.</td>
+</tr>
+<tr>
+<td>X Window System</td>
+<td><code>X11</code></td>
+<td><code>6000</code></td>
+<td>It is a computer software system and network protocol that provides a graphical user interface (GUI) for networked computers.</td>
+</tr>
+<tr>
+<td>Relational Database Management System</td>
+<td><code>DB2</code></td>
+<td><code>50000</code></td>
+<td>RDBMS is designed to store, retrieve and manage data in a structured format for enterprise applications such as financial systems, customer relationship management (CRM) systems.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>User Datagram Protocol (UDP)</strong></p>
+<ul>
+<li><strong>Description</strong>: UDP is a connectionless protocol used for faster data transmission. It does not establish a connection before data transmission, making it faster but less reliable compared to TCP.</li>
+<li><strong>Key Features</strong>: Faster transmission but lacks reliability as it doesn&rsquo;t ensure data delivery.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong>Protocol</strong></th>
+<th><strong>Acronym</strong></th>
+<th><strong>Port</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Domain Name System</td>
+<td><code>DNS</code></td>
+<td><code>53</code></td>
+<td>It is a protocol to resolve domain names to IP addresses.</td>
+</tr>
+<tr>
+<td>Trivial File Transfer Protocol</td>
+<td><code>TFTP</code></td>
+<td><code>69</code></td>
+<td>It is used to transfer files between systems.</td>
+</tr>
+<tr>
+<td>Network Time Protocol</td>
+<td><code>NTP</code></td>
+<td><code>123</code></td>
+<td>It synchronizes computer clocks in a network.</td>
+</tr>
+<tr>
+<td>Simple Network Management Protocol</td>
+<td><code>SNMP</code></td>
+<td><code>161</code></td>
+<td>It monitors and manages network devices remotely.</td>
+</tr>
+<tr>
+<td>Routing Information Protocol</td>
+<td><code>RIP</code></td>
+<td><code>520</code></td>
+<td>It is used to exchange routing information between routers.</td>
+</tr>
+<tr>
+<td>Internet Key Exchange</td>
+<td><code>IKE</code></td>
+<td><code>500</code></td>
+<td>Internet Key Exchange</td>
+</tr>
+<tr>
+<td>Bootstrap Protocol</td>
+<td><code>BOOTP</code></td>
+<td><code>68</code></td>
+<td>It is used to bootstrap hosts in a network.</td>
+</tr>
+<tr>
+<td>Dynamic Host Configuration Protocol</td>
+<td><code>DHCP</code></td>
+<td><code>67</code></td>
+<td>It is used to assign IP addresses to devices in a network dynamically.</td>
+</tr>
+<tr>
+<td>Telnet</td>
+<td><code>TELNET</code></td>
+<td><code>23</code></td>
+<td>It is a text-based remote access communication protocol.</td>
+</tr>
+<tr>
+<td>MySQL</td>
+<td><code>MySQL</code></td>
+<td><code>3306</code></td>
+<td>It is an open-source database management system.</td>
+</tr>
+<tr>
+<td>Terminal Server</td>
+<td><code>TS</code></td>
+<td><code>3389</code></td>
+<td>It is a remote access protocol used for Microsoft Windows Terminal Services by default.</td>
+</tr>
+<tr>
+<td>NetBIOS Name</td>
+<td><code>netbios-ns</code></td>
+<td><code>137</code></td>
+<td>It is used in Windows operating systems to resolve NetBIOS names to IP addresses on a LAN.</td>
+</tr>
+<tr>
+<td>Microsoft SQL Server</td>
+<td><code>ms-sql-m</code></td>
+<td><code>1434</code></td>
+<td>Used for the Microsoft SQL Server Browser service.</td>
+</tr>
+<tr>
+<td>Universal Plug and Play</td>
+<td><code>UPnP</code></td>
+<td><code>1900</code></td>
+<td>It is a protocol for devices to discover each other on the network and communicate.</td>
+</tr>
+<tr>
+<td>PostgreSQL</td>
+<td><code>PGSQL</code></td>
+<td><code>5432</code></td>
+<td>It is an object-relational database management system.</td>
+</tr>
+<tr>
+<td>Virtual Network Computing</td>
+<td><code>VNC</code></td>
+<td><code>5900</code></td>
+<td>It is a graphical desktop sharing system.</td>
+</tr>
+<tr>
+<td>X Window System</td>
+<td><code>X11</code></td>
+<td><code>6000-6063</code></td>
+<td>It is a computer software system and network protocol that provides GUI on Unix-like systems.</td>
+</tr>
+<tr>
+<td>Syslog</td>
+<td><code>SYSLOG</code></td>
+<td><code>514</code></td>
+<td>It is a standard protocol to collect and store log messages on a computer system.</td>
+</tr>
+<tr>
+<td>Internet Relay Chat</td>
+<td><code>IRC</code></td>
+<td><code>194</code></td>
+<td>It is a real-time Internet text messaging (chat) or synchronous communication protocol.</td>
+</tr>
+<tr>
+<td>OpenPGP</td>
+<td><code>OpenPGP</code></td>
+<td><code>11371</code></td>
+<td>It is a protocol for encrypting and signing data and communications.</td>
+</tr>
+<tr>
+<td>Internet Protocol Security</td>
+<td><code>IPsec</code></td>
+<td><code>500</code></td>
+<td>IPsec is also a protocol that provides secure, encrypted communication. It is commonly used in VPNs to create a secure tunnel between two devices.</td>
+</tr>
+<tr>
+<td>Internet Key Exchange</td>
+<td><code>IKE</code></td>
+<td><code>11371</code></td>
+<td>It is a protocol for encrypting and signing data and communications.</td>
+</tr>
+<tr>
+<td>X Display Manager Control Protocol</td>
+<td><code>XDMCP</code></td>
+<td><code>177</code></td>
+<td>XDMCP is a network protocol that allows a user to remotely log in to a computer running the X11.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Internet Control Message Protocol (ICMP)</strong></p>
+<ul>
+<li>
+<p><strong>Description</strong>: ICMP is used for error reporting and status information between devices on the Internet. It includes request and message types for various network troubleshooting and management tasks.</p>
+</li>
+<li>
+<p><strong>Request Types</strong>:</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong>Request Type</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Echo Request</code></td>
+<td>This message tests whether a device is reachable on the network. When a device sends an echo request, it expects to receive an echo reply message. For example, the tools <code>tracert</code> (Windows) or <code>traceroute</code> (Linux) always send ICMP echo requests.</td>
+</tr>
+<tr>
+<td><code>Timestamp Request</code></td>
+<td>This message determines the time on a remote device.</td>
+</tr>
+<tr>
+<td><code>Address Mask Request</code></td>
+<td>This message is used to request the subnet mask of a device.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Message Types</strong>:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong>Message Type</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Echo reply</code></td>
+<td>This message is sent in response to an echo request message.</td>
+</tr>
+<tr>
+<td><code>Destination unreachable</code></td>
+<td>This message is sent when a device cannot deliver a packet to its destination.</td>
+</tr>
+<tr>
+<td><code>Redirect</code></td>
+<td>A router sends this message to inform a device that it should send its packets to a different router.</td>
+</tr>
+<tr>
+<td><code>time exceeded</code></td>
+<td>This message is sent when a packet has taken too long to reach its destination.</td>
+</tr>
+<tr>
+<td><code>Parameter problem</code></td>
+<td>This message is sent when there is a problem with a packet&rsquo;s header.</td>
+</tr>
+<tr>
+<td><code>Source quench</code></td>
+<td>This message is sent when a device receives packets too quickly and cannot keep up. It is used to slow down the flow of packets.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>TTL</strong>: Time-to-Live field in ICMP packet header limits packet lifetime, preventing indefinite circulation. It also helps determine packet hops and approximate distance to destination. Each time a packet passes through a router, the router decrements the <code>TTL value by 1</code>. When the TTL value reaches <code>0</code>, the router discards the packet and sends an ICMP <code>Time Exceeded</code> message back to the sender.</li>
+</ul>
+<p><strong>Voice over Internet Protocol (VoIP)</strong></p>
+<ul>
+<li><strong>Description</strong>: VoIP enables voice and multimedia communication over the internet, replacing traditional phone lines. It uses protocols like SIP and H.323 for session initiation, maintenance, and termination.</li>
+<li><strong>Protocols</strong>: SIP (Session Initiation Protocol), H.323.</li>
+<li><strong>Common Ports</strong>: TCP/5060, TCP/5061 (SIP).</li>
+<li><strong>Information Disclosure</strong>: SIP OPTIONS request can enumerate users for potential attacks. Discovery of SEPxxxx.cnf file for Cisco Unified IP Phone configurations.</li>
+</ul>
+<p>Most common SIP requests and methods :</p>
+<table>
+<thead>
+<tr>
+<th><strong>Method</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>INVITE</code></td>
+<td>Initiates a session or invites another endpoint to participate.</td>
+</tr>
+<tr>
+<td><code>ACK</code></td>
+<td>Confirms the receipt of an INVITE request.</td>
+</tr>
+<tr>
+<td><code>BYE</code></td>
+<td>Terminate a session.</td>
+</tr>
+<tr>
+<td><code>CANCEL</code></td>
+<td>Cancels a pending INVITE request.</td>
+</tr>
+<tr>
+<td><code>REGISTER</code></td>
+<td>Registers a SIP user agent (UA) with a SIP server.</td>
+</tr>
+<tr>
+<td><code>OPTIONS</code></td>
+<td>Requests information about the capabilities of a SIP server or user agent, such as the types of media it supports.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="wireless-networks-fundamentals">Wireless Networks Fundamentals<a hidden class="anchor" aria-hidden="true" href="#wireless-networks-fundamentals">#</a></h2>
+<ul>
+<li><strong>Definition:</strong> Wireless networks facilitate data transmission between devices without physical connections.</li>
+<li><strong>Technology:</strong> Utilizes radio frequency (RF) signals for communication.</li>
+</ul>
+<h4 id="wifi-connection-protocol-ieee-80211">WiFi Connection Protocol (IEEE 802.11)<a hidden class="anchor" aria-hidden="true" href="#wifi-connection-protocol-ieee-80211">#</a></h4>
+<ul>
+<li><strong>Association Process:</strong>
+<ol>
+<li><strong>Association Request:</strong> Device initiates connection request to Wireless Access Point (WAP).</li>
+</ol>
+</li>
+</ul>
+<p>The connection request frame contains various fields of information, including the following but not limited to:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>MAC address</code></td>
+<td>A unique identifier for the device&rsquo;s wireless adapter.</td>
+</tr>
+<tr>
+<td><code>SSID</code></td>
+<td>The network name, also known as the <code>Service Set Identifier</code> of the WiFi network.</td>
+</tr>
+<tr>
+<td><code>Supported data rates</code></td>
+<td>A list of the data rates the device can communicate.</td>
+</tr>
+<tr>
+<td><code>Supported channels</code></td>
+<td>A list of the <code>channels</code> (frequencies) on which the device can communicate.</td>
+</tr>
+<tr>
+<td><code>Supported security protocols</code></td>
+<td>A list of the security protocols that the device is capable of using, such as <code>WPA2</code>/<code>WPA3</code>.</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li><strong>Association Response:</strong> WAP responds with parameters including challenge string.</li>
+<li><strong>Challenge-Response:</strong> Device computes response to challenge using predetermined algorithm.</li>
+<li><strong>Authentication:</strong> WAP verifies response, grants or denies access based on authentication outcome.</li>
+</ol>
+<p>Some packets can get lost, so the so-called <code>CRC</code> checksum has been integrated. <strong>Cyclic Redundancy Check</strong> (<code>CRC</code>) is an error-detection mechanism used in the WEP protocol to protect against data corruption in wireless communications</p>
+<p>When the destination device receives the packet, the CRC value is recalculated and compared to the original value. If the values match, the data has been transmitted successfully without any errors. However, if the values do not match, the data has been corrupted and needs to be retransmitted.</p>
+<p>Because the <code>CRC</code> value is calculated using the <code>plaintext</code> data in the packet rather than the encrypted data. We can use the <code>CRC</code> to determine the plaintext data in the packet, even if the data is encrypted.</p>
+<h4 id="security-features-overview">Security Features Overview<a hidden class="anchor" aria-hidden="true" href="#security-features-overview">#</a></h4>
+<ul>
+<li><strong>Encryption:</strong> Critical for safeguarding data confidentiality during transmission.
+<ul>
+<li>WEP</li>
+<li>WPA2</li>
+<li>WP3</li>
+</ul>
+</li>
+<li><strong>Access Control:</strong> Regulates network access, often implemented via passwords or MAC address filtering.</li>
+<li><strong>Firewall:</strong> Acts as a barrier against unauthorized access and malicious traffic.</li>
+</ul>
+<h4 id="encryption-protocols">Encryption Protocols<a hidden class="anchor" aria-hidden="true" href="#encryption-protocols">#</a></h4>
+<ul>
+<li>
+<p><strong>WEP (Wired Equivalent Privacy):</strong></p>
+<ul>
+<li><strong>Algorithm:</strong> Utilizes RC4 cipher.</li>
+<li><strong>Key Length:</strong> Available in WEP-40/WEP-64 (40-bit) and WEP-104 (104-bit).</li>
+<li><strong>Vulnerabilities:</strong> Susceptible to various attacks due to weak key management and encryption methodology.</li>
+<li><strong>Shared key</strong> for authentication, which means the same key is used for encryption and authentication</li>
+</ul>
+</li>
+<li>
+<p><strong>Initialization Vector (IV):</strong> WEP uses a 24-bit IV to encrypt data packets. However, this IV is too short, which means it repeats over time. Attackers can exploit this by capturing enough packets and analyzing them to deduce the secret key.</p>
+</li>
+<li>
+<p><strong>Static Secret Key:</strong> WEP uses a static secret key shared among all users on the network. Once this key is compromised, all data transmitted over the network becomes accessible to attackers. Additionally, there&rsquo;s no mechanism for key management or rotation.</p>
+</li>
+</ul>
+<p>Attackers can exploit the Initialization Vector (IV) in WEP encryption by capturing enough encrypted packets from the network. Because WEP uses a relatively short 24-bit IV, it repeats after a certain number of packets. When attackers capture multiple packets encrypted with the same IV, they can use statistical analysis to deduce patterns in the encryption and potentially recover the secret key. This weakness allows attackers to decrypt intercepted traffic and gain unauthorized access to the network.</p>
+<ul>
+<li><strong>WPA (WiFi Protected Access):</strong>
+<ul>
+<li><strong>Strengths:</strong> Provides enhanced security compared to WEP, leveraging AES encryption.</li>
+<li><strong>Versions:</strong> Includes WPA2 and the more recent WPA3 for improved security measures.</li>
+</ul>
+</li>
+</ul>
+<h4 id="eap-extensible-authentication-protocol">EAP (Extensible Authentication Protocol):<a hidden class="anchor" aria-hidden="true" href="#eap-extensible-authentication-protocol">#</a></h4>
+<ol>
+<li>
+<p><strong>Definition</strong>:</p>
+<ul>
+<li>EAP is an authentication framework frequently used in wireless networks and point-to-point connections.</li>
+<li>It provides a method for a client (like a user&rsquo;s device) to authenticate to a server (like an access point) before gaining access to the network.</li>
+</ul>
+</li>
+<li>
+<p><strong>Key Features</strong>:</p>
+<ul>
+<li>Extensible: Supports various authentication methods.</li>
+<li>Flexible: Can accommodate diverse network infrastructures.</li>
+<li>Secure: Protects authentication credentials during transmission.</li>
+</ul>
+</li>
+<li>
+<p><strong>Authentication Methods</strong>:</p>
+<ul>
+<li>EAP-TLS (Transport Layer Security): Uses digital certificates for authentication.</li>
+<li>EAP-TTLS (Tunneled TLS): Creates an encrypted tunnel for authentication.</li>
+<li>EAP-PEAP (Protected EAP): Similar to EAP-TTLS, often used with Microsoft products.</li>
+<li>EAP-SIM (Subscriber Identity Module): Common in GSM and UMTS networks for SIM card authentication.</li>
+<li>EAP-AKA (Authentication and Key Agreement): Derived from EAP-SIM, used in 3GPP networks.</li>
+</ul>
+</li>
+<li>
+<p><strong>Protocol Operation</strong>:</p>
+<ul>
+<li>EAP operates between the link layer (such as PPP or IEEE 802.1X) and the authentication protocol layer.</li>
+<li>It begins with a negotiation phase where the server proposes supported methods and the client selects one.</li>
+<li>Authentication occurs within an encrypted tunnel, ensuring privacy and security.</li>
+</ul>
+</li>
+</ol>
+<h4 id="leap-lightweight-extensible-authentication-protocol">LEAP (Lightweight Extensible Authentication Protocol):<a hidden class="anchor" aria-hidden="true" href="#leap-lightweight-extensible-authentication-protocol">#</a></h4>
+<ol>
+<li>
+<p><strong>Definition</strong>:</p>
+<ul>
+<li>LEAP is a proprietary EAP authentication method developed by Cisco Systems.</li>
+<li>Initially popular but now considered insecure due to vulnerabilities like dictionary attacks.</li>
+</ul>
+</li>
+<li>
+<p><strong>Key Features</strong>:</p>
+<ul>
+<li>Fast: Offers quick authentication.</li>
+<li>Integration: Often used in Cisco&rsquo;s wireless infrastructure.</li>
+</ul>
+</li>
+<li>
+<p><strong>Protocol Operation</strong>:</p>
+<ul>
+<li>LEAP involves a challenge-response mechanism where the client encrypts the challenge with a hashed password.</li>
+<li>Vulnerabilities arise due to weak password hashing, making it susceptible to dictionary attacks.</li>
+</ul>
+</li>
+<li>
+<p><strong>Security Concerns</strong>:</p>
+<ul>
+<li>Vulnerable to dictionary attacks due to weak password hashing.</li>
+<li>No mutual authentication between client and server.</li>
+<li>Considered obsolete and insecure, not recommended for use.</li>
+</ul>
+</li>
+</ol>
+<h4 id="peap-protected-extensible-authentication-protocol">PEAP (Protected Extensible Authentication Protocol):<a hidden class="anchor" aria-hidden="true" href="#peap-protected-extensible-authentication-protocol">#</a></h4>
+<ol>
+<li>
+<p><strong>Definition</strong>:</p>
+<ul>
+<li>PEAP is an EAP authentication framework designed to strengthen EAP by encapsulating it within a secure tunnel.</li>
+<li>Developed by Cisco, Microsoft, and RSA Security.</li>
+</ul>
+</li>
+<li>
+<p><strong>Key Features</strong>:</p>
+<ul>
+<li>Security: Provides protection against eavesdropping and man-in-the-middle attacks.</li>
+<li>Compatibility: Widely supported across various platforms and operating systems.</li>
+<li>Flexibility: Allows different inner authentication methods like EAP-TLS or MS-CHAPv2.</li>
+</ul>
+</li>
+<li>
+<p><strong>Protocol Operation</strong>:</p>
+<ul>
+<li>Initiates with an unauthenticated phase where the server presents its digital certificate.</li>
+<li>Establishes a TLS-encrypted tunnel for subsequent authentication, ensuring confidentiality.</li>
+<li>Within the tunnel, EAP methods like EAP-TLS or MS-CHAPv2 are used for actual authentication.</li>
+</ul>
+</li>
+<li>
+<p><strong>Deployment Recommendations</strong>:</p>
+<ul>
+<li>PEAP with EAP-TLS offers strong security but requires client-side certificates.</li>
+<li>PEAP with MS-CHAPv2 is simpler to deploy, using username/password authentication.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<ul>
+<li>
+<p>WPA/2/3 sont des protocoles de sécurité utilisés pour sécuriser la communication sur les réseaux sans fil en fournissant un chiffrement des données et en empêchant les accès non autorisés au réseau.</p>
+</li>
+<li>
+<p>L/P/EAP quant à eux, sont des protocoles d&rsquo;authentification utilisés pour vérifier l&rsquo;identité des utilisateurs et des appareils qui tentent de se connecter au réseau sans fil. Ils permettent de s&rsquo;assurer que seuls les utilisateurs autorisés peuvent accéder au réseau.</p>
+</li>
+</ul>
+<hr>
+<h4 id="tacacs-terminal-access-controller-access-control-system">TACACS (Terminal Access Controller Access-Control System)<a hidden class="anchor" aria-hidden="true" href="#tacacs-terminal-access-controller-access-control-system">#</a></h4>
+<ol>
+<li>
+<p><strong>Definition</strong>:</p>
+<ul>
+<li>TACACS is a security protocol used for controlling access to network devices, especially in military and government environments.</li>
+<li>Developed by the Department of Defense (DoD) in the United States.</li>
+</ul>
+</li>
+<li>
+<p><strong>Key Features</strong>:</p>
+<ul>
+<li>Access Control: Regulates who can access network terminals and devices.</li>
+<li>Authentication: Requires users to authenticate before granting access.</li>
+<li>Authorization: Defines user privileges and permissions based on roles.</li>
+<li>Auditing: Records user activities for monitoring and compliance purposes.</li>
+</ul>
+</li>
+<li>
+<p><strong>Components</strong>:</p>
+<ul>
+<li>Terminal Access Controller (TAC): Hardware or software device responsible for enforcing access control policies.</li>
+<li>TACACS+ Server: Centralized server handling authentication, authorization, and accounting.</li>
+<li>TACACS+ Client: Network device requesting access to resources, communicates with the TACACS+ server.</li>
+</ul>
+</li>
+<li>
+<p><strong>Protocol Operation</strong>:</p>
+<ul>
+<li>TACACS+ operates over TCP port 49.</li>
+<li>Authentication involves a three-step process: Authentication, Authorization, and Accounting (AAA).</li>
+<li>Communication between the client and server is encrypted for security.</li>
+</ul>
+</li>
+<li>
+<p><strong>Security Benefits</strong>:</p>
+<ul>
+<li>Granular Control: Allows fine-grained control over access permissions.</li>
+<li>Accountability: Enables tracking of user actions for auditing and compliance.</li>
+<li>Scalability: Supports large-scale networks with distributed access control policies.</li>
+</ul>
+</li>
+<li>
+<p><strong>Deployment Considerations</strong>:</p>
+<ul>
+<li>Suitable for environments requiring stringent access control and audit capabilities.</li>
+<li>Integrates well with existing network infrastructure, including routers, switches, and firewalls.</li>
+</ul>
+</li>
+<li>
+<p><strong>Alternatives</strong>:</p>
+<ul>
+<li>RADIUS (Remote Authentication Dial-In User Service): Another widely used AAA protocol, more common in general networking environments.</li>
+<li>Diameter: Evolved version of RADIUS, designed for modern telecommunications networks.</li>
+</ul>
+</li>
+</ol>
+<h4 id="disassociation-attack">Disassociation Attack<a hidden class="anchor" aria-hidden="true" href="#disassociation-attack">#</a></h4>
+<ul>
+<li><strong>Attack Vector:</strong> Involves sending disassociation frames to disrupt communication between WAP and clients.</li>
+<li><strong>Objective:</strong> Primarily used to create network disruptions or as a precursor to more sophisticated attacks.</li>
+</ul>
+<h4 id="wireless-network-hardening-strategies">Wireless Network Hardening Strategies<a hidden class="anchor" aria-hidden="true" href="#wireless-network-hardening-strategies">#</a></h4>
+<ul>
+<li>
+<p><strong>Disabling Broadcasting:</strong></p>
+<ul>
+<li><strong>Purpose:</strong> Conceals SSID to minimize visibility of the network, increasing difficulty for unauthorized users to identify and access it.</li>
+</ul>
+</li>
+<li>
+<p><strong>WPA (WiFi Protected Access):</strong></p>
+<ul>
+<li><strong>Implementation:</strong> Deployment of WPA2 or WPA3 for robust encryption and authentication capabilities, crucial for securing wireless communications.</li>
+</ul>
+</li>
+<li>
+<p><strong>MAC Filtering:</strong></p>
+<ul>
+<li><strong>Functionality:</strong> Permits or denies network access based on predefined MAC address lists, adding an additional layer of access control.</li>
+</ul>
+</li>
+<li>
+<p><strong>Deploying EAP-TLS:</strong></p>
+<ul>
+<li><strong>Methodology:</strong> Leverages digital certificates and Public Key Infrastructure (PKI) for strong authentication and encryption, enhancing overall network security posture.</li>
+</ul>
+</li>
+</ul>
+<h2 id="virtual-private-networks-vpn">Virtual Private Networks (VPN)<a hidden class="anchor" aria-hidden="true" href="#virtual-private-networks-vpn">#</a></h2>
+<p><strong>1. What is a VPN?</strong></p>
+<ul>
+<li>A technology enabling secure and encrypted connections between a private network and remote devices.</li>
+<li>Provides secure access to network resources and services remotely.</li>
+</ul>
+<p><strong>2. Why Use VPNs?</strong></p>
+<ul>
+<li>Encrypts connection, making it difficult for attackers to intercept data.</li>
+<li>Allows remote access to network resources from anywhere with an internet connection.</li>
+<li>Cost-effective solution for remote access compared to leased lines or dedicated connections.</li>
+</ul>
+<p><strong>3. Components and Requirements:</strong></p>
+<ul>
+<li><strong>VPN Client:</strong> Installed on remote devices to establish and maintain VPN connections (e.g., OpenVPN).</li>
+<li><strong>VPN Server:</strong> Responsible for accepting VPN connections and routing traffic.</li>
+<li><strong>Encryption:</strong> Utilizes encryption algorithms and protocols like AES and IPsec.</li>
+<li><strong>Authentication:</strong> VPN server and client authenticate each other for a secure connection.</li>
+</ul>
+<p><strong>4. VPN Connection Ports:</strong></p>
+<ul>
+<li>TCP/1723 for PPTP VPN connections.</li>
+<li>UDP/500 for IKEv1 and IKEv2 VPN connections.</li>
+</ul>
+<p><strong>5. IPsec:</strong></p>
+<ul>
+<li><strong>Definition:</strong> Internet Protocol Security providing encryption and authentication for internet communications.</li>
+<li><strong>Protocols Used:</strong> AH (Authentication Header) and ESP (Encapsulating Security Payload).</li>
+<li><strong>Modes:</strong> Transport Mode (end-to-end communication) and Tunnel Mode (VPN tunnel between networks).</li>
+</ul>
+<p><strong>6. Necessary Protocols for IPsec VPN Traffic:</strong></p>
+<ul>
+<li><strong>IP:</strong> UDP/50-51 for routing packets.</li>
+<li><strong>IKE:</strong> UDP/500 for negotiating secure keys.</li>
+<li><strong>ESP:</strong> UDP/4500 for encrypting VPN traffic.</li>
+</ul>
+<p><strong>7. PPTP:</strong></p>
+<ul>
+<li><strong>Definition:</strong> Point-to-Point Tunneling Protocol for creating VPNs.</li>
+<li><strong>Function:</strong> Establishes a secure tunnel between client and server, encapsulating data.</li>
+<li><strong>Security Concerns:</strong> Vulnerabilities make it obsolete and insecure.</li>
+<li><strong>Alternatives:</strong> L2TP/IPsec, IPsec/IKEv2, OpenVPN for more secure options.</li>
+</ul>
+<p><strong>Note:</strong> Since 2012, PPTP is no longer considered secure due to vulnerabilities in the authentication method (MSCHAPv2) using outdated DES encryption.</p>
+<h2 id="cisco-ios-vendor-specific-information">Cisco IOS: Vendor Specific Information<a hidden class="anchor" aria-hidden="true" href="#cisco-ios-vendor-specific-information">#</a></h2>
+<p><strong>Overview:</strong></p>
+<ul>
+<li>Cisco IOS is the operating system for Cisco network devices like routers and switches.</li>
+<li>It offers IPv6 support, QoS, security features (encryption, authentication), virtualization features (VPLS, VRF), etc.</li>
+<li>Managed through CLI and GUI.</li>
+<li>Supports various protocols and services: routing protocols, switching protocols, network services, security features.</li>
+</ul>
+<p><strong>Passwords:</strong></p>
+<ul>
+<li>User Password: For logging in.</li>
+<li>Enable Password: For &ldquo;enable&rdquo; mode. The &ldquo;enable&rdquo; mode is the mode where you have access to advanced functions and settings.</li>
+<li>Secret: For securing access to certain functions.</li>
+<li>Enable Secret: Extra-secure password for &ldquo;enable&rdquo; mode.</li>
+</ul>
+<p><strong>VLANs:</strong></p>
+<ul>
+<li>Logical grouping of network endpoints on switches.</li>
+<li>Segments networks based on factors like department or function.</li>
+<li>Offers benefits like better organization, increased security, simplified administration, and increased performance.</li>
+</ul>
+<p>Cisco switches provide the <code>VLAN</code> IDs/numbers 1-4094 (<code>0</code> and <code>4095</code> are reserved IDs and cannot be used); IDs 1-1005 (<code>VLAN 1</code> is known as the <code>default VLAN</code> and cannot/should not be altered nor deleted) are known as <code>normal-range</code> <code>VLANs</code>, with IDs 1002-1005 being reserved for <code>Token Ring</code> and <code>Fiber Distributed Data Interface</code> (<code>FDDI</code>) <code>VLANs</code>, while IDs 1006-4094 are known as <code>extended-range</code> <code>VLANs</code>. By default, any customization applied for <code>normal-range</code> <code>VLANs</code> is saved in the <code>VLAN</code> database (the <code>vland.dat</code> file), in contrast to <code>extended-range</code> <code>VLANs</code>, which do not have their customizations saved. <code>VLANs</code> 2-1001 stored in <code>vlan.dat</code> can have parameters including name, type, state, and maximum transmission unit (<code>MTU</code>).</p>
+<p><strong>VLAN Memberships:</strong></p>
+<ul>
+<li>Ports assigned to VLANs statically or dynamically.</li>
+<li>Static: Manual assignment per port.</li>
+<li>Dynamic: Based on MAC addresses or protocols.</li>
+</ul>
+<p>The system administrator can register the <code>MAC</code> addresses in a centralized <code>VLAN</code> management service/database, such as the <code>VLAN Membership Policy Server</code> (<code>VMPS</code>)</p>
+<p><strong>Access and Trunk Ports:</strong></p>
+<ul>
+<li>Access Ports: Belong to one VLAN, carry traffic for that VLAN.</li>
+<li>Trunk Ports: Carry traffic for multiple VLANs.</li>
+</ul>
+<p><strong>VLAN Identification:</strong></p>
+<ul>
+<li>ISL: Cisco-proprietary, deprecated.</li>
+<li>IEEE 802.1Q: Industry standard, adds VLAN tag to Ethernet frame.</li>
+</ul>
+<p>![[Pasted image 20240402094148.png]]</p>
+<p><code>Tag protocol identifier</code> (<code>TPID</code>) is a 16-bit field always set to <code>0x8100</code> to identify the <code>Ethernet</code> frame as an <code>802.1Q</code>-tagged frame. <code>Tag Control Information</code> (<code>TCI</code>) is a 16-bit field containing <code>Priority code point</code> (<code>PCP</code>), <code>Drop eligible indicator</code> (<code>DEI</code>) (previously known as <code>Canonical format indicator</code> (<code>CFI</code>)), and <code>VLAN identifier</code> (<code>VID</code>). The main field concerning <code>VLANs</code> is <code>VID</code>, occupying the low-order 12-bits of <code>TCI</code>. Since it is 12 bits, it allows 2^12 - 2 = 4096 (remember, <code>0</code> and <code>4095</code> are reserved) <code>VLAN</code> IDs. Therefore, an <code>802.1Q</code>-tagged frame can contain information for 4094 <code>VLANs</code>; the practice of inserting multiple <code>802.1Q</code> tags within a single packet is known as <code>Double Tagging</code>, introduced by 802.1ad. <code>VLAN tagging</code> is the process of inserting <code>VLAN</code> information into an <code>802.1Q</code> <code>Ethernet header</code>, while <code>VLAN untagging</code> is the process of removing the <code>VLAN</code> information from an <code>802.1Q</code>-tagged <code>Ethernet</code> frame and forwarding the packet to the destined ports.</p>
+<p><strong>VLAN-Capable NICs:</strong></p>
+<ul>
+<li>Some NICs support VLAN tagging.</li>
+<li>Can be configured in Linux and Windows.</li>
+</ul>
+<p><strong>Analyzing VLAN Tagged Traffic:</strong></p>
+<ul>
+<li>Wireshark can analyze VLAN-tagged traffic.</li>
+<li>Filters like &ldquo;vlan&rdquo; and &ldquo;vlan.id&rdquo; can be used to isolate VLAN traffic.</li>
+</ul>
+<p>Additionally, to enumerate the used <code>VLAN</code> IDs from a packet dump, we can utilize tshark:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell-session" data-lang="shell-session"><span style="display:flex;"><span>tshark -r &#34;The Ultimate PCAP v20221220.pcapng&#34; -T fields -e vlan.id | sort -n -u
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>1
+</span></span><span style="display:flex;"><span>2
+</span></span><span style="display:flex;"><span>3
+</span></span><span style="display:flex;"><span>7
+</span></span><span style="display:flex;"><span>10
+</span></span><span style="display:flex;"><span>20
+</span></span><span style="display:flex;"><span>30
+</span></span><span style="display:flex;"><span>40
+</span></span><span style="display:flex;"><span>50
+</span></span><span style="display:flex;"><span>60
+</span></span><span style="display:flex;"><span>70
+</span></span><span style="display:flex;"><span>80
+</span></span><span style="display:flex;"><span>90
+</span></span><span style="display:flex;"><span>121
+</span></span><span style="display:flex;"><span>125
+</span></span><span style="display:flex;"><span>224
+</span></span></code></pre></div><p><strong>VLAN Attacks:</strong></p>
+<ul>
+<li>
+<p>VLAN Hopping: Exploits Dynamic Trunking Protocol (DTP) to jump between VLANs.</p>
+<ul>
+<li>We can use tools such as Yersinia to perform <code>VLAN hopping</code> attacks:</li>
+<li>An adversary needs to configure a host to mimic/act like a switch to take advantage of the automatic trunking port feature enabled by default on most switch ports. To exploit <code>VLAN hopping</code>, an adversary must be able to physically connect with a switch port that has <code>DTP</code> enabled. The adversary can abuse this connection by configuring a host connected to the switch on that specific port to spoof <code>802.1Q</code> signaling and the <code>DTP</code> packets. If successful, the switch will eventually establish a <code>trunk link</code> with the adversary&rsquo;s host, exposing the network packets, not only for a specific <code>VLAN</code>.</li>
+</ul>
+</li>
+<li>
+<p>Double-tagging VLAN Hopping
+- An advanced attack that exploits the practice of VLAN double-tagging.
+- Attackers embed a hidden 802.1Q tag inside an Ethernet frame, allowing it to traverse to a different VLAN than intended.</p>
+<p><strong>Attack Steps:</strong></p>
+<ol>
+<li>
+<p><strong>Send Double-Tagged Frame:</strong></p>
+<ul>
+<li>Adversary sends a double-tagged 802.1Q Ethernet frame to the switch.</li>
+<li>Outer header contains VLAN ID of the adversary (native VLAN of the trunk port).</li>
+<li>Example: Native VLAN (e.g., VLAN 10), target VLAN (e.g., VLAN 30).</li>
+</ul>
+</li>
+<li>
+<p><strong>Arrival and Tag Stripping:</strong></p>
+<ul>
+<li>Outer VLAN tag is seen destined for the native VLAN (e.g., VLAN 10).</li>
+<li>VLAN 10 tag is removed, and the frame is forwarded on all VLAN 10 ports.</li>
+<li>On the trunk port, VLAN 10 tag is stripped, but VLAN 30 tag remains intact.</li>
+<li>First switch does not inspect the VLAN 30 tag.</li>
+</ul>
+</li>
+<li>
+<p><strong>Forwarding Decision:</strong></p>
+<ul>
+<li>Switch looks at the inner 802.1Q tag sent by the adversary.</li>
+<li>Decides to forward the frame for VLAN 30, the adversary&rsquo;s chosen VLAN.</li>
+<li>Second switch forwards the frame to the victim port directly or floods it based on MAC address table entry.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Tools for Execution:</strong></p>
+<ul>
+<li><strong>Scapy:</strong> Allows carrying out the double-tagging VLAN hopping attack programmatically.</li>
+<li><strong>Yersinia:</strong> Another tool capable of executing the double-tagging VLAN hopping attack.</li>
+</ul>
+<p><strong>Mitigation Techniques:</strong></p>
+<ul>
+<li><strong>VLAN Access Control Lists (VACLs):</strong> Implement VACLs to restrict VLAN traffic at Layer 2.</li>
+<li><strong>Port Security:</strong> Enable port security features to limit the number of MAC addresses per port.</li>
+<li><strong>VLAN Pruning:</strong> Configure VLAN pruning to prevent unnecessary VLAN traffic on trunk ports.</li>
+<li><strong>Intrusion Detection Systems (IDS):</strong> Employ IDS to detect and respond to abnormal VLAN hopping activity.</li>
+</ul>
+</li>
+</ul>
+<p><strong>VXLAN (Virtual eXtensible Local Area Network):</strong></p>
+<ul>
+<li><strong>Purpose:</strong> Scalable Layer 2 overlay network over Layer 3 infrastructure.</li>
+<li><strong>Challenge Addressed:</strong> Limitations of traditional Layer 2 networks in data center environments.</li>
+<li><strong>Key Features:</strong>
+<ul>
+<li>Extends Layer 2 networks seamlessly across data center landscapes.</li>
+<li>Uses VXLAN segments to isolate and secure network traffic.</li>
+<li>Employs 24-bit VXLAN Network Identifier (VNI) for segment identification.</li>
+<li>Supports up to 16 million VXLAN segments for scalability.</li>
+</ul>
+</li>
+<li><strong>Use Cases:</strong> Multi-tenant environments with virtual machines (VMs), large-scale data centers.</li>
+</ul>
+<p><strong>Cisco Discovery Protocol (CDP):</strong></p>
+<ul>
+<li><strong>Purpose:</strong> Layer 2 network protocol for gathering device information in Cisco networks.</li>
+<li><strong>Functionality:</strong> Discovers and tracks network topology, aids in network management and troubleshooting.</li>
+<li><strong>Key Features:</strong>
+<ul>
+<li>Provides information about directly connected Cisco devices (routers, switches, etc.).</li>
+<li>Shares device name, IP address, port name, OS, hardware platform, and capabilities.</li>
+<li>Enabled by default on Cisco devices but can be disabled for security reasons.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Spanning Tree Protocol (STP):</strong></p>
+<ul>
+<li><strong>Purpose:</strong> Prevents network loops in Ethernet networks with redundant connections.</li>
+<li><strong>Functionality:</strong> Ensures loop-free topology and prevents packet circulation in loops.</li>
+<li><strong>Key Features:</strong>
+<ul>
+<li>Uses 802.1w (Rapid STP) or 802.1d (Classic STP) versions.</li>
+<li>Determines root switch, port roles (e.g., root port, designated port), and bridge IDs.</li>
+<li>Configurable parameters include max age, hello time, forward delay.</li>
+<li>Prevents link blocking and ensures network resiliency through multipathing.</li>
+</ul>
+</li>
+</ul>
+<h2 id="key-exchange">Key Exchange<a hidden class="anchor" aria-hidden="true" href="#key-exchange">#</a></h2>
+<p><strong>Symmetric Encryption:</strong></p>
+<ul>
+<li><strong>AES (Advanced Encryption Standard)</strong>: Symmetric encryption algorithm using keys of 128, 192, or 256 bits. Primarily used for large-scale data encryption.</li>
+<li><strong>DES (Data Encryption Standard)</strong>: Former symmetric encryption algorithm using a 56-bit key. Used in the past but now largely obsolete due to its vulnerability.</li>
+<li><strong>3DES (Triple Data Encryption Standard)</strong>: Enhanced version of DES that applies DES three times with three different keys for improved security. Used as a secure alternative to DES.</li>
+</ul>
+<p><strong>Asymmetric Encryption:</strong></p>
+<ul>
+<li><strong>RSA (Rivest-Shamir-Adleman)</strong>: Asymmetric encryption algorithm used for key encryption, digital signatures, and other security applications.</li>
+<li><strong>ECC (Elliptic Curve Cryptography)</strong>: Family of asymmetric encryption algorithms based on elliptic curves, offering security comparable to RSA with shorter keys.</li>
+</ul>
+<p><strong>Key Exchange:</strong></p>
+<ul>
+<li>
+<p><strong>DH (Diffie-Hellman)</strong>: Public key encryption protocol for secure key exchange.</p>
+</li>
+<li>
+<p><strong>ECDH (Elliptic Curve Diffie-Hellman)</strong>: DH variant using elliptic curves for improved performance and security.</p>
+</li>
+<li>
+<p><strong>IKE (Internet Key Exchange)</strong>: Protocol used to negotiate and establish Security Associations (SAs) in IPsec VPNs. There are several IKE modes:
+- <strong>Main Mode</strong>: A mode where all security parameters are exchanged securely and authenticated in multiple steps.
+- <strong>Aggressive Mode</strong>: A mode where security parameters are exchanged in a single step, making it faster but less secure than Main Mode.</p>
+<ul>
+<li>
+<p><strong>IKEv1</strong>: Uses ISAKMP (Internet Security Association and Key Management Protocol) for negotiating security parameters.</p>
+</li>
+<li>
+<p><strong>IKEv2</strong>: Enhanced version of IKEv1, offering improved performance and security, as well as support for client mobility.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Digital Signature:</strong></p>
+<ul>
+<li><strong>DSA (Digital Signature Algorithm)</strong>: Digital signature algorithm used for message authentication and non-repudiation.</li>
+<li><strong>ECDSA (Elliptic Curve Digital Signature Algorithm)</strong>: DSA variant based on elliptic curves.</li>
+</ul>
+<p><strong>Authentication:</strong></p>
+<ul>
+<li><strong>HMAC (Hash-based Message Authentication Code)</strong>: Authentication method based on hash functions, used with symmetric encryption algorithms.</li>
+<li><strong>PSK (Pre-Shared Key)</strong>: Authentication mode used in network security protocols, where a key is shared in advance between parties.</li>
+</ul>
+<h2 id="authentication-protocols">Authentication Protocols<a hidden class="anchor" aria-hidden="true" href="#authentication-protocols">#</a></h2>
+<ol>
+<li>
+<p><strong>Kerberos</strong></p>
+<ul>
+<li>Description: Key Distribution Center (KDC) based authentication protocol using tickets in domain environments.</li>
+</ul>
+</li>
+<li>
+<p><strong>SRP</strong> (Secure Remote Password)</p>
+<ul>
+<li>Description: Password-based authentication protocol using cryptography to protect against eavesdropping and man-in-the-middle attacks.</li>
+</ul>
+</li>
+<li>
+<p><strong>SSL</strong></p>
+<ul>
+<li>Description: Cryptographic protocol for secure communication over a computer network.</li>
+</ul>
+</li>
+<li>
+<p><strong>TLS</strong></p>
+<ul>
+<li>Description: Successor to SSL, provides communication security over the internet using cryptography.</li>
+</ul>
+</li>
+<li>
+<p><strong>OAuth</strong></p>
+<ul>
+<li>Description: Open standard for authorization allowing third-party access to web resources without sharing passwords.</li>
+</ul>
+</li>
+<li>
+<p><strong>OpenID</strong></p>
+<ul>
+<li>Description: Decentralized authentication protocol enabling single identity sign-in across multiple websites.</li>
+</ul>
+</li>
+<li>
+<p><strong>SAML</strong></p>
+<ul>
+<li>Description: XML-based standard for securely exchanging authentication and authorization data between parties.</li>
+</ul>
+</li>
+<li>
+<p><strong>2FA (Two-Factor Authentication)</strong></p>
+<ul>
+<li>Description: Authentication method using two different factors to verify a user&rsquo;s identity.</li>
+</ul>
+</li>
+<li>
+<p><strong>FIDO (Fast IDentity Online Alliance)</strong></p>
+<ul>
+<li>Description: Consortium developing open standards for strong authentication.</li>
+</ul>
+</li>
+<li>
+<p><strong>PKI (Public Key Infrastructure)</strong></p>
+<ul>
+<li>Description: System for securely exchanging information using public and private keys for encryption and digital signatures.</li>
+</ul>
+</li>
+<li>
+<p><strong>SSO (Single Sign-On)</strong></p>
+<ul>
+<li>Description: Authentication method allowing a single set of credentials for access to multiple applications.</li>
+</ul>
+</li>
+<li>
+<p><strong>MFA (Multi-Factor Authentication)</strong></p>
+<ul>
+<li>Description: Authentication method using multiple factors (e.g., password, phone, biometric data) to verify identity.</li>
+</ul>
+</li>
+<li>
+<p><strong>PAP (Password Authentication Protocol)</strong></p>
+<ul>
+<li>Description: Simple authentication protocol sending user passwords in clear text over the network.</li>
+</ul>
+</li>
+<li>
+<p><strong>CHAP (Challenge-Handshake Authentication Protocol)</strong></p>
+<ul>
+<li>Description: Authentication protocol using a three-way handshake to verify user identity.</li>
+</ul>
+</li>
+</ol>
+<h2 id="tcpudp-connections">TCP/UDP Connections<a hidden class="anchor" aria-hidden="true" href="#tcpudp-connections">#</a></h2>
+<p><strong>IP Packet</strong></p>
+<ul>
+<li><strong>Definition</strong>: Data area used by the network layer to transmit data.</li>
+<li><strong>Structure</strong>:
+<ul>
+<li>Header: Contains routing and transmission information.</li>
+<li>Payload: Actual data being transmitted.</li>
+</ul>
+</li>
+</ul>
+<p><strong>IP Header Fields</strong></p>
+<ul>
+<li><strong>Version</strong>: Indicates the IP protocol version.</li>
+<li><strong>Internet Header Length</strong>: Size of the header in 32-bit words.</li>
+<li><strong>Class of Service</strong>: Indicates data transmission importance.</li>
+<li><strong>Total Length</strong>: Total packet length in bytes.</li>
+<li><strong>Identification (ID)</strong>: Identifies fragments of a packet.</li>
+<li><strong>Flags</strong>: Indicate fragmentation.</li>
+<li><strong>Fragment Offset</strong>: Indicates position of current fragment.</li>
+<li><strong>Time to Live</strong>: Specifies packet lifespan on network.</li>
+<li><strong>Protocol</strong>: Specifies transmission protocol (TCP/UDP).</li>
+<li><strong>Checksum</strong>: Detects errors in the header.</li>
+<li><strong>Source/Destination</strong>: Addresses of sender and recipient.</li>
+<li><strong>Options</strong>: Optional routing information.</li>
+<li><strong>Padding</strong>: Fills packet to full word length.</li>
+</ul>
+<p><strong>IP Record-Route Field</strong></p>
+<ul>
+<li><strong>Purpose</strong>: Records route to destination device.</li>
+<li><strong>Usage</strong>: ICMP Echo Reply packets include passing device IP addresses.</li>
+<li><strong>Example</strong>: Displayed when using <code>ping -R [destination]</code>.</li>
+</ul>
+<p><strong>Traceroute</strong></p>
+<ul>
+<li><strong>Purpose</strong>: Trace route to destination accurately.</li>
+<li><strong>Process</strong>:
+<ol>
+<li>Send TCP SYN packet with TTL of 1.</li>
+<li>Receive ICMP Time-Exceeded packet and note router IP.</li>
+<li>Repeat with increased TTL until response from destination.</li>
+</ol>
+</li>
+</ul>
+<p><strong>TCP</strong></p>
+<ul>
+<li><strong>Segments</strong>: Divided into headers and payloads.</li>
+<li><strong>Header Fields</strong>:
+<ul>
+<li>Source/Destination Port</li>
+<li>Sequence/Confirmation Number</li>
+<li>Control Flags</li>
+<li>Window Size</li>
+<li>Checksum</li>
+<li>Urgent Pointer</li>
+</ul>
+</li>
+</ul>
+<p><strong>UDP</strong></p>
+<ul>
+<li><strong>Datagrams</strong>: Small data packets.</li>
+<li><strong>Characteristics</strong>:
+<ul>
+<li>Connectionless.</li>
+<li>Data sent directly without prior connection.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Blind Spoofing</strong></p>
+<ul>
+<li><strong>Definition</strong>: Manipulating IP header to send false information.</li>
+<li><strong>Method</strong>:
+<ul>
+<li>Falsifying source/destination addresses.</li>
+<li>Manipulating TCP packet fields.</li>
+</ul>
+</li>
+<li><strong>Usage</strong>:
+<ul>
+<li>Disrupting network integrity.</li>
+<li>Breaking connections.</li>
+<li>Monitoring network traffic.</li>
+<li>Intercepting information.</li>
+</ul>
+</li>
+</ul>
+<h2 id="cryptography">Cryptography<a hidden class="anchor" aria-hidden="true" href="#cryptography">#</a></h2>
+<p><strong>1. Symmetric Encryption:</strong></p>
+<ul>
+<li><strong>Definition:</strong> Uses same key for encryption and decryption.</li>
+<li><strong>Example Algorithms:</strong> AES, DES.</li>
+<li><strong>Key Management:</strong> Key distribution, storage, and exchange are critical.</li>
+<li><strong>Security:</strong> Dependent on key secrecy.</li>
+</ul>
+<p><strong>2. Asymmetric Encryption:</strong></p>
+<ul>
+<li><strong>Definition:</strong> Uses two keys: public and private.</li>
+<li><strong>Example Algorithms:</strong> RSA, PGP, ECC.</li>
+<li><strong>Key Advantage:</strong> No need for secret key exchange.</li>
+<li><strong>Applications:</strong> E-Signatures, SSL/TLS, VPNs.</li>
+</ul>
+<p><strong>3. Data Encryption Standard (DES):</strong></p>
+<ul>
+<li><strong>Definition:</strong> Symmetric-key block cipher.</li>
+<li><strong>Key Length:</strong> Actual key length is 56 bits.</li>
+<li><strong>Triple DES (3DES):</strong> Encrypts data with three rounds of encryption.</li>
+<li><strong>Security Limitations:</strong> Vulnerable due to short key length.</li>
+</ul>
+<p><strong>4. Advanced Encryption Standard (AES):</strong></p>
+<ul>
+<li><strong>Definition:</strong> Symmetric encryption with longer key lengths.</li>
+<li><strong>Key Lengths:</strong> AES-128, AES-192, AES-256.</li>
+<li><strong>Performance:</strong> Faster and more efficient than DES.</li>
+<li><strong>Applications:</strong> WLAN, IPsec, SSH.</li>
+</ul>
+<p><strong>5. Cipher Modes:</strong></p>
+<ul>
+<li><strong>Electronic Code Book (ECB):</strong> Not recommended due to vulnerability.</li>
+<li><strong>Cipher Block Chaining (CBC):</strong> Default mode for AES, widely used.</li>
+<li><strong>Cipher Feedback (CFB):</strong> Suitable for real-time encryption.</li>
+<li><strong>Output Feedback (OFB):</strong> Better for data streams, used in PKCS and SSH.</li>
+<li><strong>Counter (CTR):</strong> Encrypts real-time data streams.</li>
+<li><strong>Galois/Counter (GCM):</strong> Protects confidentiality and integrity together.</li>
+</ul>
+<p><strong>6. Considerations:</strong></p>
+<ul>
+<li><strong>Security vs. Efficiency:</strong> Trade-offs in encryption methods.</li>
+<li><strong>Key Length:</strong> Longer keys offer greater security.</li>
+<li><strong>Applications:</strong> Choose encryption methods based on specific needs.</li>
+<li><strong>Mode Selection:</strong> Depends on message characteristics and security requirements.</li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/network/">Network</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2024 <a href="http://localhost:1313/"></a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

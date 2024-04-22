@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Web on </title>
+    <link>http://localhost:1313/tags/web/</link>
+    <description>Recent content in Web on </description>
+    <generator>Hugo -- 0.125.2</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 21 Apr 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/web/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Web requests</title>
+      <link>http://localhost:1313/posts/web-requests/</link>
+      <pubDate>Sun, 21 Apr 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/web-requests/</guid>
+      <description>HyperText Transfer Protocol (HTTP) Definition: HTTP is an application-level protocol used for accessing World Wide Web resources. It facilitates communication between a client and a server.
+Components of a URL:
+Scheme: Identifies the protocol (http://, https://). User Info: Optional credentials (admin:password@). Host: Resource location (hostname or IP address). Port: Separated by a colon (:80 if not specified). Path: Points to the resource being accessed (/dashboard.php) Query String: Parameters and values separated by &amp;amp; (?</description>
+    </item>
+  </channel>
+</rss>

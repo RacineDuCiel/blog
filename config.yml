@@ -1,0 +1,41 @@
+baseURL: "https://theogosse.com/"
+languageCode : en
+theme: Papermod
+
+menu:
+  main:
+    - identifier: Home
+      name: Home
+      url: /
+      weight: 1
+    - identifier: Search
+      name: Search
+      url: /search
+      weight: 2
+    - identifier: Tags
+      name: Tags
+      url: /Tags
+      weight: 5
+    - identifier: Notes
+      name: Notes
+      url: /notes
+      weight: 10
+    - identifier: Ressources
+      name: Ressources
+      url: /ressources
+      weight: 20
+
+params:
+    defaultTheme: dark
+    ShowCodeCopyButtons: true
+    ShowReadingTime: true
+    ShowToc: true
+    homeInfoParams:
+        Title: Bonjour,
+        Content: I'm a passionate French engineering student specializing in cybersecurity. 			Everything here is free to use !
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
